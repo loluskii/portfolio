@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contact">
+  <Nav activePage="contact" />
+
+  <div class="contact-page">
+
+    <!-- LEFT: DIRECT CONTACT -->
+    <div class="cp-left">
+      <div>
+        <div class="cp-label" id="cpl"><span class="cp-line"></span>Get in touch</div>
+        <h1 id="cph">Let's build<br />something <em>great.</em></h1>
+        <p class="cp-desc" id="cpd">
+          Tell us what you're building. We respond within 2 hours during Lagos business hours — usually much faster.
+        </p>
+
+        <div class="direct-methods" id="cpm">
+          <!-- REPLACE: Update href with your actual WhatsApp number -->
+          <a
+            href="https://wa.me/2348000000000?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20the%20studio."
+            target="_blank"
+            class="dm-item"
+          >
+            <div class="dm-icon dm-icon-wa">📱</div>
+            <div>
+              <span class="dm-label">WhatsApp</span>
+              <span class="dm-value">Start a conversation directly</span>
+            </div>
+            <span class="dm-arrow">→</span>
+          </a>
+
+          <!-- REPLACE: Update href with your actual email -->
+          <a href="mailto:hello@studio.co" class="dm-item">
+            <div class="dm-icon dm-icon-email">✉️</div>
+            <div>
+              <span class="dm-label">Email</span>
+              <span class="dm-value">hello@studio.co</span>
+            </div>
+            <span class="dm-arrow">→</span>
+          </a>
+
+          <!-- REPLACE: Update href with your actual LinkedIn -->
+          <a href="https://linkedin.com" target="_blank" class="dm-item">
+            <div class="dm-icon dm-icon-li">💼</div>
+            <div>
+              <span class="dm-label">LinkedIn</span>
+              <span class="dm-value">Connect with the studio</span>
+            </div>
+            <span class="dm-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="cpav">
+        <div class="availability">
+          <span class="av-dot"></span>
+          <span class="av-text">
+            <strong>Available for new projects</strong> — accepting clients for Q3 2025
+          </span>
+        </div>
+        <div class="av-meta">
+          Based in Lagos, Nigeria · Available globally<br />
+          Business hours: Mon–Fri, 9am–6pm WAT
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: BRIEF FORM -->
+    <div class="cp-right" id="form">
+      <h2 class="cp-form-title">Send us a project brief</h2>
+      <p class="cp-form-sub">
+        A few details helps us respond with something useful — not a generic reply.
+        We'll get back to you within 2 hours.
+      </p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Your name</label>
+          <input type="text" class="form-input" placeholder="Adaeze Okonkwo" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email or WhatsApp</label>
+          <input type="text" class="form-input" placeholder="adaeze@company.co" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Company or product name</label>
+        <input type="text" class="form-input" placeholder="What are you building?" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">What do you need?</label>
+        <select class="form-input">
+          <option value="" disabled selected>Select a service</option>
+          <option>Launch Package — Landing page or product site</option>
+          <option>Build Package — Full MVP development</option>
+          <option>Brand &amp; Identity</option>
+          <option>UI/UX Design</option>
+          <option>Graphics &amp; Creative</option>
+          <option>Multiple services / Not sure yet</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Budget range</label>
+          <select class="form-input">
+            <option value="" disabled selected>Approximate budget</option>
+            <option>Under ₦150,000</option>
+            <option>₦150,000 – ₦350,000</option>
+            <option>₦350,000 – ₦800,000</option>
+            <option>₦800,000 – ₦2,000,000</option>
+            <option>Over ₦2,000,000</option>
+            <option>Let's discuss</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Timeline</label>
+          <select class="form-input">
+            <option value="" disabled selected>When do you need it?</option>
+            <option>ASAP (72 hours)</option>
+            <option>Within 2 weeks</option>
+            <option>Within a month</option>
+            <option>1–3 months</option>
+            <option>3+ months</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Tell us about the project</label>
+        <textarea
+          class="form-input"
+          placeholder="What are you building, who is it for, and what problem does it solve? The more context, the better our response."
+        ></textarea>
+      </div>
+
+      <button class="form-submit" id="submit-btn">Send brief →</button>
+      <p class="form-note">We respond within 2 hours · Lagos business hours · No spam, ever</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-sec">
+    <div class="faq-inner">
+      <div class="reveal">
+        <h2 class="faq-h">Common <em>questions.</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">How does the 72-hour guarantee work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Once a Launch Package brief is agreed and the deposit paid, the clock starts. 72 hours later, you have a live site. If we're not satisfied with the output, we keep working until we are — at no extra charge.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">Do you work with clients outside Nigeria?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Yes. We're based in Lagos but work with clients across Africa, Europe, and North America. All communication happens via WhatsApp and email. Invoicing in Naira or USD depending on your preference.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">What is included in a "full MVP"?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Every MVP is scoped individually. Generally: product discovery, full UI/UX design, frontend development (React/Next.js), backend API integration if required, deployment, and documentation. Scope agreed upfront and doesn't change without your approval.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">Can you handle branding and development in the same project?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Yes — and this is where we're most effective. When brand and product are designed by the same team, the output is tighter and the process faster. We recommend starting with brand before product for any company without a defined visual identity.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">How do payments work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">50% deposit to begin, 50% on delivery. For larger engagements we can structure milestone payments. We accept bank transfer (NGN or USD) and invoice through Lou Technologies.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+/* CONTACT PAGE LAYOUT */
+.contact-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 5rem;
+}
+.cp-left {
+  padding: 7rem 4rem 6rem 3rem;
+  border-right: 1px solid var(--br);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.cp-right {
+  padding: 7rem 3rem 6rem 4rem;
+  background: var(--s1);
+}
+.cp-label {
+  font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.cp-line { width: 32px; height: 1px; background: var(--gold); }
+.cp-left h1 {
+  font-size: clamp(3rem, 5.5vw, 6.5rem); font-weight: 300;
+  line-height: 1.04; letter-spacing: -2px; margin-bottom: 2rem;
+}
+.cp-left h1 em { font-style: italic; color: var(--gold); }
+.cp-desc { font-size: .9rem; color: var(--muted); line-height: 1.75; max-width: 40ch; margin-bottom: 3rem; }
+.direct-methods { display: flex; flex-direction: column; gap: .75rem; margin-bottom: 3rem; }
+.dm-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--s2); border: 1px solid var(--br); border-radius: var(--r);
+  transition: border-color .2s; cursor: pointer;
+}
+.dm-item:hover { border-color: var(--gold-b); }
+.dm-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: .95rem;
+}
+.dm-icon-wa { background: rgba(37, 211, 102, .1); }
+.dm-icon-email { background: var(--gold-l); }
+.dm-icon-li { background: rgba(10, 102, 194, .1); }
+.dm-label { font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; }
+.dm-value { font-size: .875rem; color: var(--text); font-weight: 500; }
+.dm-arrow { margin-left: auto; color: var(--dim); font-size: .9rem; transition: transform .2s, color .2s; }
+.dm-item:hover .dm-arrow { transform: translateX(4px); color: var(--gold); }
+.availability {
+  background: var(--s2); border: 1px solid var(--br); border-radius: var(--r);
+  padding: 1.25rem; display: flex; align-items: center; gap: .6rem;
+}
+.av-dot {
+  width: 8px; height: 8px; background: #4ADE80; border-radius: 50%;
+  flex-shrink: 0; animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+.av-text { font-size: .82rem; color: var(--muted); }
+.av-text strong { color: var(--text); }
+.av-meta { margin-top: 1.5rem; font-size: .78rem; color: var(--dim); line-height: 1.6; }
+
+/* FORM */
+.cp-form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 300; color: var(--text); margin-bottom: .5rem; }
+.cp-form-sub { font-size: .82rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.6; }
+.form-group { margin-bottom: 1.5rem; }
+.form-label { font-size: .68rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .5rem; }
+.form-input {
+  width: 100%; background: var(--s2); border: 1px solid var(--br);
+  border-radius: var(--r); padding: .85rem 1rem;
+  color: var(--text); font-family: 'Inter', sans-serif; font-size: .875rem;
+  outline: none; transition: border-color .2s; -webkit-appearance: none;
+}
+.form-input:focus { border-color: var(--gold-b); }
+.form-input::placeholder { color: var(--dim); }
+select.form-input { cursor: pointer; }
+select.form-input option { background: var(--s2); color: var(--text); }
+textarea.form-input { resize: vertical; min-height: 140px; line-height: 1.6; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit {
+  width: 100%; background: var(--gold); color: var(--bg);
+  font-family: 'Inter', sans-serif; font-weight: 700;
+  font-size: .875rem; letter-spacing: 1px; text-transform: uppercase;
+  padding: 1rem; border-radius: var(--r); border: 1px solid var(--gold);
+  cursor: pointer; transition: all .2s; margin-top: .5rem;
+}
+.form-submit:hover { background: transparent; color: var(--gold); }
+.form-note { font-size: .72rem; color: var(--dim); text-align: center; margin-top: .75rem; }
+
+/* FAQ */
+.faq-sec { padding: 6rem 3rem; border-top: 1px solid var(--br); background: var(--s1); }
+.faq-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 6rem; }
+.faq-h { font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; line-height: 1.1; }
+.faq-h em { font-style: italic; color: var(--gold); }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--br); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 0; cursor: pointer; gap: 1rem;
+}
+.faq-q-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: var(--text); line-height: 1.3; }
+.faq-icon {
+  width: 26px; height: 26px; border: 1px solid var(--br); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--muted); font-size: .8rem; transition: all .3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.faq-a-inner { padding: 0 0 1.25rem; font-size: .875rem; color: var(--muted); line-height: 1.75; }
+.faq-item.open .faq-a { max-height: 200px; }
+
+@media (max-width: 900px) {
+  .contact-page { grid-template-columns: 1fr; padding-top: 5rem; }
+  .cp-left { padding: 6rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--br); }
+  .cp-right { padding: 4rem 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .faq-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .faq-sec { padding: 5rem 1.5rem; }
+}
+</style>
+
+<script>
+import gsap from 'gsap';
+
+// Hero entrance
+gsap.timeline({ delay: 0.2 })
+  .from('#cpl', { opacity: 0, x: -16, duration: 0.5, ease: 'power2.out' })
+  .from('#cph', { opacity: 0, y: 32, duration: 0.85, ease: 'power3.out' }, '-=.2')
+  .from('#cpd', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '-=.4')
+  .from('#cpm', { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' }, '-=.3')
+  .from('#cpav', { opacity: 0, y: 12, duration: 0.4, ease: 'power2.out' }, '-=.2')
+  .from('.cp-right', { opacity: 0, x: 20, duration: 0.7, ease: 'power2.out' }, '-=.6');
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach((q) => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement as HTMLElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Form submit simulation
+const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+submitBtn?.addEventListener('click', () => {
+  submitBtn.textContent = 'Sending...';
+  submitBtn.style.opacity = '.6';
+  submitBtn.disabled = true;
+  setTimeout(() => {
+    submitBtn.textContent = 'Brief sent ✓';
+    submitBtn.style.background = 'rgba(74,222,128,.15)';
+    submitBtn.style.color = '#4ADE80';
+    submitBtn.style.borderColor = 'rgba(74,222,128,.3)';
+    submitBtn.style.opacity = '1';
+  }, 1200);
+});
+</script>

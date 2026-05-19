@@ -1,0 +1,152 @@
+/* ============================================
+   STUDIO — Global Design System
+   REPLACE: "Studio" with your studio name
+   ============================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #09080A;
+  --s1: #111012;
+  --s2: #191719;
+  --s3: #222022;
+  --br: rgba(255, 255, 255, .06);
+  --br2: rgba(255, 255, 255, .03);
+  --text: #F0EAE2;
+  --muted: #6E6868;
+  --dim: #302E2E;
+  --gold: #C8A45A;
+  --gold-l: rgba(200, 164, 90, .08);
+  --gold-b: rgba(200, 164, 90, .2);
+  --r: 10px;
+  --rl: 18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ──────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3rem;
+  transition: background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(9, 8, 10, .92);
+  backdrop-filter: blur(20px);
+  border-color: var(--br);
+}
+.nlogo { display: flex; align-items: center; gap: .75rem; }
+.nmark {
+  width: 24px; height: 24px;
+  border: 1.5px solid var(--gold); border-radius: 4px;
+  transform: rotate(45deg); flex-shrink: 0; transition: background .2s;
+}
+nav:hover .nmark { background: var(--gold-l); }
+.nname {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-size: 1.15rem;
+  letter-spacing: .5px; color: var(--text);
+}
+.nlinks { display: flex; gap: 2.5rem; list-style: none; }
+.nlinks a {
+  font-size: .8rem; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted); transition: color .2s;
+}
+.nlinks a:hover, .nlinks a.active { color: var(--text); }
+.nlinks a.active { border-bottom: 1px solid var(--gold-b); padding-bottom: 2px; }
+.ncta {
+  font-weight: 600; font-size: .8rem; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--bg); background: var(--text);
+  padding: .55rem 1.4rem; border-radius: 3px; transition: all .2s;
+}
+.ncta:hover { background: var(--gold); color: var(--bg); }
+
+/* ── FOOTER ───────────────────────────────── */
+footer { border-top: 1px solid var(--br); padding: 3rem; }
+.footer-inner {
+  max-width: 1300px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo { display: flex; align-items: center; gap: .65rem; }
+.footer-mark {
+  width: 18px; height: 18px;
+  border: 1px solid var(--gold); border-radius: 3px;
+  transform: rotate(45deg);
+}
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-size: 1rem; letter-spacing: .5px;
+}
+.footer-copy { font-size: .7rem; color: var(--dim); }
+.footer-lou { font-size: .62rem; color: var(--dim); opacity: .5; margin-top: .2rem; }
+.footer-links { display: flex; gap: 2rem; list-style: none; }
+.footer-links a {
+  font-size: .72rem; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--dim); transition: color .2s;
+}
+.footer-links a:hover { color: var(--muted); }
+
+/* ── BUTTONS ──────────────────────────────── */
+.btn-gold {
+  font-weight: 600; font-size: .8rem; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--bg); background: var(--gold);
+  padding: .8rem 1.75rem; border-radius: 3px; border: 1px solid var(--gold);
+  transition: all .2s; display: inline-block;
+}
+.btn-gold:hover { background: transparent; color: var(--gold); }
+
+.btn-outline-light {
+  font-weight: 600; font-size: .8rem; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted); border: 1px solid var(--br);
+  padding: .8rem 1.75rem; border-radius: 3px; transition: all .2s; display: inline-block;
+}
+.btn-outline-light:hover { border-color: rgba(255,255,255,.2); color: var(--text); }
+
+/* ── SHARED UTILS ─────────────────────────── */
+.sec-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 300; color: var(--text);
+}
+.sec-label em { font-style: italic; color: var(--gold); }
+
+/* ── REVEAL ANIMATION ─────────────────────── */
+.reveal { opacity: 0; transform: translateY(24px); }
+
+/* ── MARQUEE ──────────────────────────────── */
+.marquee-wrap {
+  border-top: 1px solid var(--br); border-bottom: 1px solid var(--br);
+  padding: 1rem 0; overflow: hidden; background: var(--s1);
+}
+.marquee-inner { display: flex; white-space: nowrap; animation: marquee 24s linear infinite; }
+.marquee-item {
+  font-size: .72rem; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--dim); padding: 0 2rem;
+}
+.marquee-dot { color: var(--gold); padding: 0 .5rem; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── RESPONSIVE ───────────────────────────── */
+@media (max-width: 768px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .nlinks { display: none; }
+  footer { padding: 2rem 1.5rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}

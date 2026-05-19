@@ -1,0 +1,295 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Services">
+  <Nav activePage="services" />
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="ph-inner">
+      <div class="ph-label" id="phl"><span class="ph-line"></span>What we offer</div>
+      <h1 id="phh">Five ways we<br />help you <em>build better.</em></h1>
+      <p id="php">From a landing page that needs to go live tomorrow, to a product that needs to exist twelve months from now — all under one roof, with one point of contact.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE 01: LAUNCH -->
+  <div class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-left reveal">
+        <div class="svc-num">01</div>
+        <h2 class="svc-name">Launch<br /><em>Package</em></h2>
+        <p class="svc-tagline">For founders who need to look credible — fast.</p>
+      </div>
+      <div class="svc-right reveal">
+        <p class="svc-desc">Your product deserves a home that converts. A high-quality landing page or product site delivered in 72 hours, or we keep working until it's right at no extra charge.</p>
+        <div class="svc-deliverables">
+          <div class="svc-dl-title">What's included</div>
+          <div class="svc-dl-grid">
+            <div class="svc-dl-item">Custom landing page or 1–5 page site</div>
+            <div class="svc-dl-item">Full mobile responsiveness</div>
+            <div class="svc-dl-item">GSAP animations and scroll interactions</div>
+            <div class="svc-dl-item">Performance optimised output</div>
+            <div class="svc-dl-item">Vercel deployment and setup</div>
+            <div class="svc-dl-item">One round of revisions included</div>
+            <div class="svc-dl-item">Custom domain configuration</div>
+            <div class="svc-dl-item">72-hour delivery guarantee</div>
+          </div>
+        </div>
+        <div class="svc-pricing">
+          <div><div class="sp-from">Starting from</div><div class="sp-price">₦150,000</div></div>
+          <div style="text-align:right">
+            <div class="sp-time">Delivered in 72 hours</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.4rem">Or we keep working. No charge.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 02: BUILD -->
+  <div class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-left reveal">
+        <div class="svc-num">02</div>
+        <h2 class="svc-name">Build<br /><em>Package</em></h2>
+        <p class="svc-tagline">For founders with a validated idea that needs to exist.</p>
+      </div>
+      <div class="svc-right reveal">
+        <p class="svc-desc">A full MVP — designed, built, and shipped as one engagement. From wireframe to deployed product, with the design system to grow from. Not a template — a product built from scratch.</p>
+        <div class="svc-deliverables">
+          <div class="svc-dl-title">What's included</div>
+          <div class="svc-dl-grid">
+            <div class="svc-dl-item">Product discovery and architecture</div>
+            <div class="svc-dl-item">Full UI/UX design</div>
+            <div class="svc-dl-item">Frontend development (React / Next.js)</div>
+            <div class="svc-dl-item">Backend API integration</div>
+            <div class="svc-dl-item">Design system and component library</div>
+            <div class="svc-dl-item">Mobile-first, fully responsive</div>
+            <div class="svc-dl-item">Deployment and CI/CD setup</div>
+            <div class="svc-dl-item">Handover documentation</div>
+          </div>
+        </div>
+        <div class="svc-pricing">
+          <div><div class="sp-from">Starting from</div><div class="sp-price">₦800,000</div></div>
+          <div style="text-align:right">
+            <div class="sp-time">4–12 week engagement</div>
+            <div style="font-size:.72rem;color:var(--muted);margin-top:.4rem">Scoped per project</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 03: BRAND -->
+  <div class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-left reveal">
+        <div class="svc-num">03</div>
+        <h2 class="svc-name">Brand &<br /><em>Identity</em></h2>
+        <p class="svc-tagline">The mark before the product. The story before the site.</p>
+      </div>
+      <div class="svc-right reveal">
+        <p class="svc-desc">A brand is more than a logo — it is the visual and verbal language everything else speaks. We build visual identities that hold up across every surface: screen, print, pitch deck, and product.</p>
+        <div class="svc-deliverables">
+          <div class="svc-dl-title">What's included</div>
+          <div class="svc-dl-grid">
+            <div class="svc-dl-item">Brand strategy and positioning</div>
+            <div class="svc-dl-item">Logo design and variations</div>
+            <div class="svc-dl-item">Typography system</div>
+            <div class="svc-dl-item">Colour palette and usage rules</div>
+            <div class="svc-dl-item">Brand guidelines document</div>
+            <div class="svc-dl-item">Icon and illustration direction</div>
+            <div class="svc-dl-item">Business card and stationery</div>
+            <div class="svc-dl-item">Social media templates</div>
+          </div>
+        </div>
+        <div class="svc-pricing">
+          <div><div class="sp-from">Starting from</div><div class="sp-price">₦300,000</div></div>
+          <div style="text-align:right">
+            <div class="sp-time">2–4 week turnaround</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 04: UI/UX -->
+  <div class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-left reveal">
+        <div class="svc-num">04</div>
+        <h2 class="svc-name">UI/UX<br /><em>Design</em></h2>
+        <p class="svc-tagline">Interfaces that earn trust from the first interaction.</p>
+      </div>
+      <div class="svc-right reveal">
+        <p class="svc-desc">Good UX is invisible. Users accomplish what they came to do without friction. We design product interfaces that feel effortless — from wireframe through to a production-ready Figma file developers can actually build from.</p>
+        <div class="svc-deliverables">
+          <div class="svc-dl-title">What's included</div>
+          <div class="svc-dl-grid">
+            <div class="svc-dl-item">User flows and journey mapping</div>
+            <div class="svc-dl-item">Wireframes and low-fi prototypes</div>
+            <div class="svc-dl-item">High-fidelity UI design in Figma</div>
+            <div class="svc-dl-item">Interactive prototype</div>
+            <div class="svc-dl-item">Component library (Figma)</div>
+            <div class="svc-dl-item">Design tokens and spacing system</div>
+            <div class="svc-dl-item">Developer handoff documentation</div>
+            <div class="svc-dl-item">Accessibility review</div>
+          </div>
+        </div>
+        <div class="svc-pricing">
+          <div><div class="sp-from">Starting from</div><div class="sp-price">₦250,000</div></div>
+          <div style="text-align:right"><div class="sp-time">Scoped per project</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 05: GRAPHICS -->
+  <div class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-left reveal">
+        <div class="svc-num">05</div>
+        <h2 class="svc-name">Graphics &<br /><em>Creative</em></h2>
+        <p class="svc-tagline">The visual language for everything that isn't the product.</p>
+      </div>
+      <div class="svc-right reveal">
+        <p class="svc-desc">Pitch decks that raise rounds. Social assets that stop the scroll. Marketing collateral that communicates without explanation. The creative output that keeps your brand consistent at speed.</p>
+        <div class="svc-deliverables">
+          <div class="svc-dl-title">What's included</div>
+          <div class="svc-dl-grid">
+            <div class="svc-dl-item">Pitch deck design</div>
+            <div class="svc-dl-item">Social media asset packages</div>
+            <div class="svc-dl-item">Marketing collateral</div>
+            <div class="svc-dl-item">Email template design</div>
+            <div class="svc-dl-item">Presentation templates</div>
+            <div class="svc-dl-item">Banner and ad creative</div>
+            <div class="svc-dl-item">Print-ready materials</div>
+            <div class="svc-dl-item">Motion graphics (basic)</div>
+          </div>
+        </div>
+        <div class="svc-pricing">
+          <div><div class="sp-from">Starting from</div><div class="sp-price">₦80,000</div></div>
+          <div style="text-align:right"><div class="sp-time">Per deliverable</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW TO START -->
+  <div class="start-sec">
+    <div class="start-inner">
+      <div class="start-left reveal">
+        <h2>Starting is<br /><em>easier than</em><br />you think.</h2>
+        <p>No lengthy discovery calls, no NDAs before we've said hello.</p>
+        <a href="/contact" class="btn-gold">Start a project →</a>
+      </div>
+      <div class="start-steps">
+        <div class="start-step reveal">
+          <div class="ss-num">01</div>
+          <div class="ss-body"><h3>Send us a brief</h3><p>What you're building, what you need, and when. A few sentences is enough.</p></div>
+        </div>
+        <div class="start-step reveal">
+          <div class="ss-num">02</div>
+          <div class="ss-body"><h3>We scope it honestly</h3><p>A clear proposal — what we'll do, what it costs, and how long it takes.</p></div>
+        </div>
+        <div class="start-step reveal">
+          <div class="ss-num">03</div>
+          <div class="ss-body"><h3>We start immediately</h3><p>Once agreed and deposit paid, we start the same day. No waiting list.</p></div>
+        </div>
+        <div class="start-step reveal">
+          <div class="ss-num">04</div>
+          <div class="ss-body"><h3>You get the work</h3><p>Delivered on time, production-ready, fully documented and handed over cleanly.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+.page-hero { padding: 10rem 3rem 6rem; border-bottom: 1px solid var(--br); }
+.ph-inner { max-width: 1300px; margin: 0 auto; }
+.ph-label {
+  font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: .75rem;
+}
+.ph-line { width: 32px; height: 1px; background: var(--gold); }
+.page-hero h1 {
+  font-size: clamp(3.5rem, 7vw, 8rem); font-weight: 300;
+  line-height: 1.04; letter-spacing: -2px; margin-bottom: 2rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--gold); }
+.page-hero p { font-size: 1rem; color: var(--muted); max-width: 52ch; line-height: 1.75; }
+.svc-section { border-bottom: 1px solid var(--br); }
+.svc-section:nth-child(even) { background: var(--s1); }
+.svc-inner {
+  max-width: 1300px; margin: 0 auto; padding: 7rem 3rem;
+  display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start;
+}
+.svc-left { position: sticky; top: 8rem; }
+.svc-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 6rem; font-weight: 300;
+  color: var(--dim); line-height: 1; letter-spacing: -3px; margin-bottom: 1rem;
+}
+.svc-name { font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 1rem; }
+.svc-name em { font-style: italic; color: var(--gold); }
+.svc-tagline { font-size: .875rem; color: var(--muted); line-height: 1.65; max-width: 32ch; }
+.svc-desc { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 54ch; }
+.svc-deliverables { margin-bottom: 2.5rem; }
+.svc-dl-title { font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.svc-dl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.svc-dl-item {
+  display: flex; align-items: flex-start; gap: .6rem;
+  font-size: .85rem; color: var(--muted); line-height: 1.5;
+}
+.svc-dl-item::before { content: '→'; color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
+.svc-pricing {
+  background: var(--s2); border: 1px solid var(--br); border-radius: var(--rl);
+  padding: 1.75rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.sp-from { font-size: .68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.sp-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--text); letter-spacing: -1px; }
+.sp-time { font-size: .72rem; color: var(--muted); background: var(--gold-l); border: 1px solid var(--gold-b); padding: .2rem .65rem; border-radius: 3px; }
+.start-sec { padding: 7rem 3rem; }
+.start-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.start-left h2 { font-size: clamp(2.5rem, 4.5vw, 5rem); font-weight: 300; line-height: 1.08; letter-spacing: -2px; margin-bottom: 1rem; }
+.start-left h2 em { font-style: italic; color: var(--gold); }
+.start-left p { font-size: .9rem; color: var(--muted); max-width: 32ch; line-height: 1.75; margin-bottom: 2rem; }
+.start-steps { display: flex; flex-direction: column; }
+.start-step { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--br); }
+.start-step:last-child { border-bottom: none; }
+.ss-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--dim); line-height: 1; flex-shrink: 0; width: 2.5rem; }
+.ss-body h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; }
+.ss-body p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+@media (max-width: 900px) {
+  .page-hero { padding: 8rem 1.5rem 4rem; }
+  .svc-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 5rem 1.5rem; }
+  .svc-left { position: static; }
+  .start-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .start-sec { padding: 5rem 1.5rem; }
+}
+</style>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.timeline({ delay: 0.25 })
+  .from('#phl', { opacity: 0, x: -16, duration: 0.5, ease: 'power2.out' })
+  .from('#phh', { opacity: 0, y: 32, duration: 0.85, ease: 'power3.out' }, '-=.2')
+  .from('#php', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '-=.4');
+
+gsap.utils.toArray('.reveal').forEach((el: any, i: number) => {
+  gsap.fromTo(el, { opacity: 0, y: 24 }, {
+    opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+    delay: (i % 3) * 0.08,
+    scrollTrigger: { trigger: el, start: 'top 87%', toggleActions: 'play none none none' }
+  });
+});
+</script>

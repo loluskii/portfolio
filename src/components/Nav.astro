@@ -1,0 +1,55 @@
+---
+// Nav.astro — shared navigation component
+// Pass activePage prop to highlight the current link
+
+export interface Props {
+  activePage?: 'home' | 'services' | 'work' | 'about' | 'contact';
+}
+
+const { activePage } = Astro.props;
+---
+
+<nav id="nav">
+  <a href="/" class="nlogo">
+    <div class="nmark"></div>
+    <span class="nname">Studio</span>
+    <!-- REPLACE: "Studio" with your studio name -->
+  </a>
+
+  <ul class="nlinks">
+    <li>
+      <a href="/services" class={activePage === 'services' ? 'active' : ''}>
+        Services
+      </a>
+    </li>
+    <li>
+      <a href="/work" class={activePage === 'work' ? 'active' : ''}>
+        Work
+      </a>
+    </li>
+    <li>
+      <a href="/about" class={activePage === 'about' ? 'active' : ''}>
+        About
+      </a>
+    </li>
+    <li>
+      <a href="/contact" class={activePage === 'contact' ? 'active' : ''}>
+        Contact
+      </a>
+    </li>
+  </ul>
+
+  <a href="/contact" class="ncta">Start a project</a>
+</nav>
+
+<script>
+  // Add scrolled class to nav on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  });
+</script>
