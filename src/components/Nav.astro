@@ -1,55 +1,28 @@
 ---
-// Nav.astro — shared navigation component
-// Pass activePage prop to highlight the current link
-
-export interface Props {
-  activePage?: 'home' | 'services' | 'work' | 'about' | 'contact';
-}
-
-const { activePage } = Astro.props;
+import { navLinks, siteMeta } from '../data/portfolio';
 ---
 
-<nav id="nav">
-  <a href="/" class="nlogo">
-    <div class="nmark"></div>
-    <span class="nname">Studio</span>
-    <!-- REPLACE: "Studio" with your studio name -->
-  </a>
+<nav id="site-nav">
+  <div class="shell nav-shell">
+    <a class="brand" href="#top" aria-label={`${siteMeta.name} home`}>
+      <span class="brand-mark">IA</span>
+      <span class="brand-text">
+        <span class="brand-name">{siteMeta.name}</span>
+        <span class="brand-role">{siteMeta.role}</span>
+      </span>
+    </a>
 
-  <ul class="nlinks">
-    <li>
-      <a href="/services" class={activePage === 'services' ? 'active' : ''}>
-        Services
-      </a>
-    </li>
-    <li>
-      <a href="/work" class={activePage === 'work' ? 'active' : ''}>
-        Work
-      </a>
-    </li>
-    <li>
-      <a href="/about" class={activePage === 'about' ? 'active' : ''}>
-        About
-      </a>
-    </li>
-    <li>
-      <a href="/contact" class={activePage === 'contact' ? 'active' : ''}>
-        Contact
-      </a>
-    </li>
-  </ul>
+    <div class="nav-links" aria-label="Section links">
+      {navLinks.map((link) => (
+        <a href={link.href} data-nav-link>
+          {link.label}
+        </a>
+      ))}
+    </div>
 
-  <a href="/contact" class="ncta">Start a project</a>
+    <a class="nav-cta" href={`mailto:${siteMeta.email}`}>
+      Email
+      <span aria-hidden="true">↗</span>
+    </a>
+  </div>
 </nav>
-
-<script>
-  // Add scrolled class to nav on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav?.classList.add('scrolled');
-    } else {
-      nav?.classList.remove('scrolled');
-    }
-  });
-</script>
