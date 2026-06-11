@@ -63,12 +63,9 @@ const projects = [
     </div>
   </div>
 
-  <div class="shell work-stack">
-    {projects.map((project, index) => (
-      <div
-        class={`work-card-slot work-card-slot--${index % 2 === 0 ? 'left' : 'right'}`}
-        data-work-slot
-      >
+  <div class="shell work-stack-shell" data-work-shell>
+    <div class="work-stack-stage" data-work-stage>
+      {projects.map((project, index) => (
         <article
           class={`work-card work-card--${project.preview}`}
           data-work-card
@@ -127,8 +124,8 @@ const projects = [
             </div>
           </div>
         </article>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
 </section>
 
@@ -138,7 +135,7 @@ const projects = [
   }
 
   .work-heading {
-    padding-bottom: 48px;
+    padding-bottom: 40px;
   }
 
   .work-heading-copy {
@@ -161,31 +158,20 @@ const projects = [
     max-width: 15ch;
   }
 
-  .work-stack {
-    display: grid;
-    gap: 18svh;
+  .work-stack-shell {
+    position: relative;
   }
 
-  .work-card-slot {
-    min-height: 100svh;
-    display: flex;
-  }
-
-  .work-card-slot--left {
-    justify-content: flex-start;
-    padding-right: clamp(0px, 10vw, 132px);
-  }
-
-  .work-card-slot--right {
-    justify-content: flex-end;
-    padding-left: clamp(0px, 10vw, 132px);
+  .work-stack-stage {
+    position: relative;
+    height: min(76svh, 780px);
+    overflow: hidden;
+    border-radius: 8px;
   }
 
   .work-card {
-    position: sticky;
-    top: 108px;
-    width: min(100%, 1040px);
-    min-height: min(74svh, 760px);
+    position: absolute;
+    inset: 0;
     border-radius: 8px;
     border: 1px solid var(--line-strong);
     background:
@@ -212,7 +198,7 @@ const projects = [
     display: grid;
     grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
     gap: clamp(36px, 5vw, 72px);
-    min-height: inherit;
+    height: 100%;
     padding: clamp(30px, 4vw, 42px);
   }
 
@@ -407,19 +393,15 @@ const projects = [
       padding: 24px 0 112px;
     }
 
-    .work-stack {
-      gap: 56px;
-    }
-
-    .work-card-slot {
-      min-height: auto;
-      padding-left: 0;
-      padding-right: 0;
+    .work-stack-stage {
+      height: auto;
+      display: grid;
+      gap: 20px;
     }
 
     .work-card {
       position: relative;
-      top: 0;
+      inset: auto;
       min-height: auto;
     }
 

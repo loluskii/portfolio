@@ -159,56 +159,62 @@ import Contact from '../components/Contact.astro';
       }, 0);
     }
 
+    const workShell = document.querySelector('[data-work-shell]');
+    const workStage = document.querySelector('[data-work-stage]');
     const workCards = gsap.utils.toArray('[data-work-card]');
     const workMm = gsap.matchMedia();
 
-    if (workCards.length) {
-      workMm.add('(min-width: 861px)', () => {
-        workCards.forEach((card, index) => {
-          const slot = card.closest('[data-work-slot]');
-          const direction = index % 2 === 0 ? -1 : 1;
-
-          if (!slot) return;
-
-          gsap.fromTo(card, {
-            y: 160,
-            x: direction * 60,
-            rotate: direction * 1.8,
-            scale: 0.92,
-            opacity: 0.14,
-          }, {
+    if (workShell && workStage && workCards.length) {
+      const getWorkCardState = (cardIndex, activeIndex) => {
+        if (cardIndex > activeIndex) {
+          return {
+            yPercent: 112,
             y: 0,
-            x: 0,
-            rotate: 0,
             scale: 1,
             opacity: 1,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: slot,
-              start: 'top 86%',
-              end: 'top 22%',
-              scrub: 0.9,
-            },
-          });
+          };
+        }
 
-          const nextCard = workCards[index + 1];
-          const nextSlot = nextCard?.closest('[data-work-slot]');
+        const depth = activeIndex - cardIndex;
 
-          if (nextSlot) {
-            gsap.to(card, {
-              y: -40,
-              scale: 0.965,
-              opacity: 0.42,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: nextSlot,
-                start: 'top 86%',
-                end: 'top 24%',
-                scrub: 0.9,
-              },
-            });
-          }
+        return {
+          yPercent: 0,
+          y: -depth * 18,
+          scale: 1 - depth * 0.045,
+          opacity: Math.max(0.24, 1 - depth * 0.2),
+        };
+      };
+
+      workMm.add('(min-width: 861px)', () => {
+        gsap.set(workCards, {
+          transformOrigin: 'top center',
         });
+
+        workCards.forEach((card, cardIndex) => {
+          gsap.set(card, getWorkCardState(cardIndex, 0));
+        });
+
+        const workTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: workShell,
+            start: 'top top+=108',
+            end: () => `+=${Math.max(1, workCards.length - 1) * window.innerHeight * 0.78}`,
+            scrub: 1,
+            pin: workStage,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        for (let activeIndex = 1; activeIndex < workCards.length; activeIndex += 1) {
+          workCards.forEach((card, cardIndex) => {
+            workTimeline.to(card, {
+              ...getWorkCardState(cardIndex, activeIndex),
+              duration: 1,
+              ease: 'power2.inOut',
+            }, activeIndex - 1);
+          });
+        }
       });
 
       workMm.add('(max-width: 860px)', () => {
