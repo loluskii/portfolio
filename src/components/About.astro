@@ -1,0 +1,183 @@
+---
+const experience = [
+  {
+    company: 'Sportsbook Engine',
+    role: 'Senior Frontend Engineer',
+    year: '2022 → Now',
+  },
+  {
+    company: 'Venmail',
+    role: 'Senior Frontend Developer',
+    year: '2024 → 2025',
+  },
+  {
+    company: 'PressOne Africa',
+    role: 'Frontend Engineer',
+    year: '2023',
+  },
+  {
+    company: 'LordwinGames',
+    role: 'Frontend Engineer & Designer',
+    year: '2020 → 2022',
+  },
+  {
+    company: 'Independent Product Work',
+    role: 'Design, frontend, backend delivery',
+    year: 'Across engagements',
+  },
+];
+---
+
+<section class="about" id="about">
+  <div class="shell about-inner">
+    <div class="about-grid">
+      <div class="about-left" data-reveal>
+        <span class="section-kicker">About</span>
+        <h2 class="about-title">
+          I have 6 years of experience shipping product interfaces across fintech,
+          communication, gaming, compliance, and internal tooling.
+        </h2>
+        <div class="about-links">
+          <a href="/cv.pdf" target="_blank" rel="noreferrer" class="about-link" data-cursor-label="Open" data-cursor-tone="soft">Download CV ↗</a>
+          <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer" class="about-link" data-cursor-label="Open" data-cursor-tone="soft">Connect on LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="about-right" data-reveal>
+        <p class="about-copy">
+          My best work usually sits in the gap between product intent and the messy reality
+          of delivery. Systems that need calm interfaces while live state, business rules, and
+          technical constraints keep moving underneath them.
+        </p>
+
+        <div class="experience-list">
+          {experience.map((item) => (
+            <div class="experience-row">
+              <span class="experience-company">{item.company}</span>
+              <span class="experience-role">{item.role}</span>
+              <span class="experience-year">{item.year}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 120px 0 140px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-left {
+    display: grid;
+    gap: 24px;
+  }
+
+  .section-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .about-title {
+    font-family: var(--font-display);
+    font-size: 58px;
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-top: 24px;
+  }
+
+  .about-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .about-link:hover,
+  .about-link:focus-visible {
+    color: var(--text-primary);
+  }
+
+  .about-right {
+    display: grid;
+    gap: 28px;
+  }
+
+  .about-copy {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 620px;
+  }
+
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+
+  .experience-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+
+  .experience-company {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .experience-role {
+    color: var(--text-secondary);
+  }
+
+  .experience-year {
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 960px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .about-title {
+      font-size: 46px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about {
+      padding: 88px 0 104px;
+    }
+
+    .about-title {
+      font-size: 36px;
+    }
+
+    .experience-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  }
+</style>

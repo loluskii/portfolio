@@ -1,0 +1,170 @@
+---
+const contactLinks = [
+  { label: 'Book a conversation', href: 'mailto:adeloreisaac@gmail.com?subject=Let%27s%20work%20together' },
+  { label: 'Send an email', href: 'mailto:adeloreisaac@gmail.com' },
+  { label: 'Follow on GitHub', href: 'https://github.com/adeloreisaac', external: true },
+];
+---
+
+<section class="contact" id="contact">
+  <div class="shell contact-inner">
+    <div class="contact-copy" data-reveal>
+      <span class="contact-kicker">Contact</span>
+      <h2 class="contact-title">
+        Let&apos;s <span>Connect</span>
+      </h2>
+      <p class="contact-subtitle">
+        Open to senior frontend roles, contract work, product rescue, and technical conversations
+        where the quality bar actually matters.
+      </p>
+    </div>
+
+    <div class="contact-actions" data-reveal>
+      {contactLinks.map((link) => (
+        <a
+          href={link.href}
+          class="contact-action"
+          data-cursor-label={link.external ? 'Open' : 'Send'}
+          data-cursor-tone="soft"
+          target={link.external ? '_blank' : undefined}
+          rel={link.external ? 'noreferrer' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="contact-footer">
+      <span>Isaac Adelore, {new Date().getFullYear()}</span>
+      <div class="contact-footer-links">
+        <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer" data-cursor-label="Open" data-cursor-tone="soft">LinkedIn</a>
+        <a href="mailto:adeloreisaac@gmail.com" data-cursor-label="Send" data-cursor-tone="soft">adeloreisaac@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 200px 0 28px;
+  }
+
+  .contact-inner {
+    display: grid;
+    gap: 48px;
+    min-height: 80svh;
+    align-content: end;
+  }
+
+  .contact-kicker {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 0.98;
+  }
+
+  .contact-title span {
+    color: var(--text-secondary);
+  }
+
+  .contact-subtitle {
+    max-width: 420px;
+    margin-top: 28px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .contact-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .contact-action {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+    border-right: 1px solid var(--line);
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-action:last-child {
+    border-right: 0;
+  }
+
+  .contact-action:hover,
+  .contact-action:focus-visible {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+  }
+
+  .contact-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .contact-footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 960px) {
+    .contact {
+      padding-top: 140px;
+    }
+
+    .contact-title {
+      font-size: 58px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .contact-inner {
+      gap: 32px;
+      min-height: auto;
+    }
+
+    .contact-title {
+      font-size: 40px;
+    }
+
+    .contact-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-action {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-action:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

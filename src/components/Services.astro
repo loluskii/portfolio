@@ -1,0 +1,300 @@
+---
+const services = [
+  {
+    number: '01',
+    label: 'Audit',
+    timeline: '1 → 2w',
+    title: 'Product Rescue',
+    description:
+      'I trace the real usability, interaction, and implementation failures in a shipped interface and turn them into a practical correction plan.',
+  },
+  {
+    number: '02',
+    label: 'Build',
+    timeline: '2 → 6w',
+    title: 'Frontend Delivery',
+    description:
+      'Feature builds, major rewrites, and product surfaces that need strong execution in React, Vue, Next.js, or Astro without hand-holding.',
+  },
+  {
+    number: '03',
+    label: 'Systems',
+    timeline: '2 → 4w',
+    title: 'Design Systems',
+    description:
+      'Component architecture, theming, reusable patterns, and the glue that keeps a product from drifting every time delivery pressure rises.',
+  },
+  {
+    number: '04',
+    label: 'Realtime',
+    timeline: '1 → 4w',
+    title: 'Complex Interfaces',
+    description:
+      'Dashboards, live state, browser calling, multi-role workflows, and UI that stays understandable when the underlying system is not simple.',
+  },
+  {
+    number: '05',
+    label: 'Lead',
+    timeline: 'Ongoing',
+    title: 'Technical Direction',
+    description:
+      'Review quality, tradeoff clarity, mentoring, and delivery structure when a team needs a senior frontend voice that is still close to the code.',
+  },
+];
+---
+
+<section class="services" id="services">
+  <div class="shell services-shell">
+    <div class="services-header" data-reveal>
+      <div class="services-header-row">
+        <h2 class="services-heading">
+          <span class="services-heading-primary">Services</span>
+          <span class="services-heading-secondary">and Capabilities</span>
+        </h2>
+        <span class="services-heading-line"></span>
+      </div>
+    </div>
+  </div>
+  <div class="services-stage">
+    <div class="services-viewport" data-cursor-label="Scroll" data-cursor-tone="soft">
+      <div class="services-track" data-services-track>
+        {services.map((service, index) => (
+          <article class={`service-card service-card--${index % 3}`}>
+            <div class="service-top">
+              <div class="service-pills">
+                <span>{service.label}</span>
+                <span>{service.timeline}</span>
+              </div>
+              <span class="service-number">{service.number}</span>
+            </div>
+
+            <div class="service-bottom">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+            </div>
+          </article>
+        ))}
+        <div class="services-terminal" aria-hidden="true">
+          <div class="services-terminal-grid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 56px 0 0;
+    overflow: clip;
+  }
+
+  .services-shell {
+    padding-bottom: 32px;
+  }
+
+  .services-header-row {
+    display: grid;
+    grid-template-columns: auto minmax(120px, 1fr);
+    align-items: center;
+    gap: 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 38px;
+  }
+
+  .services-heading {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 6vw, 84px);
+    font-weight: 600;
+    line-height: 0.94;
+  }
+
+  .services-heading-primary {
+    color: var(--text-primary);
+  }
+
+  .services-heading-secondary {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .services-heading-line {
+    height: 1px;
+    background: var(--line);
+  }
+
+  .services-stage {
+    width: 100%;
+  }
+
+  .services-viewport {
+    width: 100vw;
+    height: min(78vh, 780px);
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+  }
+
+  .services-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    gap: 0;
+    will-change: transform;
+  }
+
+  .service-card {
+    position: relative;
+    flex: 0 0 min(46vw, 586px);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px 30px 34px;
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .service-card--1 {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .service-card--2 {
+    background: rgba(255, 255, 255, 0.065);
+  }
+
+  .service-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .service-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .service-pills span {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .service-number {
+    font-family: var(--font-display);
+    font-size: clamp(110px, 9vw, 138px);
+    line-height: 0.9;
+    color: rgba(255, 255, 255, 0.13);
+  }
+
+  .service-bottom {
+    display: grid;
+    gap: 16px;
+    padding-top: 220px;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.04;
+  }
+
+  .service-description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.58;
+    max-width: 22ch;
+  }
+
+  .services-terminal {
+    flex: 0 0 240px;
+    min-height: 100%;
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+      rgba(9, 10, 10, 0.76);
+    overflow: hidden;
+  }
+
+  .services-terminal-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.1px, transparent 1.1px);
+    background-size: 18px 18px;
+    background-position: center;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 960px) {
+    .services {
+      padding-top: 28px;
+    }
+
+    .services-viewport {
+      height: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 8px;
+    }
+
+    .services-track {
+      width: max-content;
+      height: auto;
+      padding-inline: 24px;
+      padding-right: 32px;
+    }
+
+    .services-header-row {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .services-heading {
+      font-size: 52px;
+    }
+
+    .service-card {
+      flex-basis: 420px;
+      min-height: 520px;
+    }
+
+    .services-terminal {
+      flex-basis: 180px;
+      min-height: 520px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .service-card {
+      flex-basis: 312px;
+      min-height: 440px;
+      padding: 18px;
+    }
+
+    .services-heading {
+      font-size: 38px;
+    }
+
+    .service-number {
+      font-size: 78px;
+    }
+
+    .service-title {
+      font-size: 26px;
+    }
+
+    .service-description {
+      font-size: 16px;
+    }
+
+    .services-terminal {
+      flex-basis: 120px;
+      min-height: 440px;
+    }
+  }
+</style>

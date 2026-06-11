@@ -1,1039 +1,271 @@
 ---
-import Footer from '../components/Footer.astro';
-import Layout from '../layouts/Layout.astro';
+import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
-import {
-  aboutPoints,
-  brands,
-  capabilityCards,
-  featuredWork,
-  selectedWork,
-  siteMeta,
-  standFor,
-} from '../data/portfolio';
-
-const getInitials = (name: string) =>
-  name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
-
-const heroStack = ['Vue', 'React', 'Next.js', 'Astro', 'TypeScript', 'Laravel', 'Node'];
-
-const heroSignals = [
-  {
-    title: 'Product judgement',
-    copy: 'I can challenge unclear flows before they become expensive code.',
-  },
-  {
-    title: 'Frontend architecture',
-    copy: 'I build interfaces that hold up under state, scale, and design detail.',
-  },
-  {
-    title: 'Delivery ownership',
-    copy: 'I stay close to backend contracts, QA, launch risk, and product outcomes.',
-  },
-];
-
-const workCards = [
-  {
-    name: featuredWork.name,
-    period: featuredWork.period,
-    label: 'Realtime platform',
-    role: 'Frontend architecture + white-label systems',
-    summary:
-      'Built the product layer for a sportsbook engine that had to stay fast across web, mobile, retail, and admin surfaces while live odds kept moving underneath.',
-    impact:
-      'Reduced load time by 55%, supported sub-second live odds updates, and made new client onboarding a repeatable system instead of repeated custom work.',
-    stack: featuredWork.stack,
-    visual: 'sportsbook',
-  },
-  ...selectedWork.map((project) => ({
-    name: project.name,
-    period: project.period,
-    label: project.label,
-    role: project.role,
-    summary: project.summary,
-    impact: project.impact,
-    stack: project.stack,
-    visual: project.visual,
-  })),
-];
+import Cursor from '../components/Cursor.astro';
+import Hero from '../components/Hero.astro';
+import Work from '../components/Work.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Writing from '../components/Writing.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout title={`${siteMeta.name} | ${siteMeta.role}`} description={siteMeta.description}>
+<Base>
   <Nav />
-
+  <Cursor />
   <main>
-    <section class="hero" id="top">
-      <div class="shell hero-shell">
-        <p class="eyebrow hero-eyebrow" id="hero-eyebrow">
-          <span class="status-dot"></span>
-          {siteMeta.location} · Senior product engineer · Frontend-heavy · Full-stack range
-        </p>
-
-        <h1 class="hero-title" id="hero-title">
-          I build product interfaces users actually feel.
-        </h1>
-
-        <p class="hero-lede" id="hero-copy">
-          I turn complex product ideas into fast, polished interfaces: real-time platforms,
-          dashboards, white-label systems, payment flows, and frontend architecture that can survive
-          production pressure.
-        </p>
-
-        <div class="hero-actions" id="hero-actions">
-          <a class="btn btn-primary" href="#work">
-            See project proof
-            <span aria-hidden="true">↓</span>
-          </a>
-          <a class="btn btn-secondary" href="#contact">
-            Give me a brief
-          </a>
-        </div>
-
-        <div class="hero-stack" id="hero-stack" aria-label="Primary tools">
-          {heroStack.map((item) => (
-            <span>{item}</span>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="brands-band" id="brands" aria-label="Brands I have worked with">
-      <div class="shell brands-heading">
-        <p class="kicker reveal">Brands</p>
-        <h2 class="brands-title reveal">Teams and products I have helped ship with.</h2>
-      </div>
-
-      <div class="shell brand-cloud reveal">
-        {brands.map((brand) => (
-          <span class="brand-logo-card">
-            <span class="brand-logo-mark">{getInitials(brand)}</span>
-            <span class="brand-logo-name">{brand}</span>
-          </span>
-        ))}
-      </div>
-    </section>
-
-    <section class="section capability-section" id="what-i-do">
-      <div class="shell">
-        <div class="section-head">
-          <p class="kicker reveal">Capabilities</p>
-          <h2 class="section-title reveal">Product thinking. Frontend depth. Full-stack range.</h2>
-          <p class="section-copy reveal">
-            My value is not only writing components. It is knowing what the interface should do,
-            how it should behave, what can break, and how to ship it without losing the product.
-          </p>
-        </div>
-
-        <div class="cap-grid">
-          {capabilityCards.map((card, index) => (
-            <article class="cap-card reveal">
-              <span class="cap-number">{String(index + 1).padStart(2, '0')}</span>
-              <h3>{card.title}</h3>
-              <p>{card.copy}</p>
-              <div class="chip-row">
-                {card.tags.map((tag) => (
-                  <span class="chip">{tag}</span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="stand-for-section" id="stand-for">
-      <div class="shell stand-for-shell">
-        <div class="stand-for-head">
-          <p class="kicker reveal">What I stand for</p>
-          <h2 class="stand-for-title reveal">Strong execution needs strong defaults.</h2>
-        </div>
-
-        <div class="stand-for-grid">
-          {standFor.map((item, index) => (
-            <article class="stand-for-item reveal">
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{item.title}</h3>
-              <p>{item.copy}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="work-section" id="work">
-      <div class="shell work-intro">
-        <div class="section-head">
-          <p class="kicker reveal">My work</p>
-          <h2 class="section-title reveal">The proof is in the product work.</h2>
-          <p class="section-copy reveal">
-            The work I want to show is less about company names and more about product difficulty:
-            live state, multiple roles, performance, design fidelity, payments, and systems that
-            need to stay clear while they scale.
-          </p>
-        </div>
-      </div>
-
-      <div class="work-pin" data-work-pin>
-        <div class="work-track" data-work-track>
-          {workCards.map((project, index) => (
-            <article class={`work-panel work-panel-${project.visual}`} data-work-card>
-              <div class="work-panel-top">
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <span>{project.period}</span>
-              </div>
-
-              <div class="work-panel-visual" aria-hidden="true">
-                <div class="visual-window">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="visual-rail">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-
-              <div class="work-panel-body">
-                <span class="badge">{project.label}</span>
-                <h3>{project.name}</h3>
-                <p class="work-role">{project.role}</p>
-                <p class="work-summary">{project.summary}</p>
-                <p class="work-impact">{project.impact}</p>
-                <div class="chip-row">
-                  {project.stack.map((item) => (
-                    <span class="chip">{item}</span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="shell about-shell">
-        <div class="about-intro">
-          <p class="kicker reveal">About</p>
-          <h2 class="section-title reveal">Built for real shipping pressure.</h2>
-        </div>
-
-        <div class="about-copy reveal">
-          {aboutPoints.map((point) => (
-            <p>{point}</p>
-          ))}
-          <p>
-            Core stack: Vue, React, Next.js, Astro, TypeScript, Laravel, Node, NestJS. Design side:
-            Figma, component systems, white-label theming, interaction details, and enough motion to
-            make a product feel alive without making it feel unserious.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="shell contact-shell">
-        <div class="contact-copy">
-          <p class="kicker reveal">Contact</p>
-          <h2 class="section-title reveal">Call me when the interface is the product.</h2>
-          <p class="section-copy reveal">
-            If you need someone who can think through UX, state, performance, implementation, and
-            delivery in one conversation, that is the lane I am built for.
-          </p>
-        </div>
-
-        <div class="contact-links reveal">
-          <a class="contact-link" href={`mailto:${siteMeta.email}`}>
-            <span>Email</span>
-            <strong>{siteMeta.email}</strong>
-          </a>
-          <a class="contact-link" href={siteMeta.linkedin} target="_blank" rel="noreferrer">
-            <span>LinkedIn</span>
-            <strong>/in/adeloreisaac</strong>
-          </a>
-          <a class="contact-link" href={siteMeta.github} target="_blank" rel="noreferrer">
-            <span>GitHub</span>
-            <strong>@adeloreisaac</strong>
-          </a>
-          <a class="contact-link" href="/isaac-adelore-cv.pdf" target="_blank" rel="noreferrer">
-            <span>CV</span>
-            <strong>Open resume</strong>
-          </a>
-        </div>
-      </div>
-    </section>
+    <Hero />
+    <Work />
+    <About />
+    <Services />
+    <Writing />
+    <Contact />
   </main>
-
-  <Footer />
-</Layout>
-
-<style is:global>
-.hero {
-  min-height: 100vh;
-  display: grid;
-  align-items: end;
-  padding: 8.5rem 0 3rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-shell {
-  display: grid;
-  gap: 1.35rem;
-}
-
-.hero-eyebrow {
-  max-width: 100%;
-}
-
-.hero-title {
-  max-width: 14ch;
-  font-size: 5.65rem;
-  line-height: 0.98;
-}
-
-.hero-lede {
-  max-width: 46rem;
-  color: var(--muted-strong);
-  font-size: 1.08rem;
-  line-height: 1.82;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-  margin-top: 0.25rem;
-}
-
-.hero-signals {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-}
-
-.hero-signal {
-  display: grid;
-  align-content: start;
-  gap: 0.5rem;
-  min-height: 7.25rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.hero-signal strong {
-  display: block;
-  color: var(--accent);
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
-.hero-signal span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.62;
-}
-
-.hero-stack {
-  display: flex;
-  gap: 0.55rem;
-  flex-wrap: wrap;
-  padding-top: 0.3rem;
-}
-
-.hero-stack span {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid rgba(10, 228, 72, 0.22);
-  border-radius: 999px;
-  color: var(--muted-strong);
-  font: 500 0.78rem/1 var(--font-mono);
-}
-
-.brands-band {
-  padding: 5rem 0 5.5rem;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-}
-
-.brands-heading {
-  display: grid;
-  gap: 0.85rem;
-  margin-bottom: 1.4rem;
-}
-
-.brands-title {
-  max-width: 18ch;
-  font-size: 2.9rem;
-  line-height: 1.04;
-}
-
-.brand-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.85rem;
-  min-height: 11rem;
-  padding-top: 1.25rem;
-}
-
-.brand-logo-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  min-width: 14.5rem;
-  padding: 0.95rem 1.1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.035);
-  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.16);
-  white-space: nowrap;
-  transition:
-    border-color 180ms ease,
-    transform 180ms ease;
-}
-
-.brand-logo-card:nth-child(2n) {
-  transform: translateY(1.35rem);
-}
-
-.brand-logo-card:nth-child(3n) {
-  transform: translateY(-0.75rem);
-}
-
-.brand-logo-card:hover {
-  border-color: rgba(10, 228, 72, 0.38);
-  transform: translateY(-0.35rem);
-}
-
-.brand-logo-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-sm);
-  background: var(--accent);
-  color: #0b0f0c;
-  font: 800 0.82rem/1 var(--font-heading);
-}
-
-.brand-logo-name {
-  color: rgba(237, 242, 234, 0.82);
-  font: 600 1.05rem/1 var(--font-heading);
-}
-
-.capability-section {
-  border-bottom: 1px solid var(--line);
-}
-
-.cap-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.cap-card {
-  display: grid;
-  align-content: start;
-  gap: 1rem;
-  min-height: 24rem;
-  padding: 1.15rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.cap-number {
-  color: var(--accent);
-  font: 500 0.78rem/1 var(--font-mono);
-}
-
-.cap-card h3 {
-  font-size: 1.45rem;
-  line-height: 1.08;
-}
-
-.cap-card p,
-.work-summary,
-.work-impact,
-.about-copy p,
-.contact-link,
-.stand-for-item p,
-.section-copy {
-  color: var(--muted);
-  line-height: 1.78;
-}
-
-.stand-for-section {
-  padding: 3.25rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.stand-for-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-.stand-for-head {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.stand-for-title {
-  max-width: 18ch;
-  font-size: 2rem;
-  line-height: 1.1;
-}
-
-.stand-for-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.stand-for-item {
-  display: grid;
-  gap: 0.6rem;
-  padding: 1rem;
-  border-left: 1px solid var(--line);
-}
-
-.stand-for-item span {
-  color: var(--accent);
-  font: 500 0.72rem/1 var(--font-mono);
-}
-
-.stand-for-item h3 {
-  font-size: 1.15rem;
-}
-
-.work-section {
-  position: relative;
-  padding: 6rem 0 0;
-  overflow: hidden;
-  border-bottom: 1px solid var(--line);
-}
-
-.work-intro {
-  margin-bottom: 2.25rem;
-}
-
-.work-pin {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.work-track {
-  display: flex;
-  align-items: stretch;
-  gap: 1rem;
-  padding: 0 1.25rem;
-  will-change: transform;
-}
-
-.work-panel {
-  position: relative;
-  flex: 0 0 33rem;
-  min-height: 39rem;
-  display: grid;
-  grid-template-rows: auto 13.5rem 1fr;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: #101514;
-  overflow: hidden;
-}
-
-.work-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 42px 42px;
-  pointer-events: none;
-}
-
-.work-panel-top,
-.work-panel-body,
-.work-panel-visual {
-  position: relative;
-  z-index: 1;
-}
-
-.work-panel-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted-strong);
-  font: 500 0.72rem/1.3 var(--font-mono);
-  text-transform: uppercase;
-}
-
-.work-panel-visual {
-  display: grid;
-  grid-template-columns: 1fr 0.45fr;
-  gap: 0.8rem;
-}
-
-.visual-window,
-.visual-rail {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.visual-window {
-  display: grid;
-  gap: 0.7rem;
-  align-content: end;
-  padding: 1rem;
-}
-
-.visual-window span {
-  display: block;
-  height: 0.7rem;
-  border-radius: 999px;
-  background: rgba(10, 228, 72, 0.72);
-}
-
-.visual-window span:nth-child(2) {
-  width: 74%;
-  background: rgba(255, 255, 255, 0.28);
-}
-
-.visual-window span:nth-child(3) {
-  width: 52%;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.visual-rail {
-  display: grid;
-  gap: 0.55rem;
-  padding: 0.8rem;
-}
-
-.visual-rail span {
-  display: block;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.work-panel-body {
-  display: grid;
-  align-content: start;
-  gap: 0.85rem;
-}
-
-.work-panel h3 {
-  font-size: 2.35rem;
-  line-height: 1.02;
-}
-
-.work-role {
-  color: var(--accent);
-  font: 500 0.76rem/1.45 var(--font-mono);
-  text-transform: uppercase;
-}
-
-.work-impact {
-  color: var(--muted-strong);
-}
-
-.work-panel-sportsbook {
-  background: #111713;
-}
-
-.work-panel-venmail {
-  background: #0f1720;
-}
-
-.work-panel-talstrike {
-  background: #f0e8da;
-  color: #15120e;
-}
-
-.work-panel-talstrike .badge,
-.work-panel-talstrike .chip {
-  border-color: rgba(21, 18, 14, 0.16);
-  background: rgba(21, 18, 14, 0.05);
-  color: rgba(21, 18, 14, 0.72);
-}
-
-.work-panel-talstrike .work-role,
-.work-panel-talstrike .work-impact,
-.work-panel-talstrike .work-panel-top {
-  color: rgba(21, 18, 14, 0.78);
-}
-
-.work-panel-talstrike .work-summary {
-  color: rgba(21, 18, 14, 0.62);
-}
-
-.work-panel-talstrike::before {
-  background-image:
-    linear-gradient(rgba(21, 18, 14, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21, 18, 14, 0.08) 1px, transparent 1px);
-}
-
-.work-panel-talstrike .visual-window,
-.work-panel-talstrike .visual-rail {
-  border-color: rgba(21, 18, 14, 0.14);
-  background: rgba(21, 18, 14, 0.05);
-}
-
-.work-panel-talstrike .visual-window span:first-child {
-  background: #15120e;
-}
-
-.work-panel-feedx {
-  background: #10180f;
-}
-
-.work-panel-pressone {
-  background: #101627;
-}
-
-.about-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
-  gap: 3rem;
-  align-items: start;
-}
-
-.about-intro {
-  display: grid;
-  gap: 1rem;
-}
-
-.about-copy {
-  display: grid;
-  gap: 1.2rem;
-  max-width: 48rem;
-  color: var(--muted);
-  font-size: 1.04rem;
-}
-
-.contact-section {
-  padding-bottom: 7rem;
-}
-
-.contact-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr);
-  gap: 2rem;
-  align-items: start;
-  padding-top: 3rem;
-  border-top: 1px solid var(--line);
-}
-
-.contact-copy {
-  display: grid;
-  gap: 1rem;
-}
-
-.contact-links {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.contact-link {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.contact-link:hover {
-  color: var(--text);
-  transform: translateX(4px);
-}
-
-.contact-link span {
-  color: var(--muted);
-  font: 500 0.72rem/1 var(--font-mono);
-  text-transform: uppercase;
-}
-
-.contact-link strong {
-  font-family: var(--font-heading);
-  font-size: 1.08rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .status-dot {
-    animation: none;
-  }
-}
-
-@media (max-width: 1120px) {
-  .hero-title {
-    font-size: 4.8rem;
-  }
-
-  .cap-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 920px) {
-  .hero {
-    min-height: auto;
-    padding-top: 7.5rem;
-  }
-
-  .hero-signals,
-  .about-shell,
-  .contact-shell,
-  .stand-for-shell,
-  .stand-for-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-shell,
-  .contact-shell,
-  .stand-for-shell {
-    gap: 1.75rem;
-  }
-
-  .work-panel {
-    flex-basis: 29rem;
-  }
-}
-
-@media (max-width: 720px) {
-  .hero {
-    padding: 7rem 0 2.5rem;
-  }
-
-  .hero-title {
-    max-width: 12ch;
-    font-size: 3.15rem;
-    line-height: 1.02;
-  }
-
-  .hero-lede {
-    font-size: 1rem;
-  }
-
-  .hero-signal {
-    min-height: auto;
-  }
-
-  .brand-cloud {
-    min-height: auto;
-    padding-top: 0.5rem;
-  }
-
-  .brand-logo-card,
-  .brand-logo-card:nth-child(2n),
-  .brand-logo-card:nth-child(3n),
-  .brand-logo-card:hover {
-    transform: none;
-  }
-
-  .brand-logo-card {
-    min-width: 100%;
-  }
-
-  .brands-title {
-    font-size: 2.2rem;
-  }
-
-  .cap-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cap-card {
-    min-height: auto;
-  }
-
-  .work-section {
-    padding-top: 5rem;
-  }
-
-  .work-track {
-    padding: 0 0.65rem;
-  }
-
-  .work-panel {
-    flex-basis: 22rem;
-    min-height: 40rem;
-    grid-template-rows: auto 10.5rem 1fr;
-  }
-
-  .work-panel h3 {
-    font-size: 1.9rem;
-  }
-}
-</style>
+</Base>
 
 <script>
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { SplitText } from 'gsap/SplitText';
 
-gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const nav = document.getElementById('site-nav');
-const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-const sections = Array.from(document.querySelectorAll('main section[id]'));
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('nav');
+  const navProgress = document.querySelector('.nav-progress');
+  const navProgressIndicator = document.getElementById('nav-progress-indicator');
 
-const setActiveLink = (id: string) => {
-  navLinks.forEach((link) => {
-    const isActive = link.getAttribute('href') === `#${id}`;
-    link.classList.toggle('is-active', isActive);
-  });
-};
+  const syncNav = () => {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
 
-const syncNavState = () => {
-  nav?.classList.toggle('scrolled', window.scrollY > 20);
-};
-
-syncNavState();
-window.addEventListener('scroll', syncNavState, { passive: true });
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (visible?.target instanceof HTMLElement) {
-        setActiveLink(visible.target.id);
-      }
-    },
-    {
-      rootMargin: '-30% 0px -50% 0px',
-      threshold: [0.15, 0.35, 0.6],
+    if (window.scrollY > 24) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
     }
-  );
 
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-}
+    if (navProgress && navProgressIndicator) {
+      navProgressIndicator.style.width = `${progress * 100}%`;
+    }
+  };
 
-if (reduceMotion) {
-  document.querySelectorAll<HTMLElement>('.reveal').forEach((element) => {
-    element.style.opacity = '1';
-    element.style.transform = 'none';
-  });
-} else {
-  gsap
-    .timeline({ delay: 0.1 })
-    .from('#hero-eyebrow', { opacity: 0, y: 16, duration: 0.45, ease: 'power2.out' })
-    .from('#hero-title', { opacity: 0, y: 52, duration: 0.9, ease: 'power4.out' }, '-=0.15')
-    .from('#hero-copy', { opacity: 0, y: 24, duration: 0.65, ease: 'power2.out' }, '-=0.48')
-    .from('#hero-actions', { opacity: 0, y: 18, duration: 0.5, ease: 'power2.out' }, '-=0.42')
-    .from(
-      '#hero-signals .hero-signal',
-      { opacity: 0, y: 28, duration: 0.55, stagger: 0.08, ease: 'back.out(1.3)' },
-      '-=0.3'
-    )
-    .from('#hero-stack span', { opacity: 0, y: 14, duration: 0.35, stagger: 0.045 }, '-=0.25');
+  syncNav();
+  window.addEventListener('scroll', syncNav, { passive: true });
+  window.addEventListener('resize', syncNav);
 
-  gsap.utils.toArray<HTMLElement>('.reveal').forEach((element, index) => {
-    gsap.fromTo(
-      element,
-      { opacity: 0, y: 28 },
-      {
+  if (!prefersReduced) {
+    gsap.set('[data-reveal]', { opacity: 0, y: 24 });
+
+    const intro = gsap.timeline({ delay: 0.1, defaults: { ease: 'power3.out' } });
+
+    intro.to('[data-intro="top"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.1,
+    });
+
+    intro.to('[data-line]', {
+      y: '0%',
+      duration: 1,
+      stagger: 0.08,
+    }, '-=0.45');
+
+    intro.to('[data-intro="body"]', {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.1,
+    }, '-=0.65');
+
+    gsap.utils.toArray('[data-reveal]').forEach((el) => {
+      gsap.to(el, {
         opacity: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.8,
         ease: 'power2.out',
-        delay: (index % 3) * 0.05,
         scrollTrigger: {
-          trigger: element,
-          start: 'top 86%',
+          trigger: el,
+          start: 'top 82%',
           once: true,
-        },
-      }
-    );
-  });
-
-  gsap.from('.brand-logo-card', {
-    opacity: 0,
-    y: 26,
-    duration: 0.58,
-    stagger: 0.08,
-    ease: 'back.out(1.35)',
-    scrollTrigger: {
-      trigger: '#brands',
-      start: 'top 72%',
-      once: true,
-    },
-  });
-
-  const workPin = document.querySelector<HTMLElement>('[data-work-pin]');
-  const workTrack = document.querySelector<HTMLElement>('[data-work-track]');
-
-  if (workPin && workTrack) {
-    const getScrollDistance = () => Math.max(0, workTrack.scrollWidth - window.innerWidth + 48);
-
-    const horizontalTween = gsap.to(workTrack, {
-      x: () => -getScrollDistance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: workPin,
-        start: 'top top',
-        end: () => `+=${getScrollDistance()}`,
-        pin: true,
-        scrub: 0.85,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    gsap.from('[data-work-card]', {
-      opacity: 0,
-      y: 80,
-      rotate: -2,
-      duration: 0.8,
-      stagger: 0.08,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '#work',
-        start: 'top 72%',
-        once: true,
-      },
-    });
-
-    gsap.utils.toArray<HTMLElement>('[data-work-card]').forEach((card) => {
-      gsap.to(card.querySelector('.work-panel-visual'), {
-        y: -24,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          containerAnimation: horizontalTween,
-          start: 'left center',
-          end: 'right center',
-          scrub: true,
         },
       });
     });
+
+    gsap.utils.toArray('[data-row]').forEach((row, index) => {
+      gsap.to(row, {
+        opacity: 1,
+        y: 0,
+        duration: 0.72,
+        ease: 'power2.out',
+        delay: index * 0.04,
+        scrollTrigger: {
+          trigger: row,
+          start: 'top 86%',
+          once: true,
+        },
+      });
+    });
+
+    const portrait = document.querySelector('[data-parallax="portrait"]');
+    if (portrait) {
+      gsap.to(portrait, {
+        yPercent: -10,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+      gsap.to(heroSection, {
+        '--hero-fill': '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+
+    const heroSummary = document.querySelector('[data-summary-text]');
+    if (heroSection && heroSummary) {
+      const summarySplit = SplitText.create(heroSummary, {
+        type: 'words',
+        wordsClass: 'hero-summary-word',
+      });
+
+      gsap.set(summarySplit.words, { color: 'rgba(255,255,255,0.18)' });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: '82% top',
+          scrub: true,
+        },
+      }).to(summarySplit.words, {
+        color: '#f4f3ef',
+        stagger: 1,
+        ease: 'none',
+      }, 0);
+    }
+
+    const workCards = gsap.utils.toArray('[data-work-card]');
+    const workMm = gsap.matchMedia();
+
+    if (workCards.length) {
+      workMm.add('(min-width: 861px)', () => {
+        workCards.forEach((card, index) => {
+          const slot = card.closest('[data-work-slot]');
+          const direction = index % 2 === 0 ? -1 : 1;
+
+          if (!slot) return;
+
+          gsap.fromTo(card, {
+            y: 160,
+            x: direction * 60,
+            rotate: direction * 1.8,
+            scale: 0.92,
+            opacity: 0.14,
+          }, {
+            y: 0,
+            x: 0,
+            rotate: 0,
+            scale: 1,
+            opacity: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: slot,
+              start: 'top 86%',
+              end: 'top 22%',
+              scrub: 0.9,
+            },
+          });
+
+          const nextCard = workCards[index + 1];
+          const nextSlot = nextCard?.closest('[data-work-slot]');
+
+          if (nextSlot) {
+            gsap.to(card, {
+              y: -40,
+              scale: 0.965,
+              opacity: 0.42,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: nextSlot,
+                start: 'top 86%',
+                end: 'top 24%',
+                scrub: 0.9,
+              },
+            });
+          }
+        });
+      });
+
+      workMm.add('(max-width: 860px)', () => {
+        workCards.forEach((card, index) => {
+          gsap.fromTo(card, {
+            opacity: 0,
+            y: 48,
+          }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            delay: index * 0.05,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 86%',
+              once: true,
+            },
+          });
+        });
+      });
+    }
+
+    const servicesSection = document.querySelector('.services');
+    const servicesStage = document.querySelector('.services-stage');
+    const servicesTrack = document.querySelector('[data-services-track]');
+    const servicesViewport = document.querySelector('.services-viewport');
+    const servicesMm = gsap.matchMedia();
+
+    if (servicesSection && servicesStage && servicesTrack && servicesViewport) {
+      servicesMm.add('(min-width: 961px)', () => {
+        const getDistance = () => {
+          return Math.max(0, servicesTrack.scrollWidth - servicesViewport.clientWidth);
+        };
+
+        return gsap.to(servicesTrack, {
+          x: () => -getDistance(),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: servicesSection,
+            start: 'top top',
+            end: () => `+=${getDistance() + window.innerWidth * 0.18}`,
+            scrub: 1,
+            pin: servicesSection,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+      });
+    }
+  } else {
+    gsap.set([
+      '[data-intro="top"]',
+      '[data-intro="body"]',
+      '[data-reveal]',
+      '[data-row]',
+      '[data-line]',
+    ], { opacity: 1, y: 0, clearProps: 'transform' });
   }
-}
 </script>

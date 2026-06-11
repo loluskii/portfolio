@@ -1,0 +1,454 @@
+---
+const projects = [
+  {
+    title: 'Sportsbook Engine',
+    year: '2022 → Now',
+    tags: ['Realtime', 'Vue', 'Architecture'],
+    description:
+      'White-label sportsbook frontend across consumer, operator, and retail surfaces. Real-time odds, bet slip recalculations, theming infrastructure, and multi-brand delivery.',
+    note: 'Live odds, operator tooling, multi-brand delivery',
+    metrics: ['Odds sync', 'Bet slip state', 'Brand theming'],
+    preview: 'sportsbook',
+  },
+  {
+    title: 'Venmail',
+    year: '2024',
+    tags: ['React', 'TypeScript', 'Inertia'],
+    description:
+      'A full frontend overhaul during a rebrand. Messaging, booking, video conferencing, and product UI cleanup inside a large Laravel application.',
+    note: 'Composer flows, threads, scheduling, conferencing',
+    metrics: ['Messaging UI', 'Booking flows', 'Video sessions'],
+    preview: 'venmail',
+  },
+  {
+    title: 'PressOne Africa',
+    year: '2023',
+    tags: ['Vue', 'SIP.js', 'Monitoring'],
+    description:
+      'Browser-based calling flows with availability, call controls, airtime payments, and monitoring instrumentation built for reliability over novelty.',
+    note: 'Calling controls, presence states, support visibility',
+    metrics: ['Call controls', 'Presence state', 'Support visibility'],
+    preview: 'pressone',
+  },
+  {
+    title: 'FeedxNG',
+    year: '2022',
+    tags: ['Marketplace', 'Payments', 'Laravel'],
+    description:
+      'End-to-end product work across design, frontend, backend, and payment integrations for buyer and seller dashboards with role-specific workflows.',
+    note: 'Dashboards, analytics, checkout and credit flows',
+    metrics: ['Role dashboards', 'Credit flows', 'Checkout'],
+    preview: 'feedx',
+  },
+  {
+    title: 'LordwinGames',
+    year: '2020 → 2022',
+    tags: ['Design', 'Frontend', 'Full Stack'],
+    description:
+      'Owned design and engineering across a gaming platform with 100k+ users, plus additional product builds in real estate, short-let, and salon management.',
+    note: 'Game surfaces, admin tooling, multi-product delivery',
+    metrics: ['100k+ users', 'Admin tooling', 'Multi-product'],
+    preview: 'lordwin',
+  },
+];
+---
+
+<section class="work" id="work">
+  <div class="shell work-heading" data-reveal>
+    <div class="work-heading-copy">
+      <span class="section-kicker">Selected Work</span>
+      <h2 class="work-title">
+        Product systems shaped for live state, operational pressure, and delivery speed.
+      </h2>
+    </div>
+  </div>
+
+  <div class="shell work-stack">
+    {projects.map((project, index) => (
+      <div
+        class={`work-card-slot work-card-slot--${index % 2 === 0 ? 'left' : 'right'}`}
+        data-work-slot
+      >
+        <article
+          class={`work-card work-card--${project.preview}`}
+          data-work-card
+          data-cursor-label="Project"
+          data-cursor-tone="accent"
+        >
+          <div class="work-card-grid">
+            <div class="work-card-copy">
+              <div class="work-card-topline">
+                <span class="work-card-index">{String(index + 1).padStart(2, '0')}</span>
+                <span class="work-card-year">{project.year}</span>
+              </div>
+
+              <div class="work-card-main">
+                <h3 class="work-card-title">{project.title}</h3>
+                <div class="work-card-tags">
+                  {project.tags.map((tag) => (
+                    <span class="work-card-tag">{tag}</span>
+                  ))}
+                </div>
+                <p class="work-card-description">{project.description}</p>
+              </div>
+
+              <div class="work-card-metrics">
+                {project.metrics.map((metric) => (
+                  <span class="work-card-metric">{metric}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="work-card-visual">
+              <div class={`preview-frame preview-frame--${project.preview}`}>
+                <div class="preview-topbar">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="preview-layout">
+                  <div class="preview-sidebar"></div>
+                  <div class="preview-main">
+                    <div class="preview-line preview-line--title"></div>
+                    <div class="preview-line"></div>
+                    <div class="preview-grid">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="preview-grid preview-grid--wide">
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="preview-footer-copy">{project.note}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .work {
+    padding: 48px 0 160px;
+  }
+
+  .work-heading {
+    padding-bottom: 48px;
+  }
+
+  .work-heading-copy {
+    display: grid;
+    gap: 20px;
+    max-width: 920px;
+  }
+
+  .section-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .work-title {
+    font-family: var(--font-display);
+    font-size: clamp(46px, 5.2vw, 72px);
+    font-weight: 600;
+    line-height: 1.02;
+    max-width: 15ch;
+  }
+
+  .work-stack {
+    display: grid;
+    gap: 18svh;
+  }
+
+  .work-card-slot {
+    min-height: 100svh;
+    display: flex;
+  }
+
+  .work-card-slot--left {
+    justify-content: flex-start;
+    padding-right: clamp(0px, 10vw, 132px);
+  }
+
+  .work-card-slot--right {
+    justify-content: flex-end;
+    padding-left: clamp(0px, 10vw, 132px);
+  }
+
+  .work-card {
+    position: sticky;
+    top: 108px;
+    width: min(100%, 1040px);
+    min-height: min(74svh, 760px);
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+      rgba(20, 21, 21, 0.92);
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+    will-change: transform, opacity;
+  }
+
+  .work-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 36%),
+      linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.18));
+    pointer-events: none;
+  }
+
+  .work-card-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    gap: clamp(36px, 5vw, 72px);
+    min-height: inherit;
+    padding: clamp(30px, 4vw, 42px);
+  }
+
+  .work-card-copy {
+    display: grid;
+    align-content: space-between;
+    gap: 36px;
+  }
+
+  .work-card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .work-card-index {
+    color: rgba(244, 243, 239, 0.58);
+  }
+
+  .work-card-main {
+    display: grid;
+    gap: 22px;
+  }
+
+  .work-card-title {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 4.6vw, 68px);
+    font-weight: 600;
+    line-height: 0.98;
+    max-width: 9ch;
+  }
+
+  .work-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .work-card-tag,
+  .work-card-metric {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .work-card-description {
+    max-width: 34rem;
+    font-size: 18px;
+    color: rgba(244, 243, 239, 0.84);
+    line-height: 1.7;
+  }
+
+  .work-card-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .work-card-visual {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+
+  .preview-frame {
+    width: 100%;
+    min-height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  }
+
+  .preview-topbar {
+    display: flex;
+    gap: 6px;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .preview-topbar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .preview-layout {
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    height: calc(100% - 33px);
+    min-height: 420px;
+  }
+
+  .preview-sidebar {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .preview-main {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .preview-line {
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .preview-line--title {
+    width: 72%;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .preview-grid--wide {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .preview-grid div {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .preview-grid--wide div {
+    aspect-ratio: 1.48;
+  }
+
+  .preview-footer-copy {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.48);
+    line-height: 1.45;
+  }
+
+  .preview-frame--sportsbook {
+    background: linear-gradient(180deg, rgba(157, 213, 168, 0.2), rgba(255, 255, 255, 0.02));
+  }
+
+  .preview-frame--venmail {
+    background: linear-gradient(180deg, rgba(220, 202, 170, 0.18), rgba(255, 255, 255, 0.02));
+  }
+
+  .preview-frame--pressone {
+    background: linear-gradient(180deg, rgba(178, 196, 232, 0.18), rgba(255, 255, 255, 0.02));
+  }
+
+  .preview-frame--feedx {
+    background: linear-gradient(180deg, rgba(238, 210, 145, 0.16), rgba(255, 255, 255, 0.02));
+  }
+
+  .preview-frame--lordwin {
+    background: linear-gradient(180deg, rgba(217, 164, 189, 0.16), rgba(255, 255, 255, 0.02));
+  }
+
+  @media (max-width: 1080px) {
+    .work-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .work-card-title {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .work {
+      padding: 24px 0 112px;
+    }
+
+    .work-stack {
+      gap: 56px;
+    }
+
+    .work-card-slot {
+      min-height: auto;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .work-card {
+      position: relative;
+      top: 0;
+      min-height: auto;
+    }
+
+    .work-title {
+      font-size: 38px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .work-heading {
+      padding-bottom: 32px;
+    }
+
+    .work-card-grid {
+      gap: 24px;
+      padding: 22px;
+    }
+
+    .work-card-title {
+      font-size: 32px;
+    }
+
+    .work-card-description {
+      font-size: 16px;
+    }
+
+    .preview-layout {
+      grid-template-columns: 58px 1fr;
+      min-height: 280px;
+    }
+  }
+</style>

@@ -1,0 +1,181 @@
+---
+---
+
+<div class="cursor" id="cursor" aria-hidden="true" data-tone="default">
+  <div class="cursor-ring"></div>
+  <div class="cursor-label" id="cursor-label"></div>
+</div>
+
+<style>
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .cursor.is-visible {
+    opacity: 1;
+  }
+
+  .cursor-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    background: rgba(244, 243, 239, 0.92);
+    box-shadow: 0 0 0 10px rgba(244, 243, 239, 0.08);
+    transform: translate(-50%, -50%) scale(1);
+    transition:
+      transform 0.24s ease,
+      background 0.24s ease,
+      box-shadow 0.24s ease;
+  }
+
+  .cursor-label {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(244, 243, 239, 0.14);
+    background: rgba(18, 19, 19, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    color: var(--text-primary);
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(6px) scale(0.92);
+    transform-origin: top left;
+    transition:
+      opacity 0.2s ease,
+      transform 0.24s ease,
+      background 0.24s ease,
+      border-color 0.24s ease,
+      color 0.24s ease;
+  }
+
+  .cursor.is-active .cursor-ring {
+    transform: translate(-50%, -50%) scale(0.62);
+    box-shadow: 0 0 0 16px rgba(244, 243, 239, 0.08);
+  }
+
+  .cursor.is-active .cursor-label {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .cursor.is-pressed .cursor-ring {
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+
+  .cursor[data-tone='accent'] .cursor-ring {
+    background: var(--accent);
+    box-shadow: 0 0 0 10px rgba(159, 213, 169, 0.14);
+  }
+
+  .cursor[data-tone='accent'].is-active .cursor-ring {
+    box-shadow: 0 0 0 16px rgba(159, 213, 169, 0.14);
+  }
+
+  .cursor[data-tone='accent'] .cursor-label {
+    background: rgba(159, 213, 169, 0.12);
+    border-color: rgba(159, 213, 169, 0.22);
+    color: var(--accent-strong);
+  }
+
+  .cursor[data-tone='soft'] .cursor-label {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+    .cursor {
+      display: none;
+    }
+  }
+
+  :global(body.cursor-enabled),
+  :global(body.cursor-enabled *),
+  :global(body.cursor-enabled a),
+  :global(body.cursor-enabled button) {
+    cursor: none !important;
+  }
+</style>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const label = document.getElementById('cursor-label');
+  const supportsCustomCursor =
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (cursor && label && supportsCustomCursor) {
+    document.body.classList.add('cursor-enabled');
+
+    let currentX = window.innerWidth / 2;
+    let currentY = window.innerHeight / 2;
+    let targetX = currentX;
+    let targetY = currentY;
+    let rafId = 0;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.16;
+      currentY += (targetY - currentY) * 0.16;
+      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      rafId = window.requestAnimationFrame(render);
+    };
+
+    const setTarget = (element) => {
+      const hovered = element?.closest('[data-cursor-label]');
+      const nextLabel = hovered?.getAttribute('data-cursor-label') ?? '';
+      const nextTone = hovered?.getAttribute('data-cursor-tone') ?? 'default';
+
+      cursor.dataset.tone = nextTone;
+      cursor.classList.toggle('is-active', nextLabel.length > 0);
+      label.textContent = nextLabel;
+    };
+
+    window.addEventListener('mousemove', (event) => {
+      targetX = event.clientX;
+      targetY = event.clientY;
+
+      if (!cursor.classList.contains('is-visible')) {
+        cursor.classList.add('is-visible');
+      }
+
+      setTarget(event.target);
+    });
+
+    window.addEventListener('mousedown', () => {
+      cursor.classList.add('is-pressed');
+    });
+
+    window.addEventListener('mouseup', () => {
+      cursor.classList.remove('is-pressed');
+    });
+
+    window.addEventListener('mouseleave', () => {
+      cursor.classList.remove('is-visible', 'is-active', 'is-pressed');
+    });
+
+    window.addEventListener('blur', () => {
+      cursor.classList.remove('is-visible', 'is-active', 'is-pressed');
+    });
+
+    rafId = window.requestAnimationFrame(render);
+
+    window.addEventListener('beforeunload', () => {
+      window.cancelAnimationFrame(rafId);
+    });
+  }
+</script>

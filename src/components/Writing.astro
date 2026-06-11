@@ -1,0 +1,251 @@
+---
+const substackUrl = 'https://substack.com/@your-substack-handle';
+
+const posts = [
+  {
+    title: 'The Final Exhale',
+    date: '2025',
+    description:
+      'A personal essay on endings, letting go, and what it means to close a chapter with intention.',
+    href: substackUrl,
+  },
+  {
+    title: 'What Does Success Really Mean?',
+    date: '2025',
+    description:
+      'Unpacking the versions of success we inherit versus the ones we actually want to keep.',
+    href: substackUrl,
+  },
+  {
+    title: 'On Building Things That Matter',
+    date: '2024',
+    description:
+      'Notes on quality, shipping, and the kind of work that stays useful after the release noise fades.',
+    href: substackUrl,
+  },
+];
+---
+
+<section class="writing" id="writing">
+  <div class="shell writing-shell">
+    <div class="writing-header" data-reveal>
+      <div class="writing-header-row">
+        <h2 class="writing-heading">
+          <span class="writing-heading-primary">Writeups</span>
+          <span class="writing-heading-secondary">& Notes</span>
+        </h2>
+        <span class="writing-heading-line"></span>
+      </div>
+      <a
+        href={substackUrl}
+        class="writing-link"
+        target="_blank"
+        rel="noreferrer"
+        data-cursor-label="Open"
+        data-cursor-tone="soft"
+      >
+        Substack ↗
+      </a>
+    </div>
+
+    <div class="writing-grid">
+      {posts.map((post, index) => (
+        <a
+          href={post.href}
+          class="writing-card"
+          target="_blank"
+          rel="noreferrer"
+          data-row
+          data-cursor-label="Read"
+          data-cursor-tone="soft"
+        >
+          <div class="writing-card-top">
+            <span class="writing-card-index">{String(index + 1).padStart(2, '0')}</span>
+            <span class="writing-card-source">Substack</span>
+          </div>
+          <div class="writing-card-body">
+            <h3 class="writing-card-title">{post.title}</h3>
+            <p class="writing-card-date">{post.date}</p>
+            <p class="writing-card-description">{post.description}</p>
+          </div>
+          <span class="writing-card-cta">Open in Substack ↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .writing {
+    padding: 120px 0 0;
+  }
+
+  .writing-shell {
+    display: grid;
+    gap: 40px;
+  }
+
+  .writing-header {
+    display: grid;
+    gap: 22px;
+  }
+
+  .writing-header-row {
+    display: grid;
+    grid-template-columns: auto minmax(120px, 1fr);
+    align-items: center;
+    gap: 64px;
+    border-top: 1px solid var(--line);
+    padding-top: 38px;
+  }
+
+  .writing-heading {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 5.6vw, 80px);
+    font-weight: 600;
+    line-height: 0.94;
+  }
+
+  .writing-heading-primary {
+    color: var(--text-primary);
+  }
+
+  .writing-heading-secondary {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .writing-heading-line {
+    height: 1px;
+    background: var(--line);
+  }
+
+  .writing-link {
+    justify-self: start;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .writing-link:hover,
+  .writing-link:focus-visible {
+    color: var(--text-primary);
+  }
+
+  .writing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .writing-card {
+    min-height: 360px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 24px;
+    padding: 28px 28px 30px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+    opacity: 0;
+    transform: translateY(28px);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .writing-card:last-child {
+    border-right: 0;
+  }
+
+  .writing-card:hover,
+  .writing-card:focus-visible {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .writing-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .writing-card-body {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+  }
+
+  .writing-card-title {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.04;
+  }
+
+  .writing-card-date {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .writing-card-description {
+    max-width: 25ch;
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .writing-card-cta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .writing-card:hover .writing-card-cta,
+  .writing-card:focus-visible .writing-card-cta {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 960px) {
+    .writing {
+      padding-top: 96px;
+    }
+
+    .writing-header-row {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .writing-heading {
+      font-size: 52px;
+    }
+
+    .writing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .writing-card {
+      min-height: auto;
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .writing-heading {
+      font-size: 38px;
+    }
+
+    .writing-card {
+      padding: 20px 18px 22px;
+    }
+
+    .writing-card-title {
+      font-size: 28px;
+    }
+  }
+</style>
