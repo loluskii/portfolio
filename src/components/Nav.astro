@@ -3,18 +3,16 @@
 
 <nav class="nav" id="nav">
   <div class="nav-inner shell">
-    <a href="#hero" class="nav-brand" aria-label="Go to top of page" data-cursor-label="Top" data-cursor-tone="soft">
+    <a href="#hero" class="nav-brand" aria-label="Go to top of page">
       <span class="nav-name">Isaac Adelore</span>
+      <span class="nav-role">Frontend-first product engineer</span>
     </a>
-    <div class="nav-progress" aria-hidden="true">
-      <span class="nav-progress-track"></span>
-      <span class="nav-progress-indicator" id="nav-progress-indicator"></span>
-    </div>
     <div class="nav-links">
-      <a href="#work" class="nav-link" data-cursor-label="Jump" data-cursor-tone="soft">Work</a>
-      <a href="#about" class="nav-link" data-cursor-label="Jump" data-cursor-tone="soft">About</a>
-      <a href="#writing" class="nav-link" data-cursor-label="Jump" data-cursor-tone="soft">Writing</a>
-      <a href="#contact" class="nav-link" data-cursor-label="Jump" data-cursor-tone="soft">Contact</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#proof" class="nav-link">Proof</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="/cv.pdf" class="nav-cta" target="_blank" rel="noreferrer">Resume</a>
     </div>
   </div>
 </nav>
@@ -24,74 +22,63 @@
     position: fixed;
     inset: 0 0 auto;
     z-index: 100;
-    padding: 22px 0;
+    padding: 18px 0;
     transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
   }
 
   .nav.scrolled {
-    background: rgba(11, 12, 12, 0.84);
+    background: rgba(10, 13, 18, 0.82);
     border-bottom: 1px solid var(--line);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 54px;
+    gap: 32px;
   }
 
   .nav-brand {
-    display: inline-flex;
+    display: grid;
+    gap: 4px;
     min-width: 0;
   }
 
   .nav-name {
     font-family: var(--font-display);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
   }
 
-  .nav-progress {
-    position: relative;
-    flex: 1 1 auto;
-    height: 1px;
-    min-width: 240px;
-  }
-
-  .nav-progress-track,
-  .nav-progress-indicator {
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-  }
-
-  .nav-progress-track {
-    background: var(--line);
-  }
-
-  .nav-progress-indicator {
-    inset: 0 auto 0 0;
-    width: 0%;
-    background: rgba(244, 243, 239, 0.86);
-    box-shadow: 0 0 14px rgba(244, 243, 239, 0.16);
-    will-change: width;
+  .nav-role {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .nav-link {
-    font-family: var(--font-body);
-    font-size: 15px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     color: var(--text-secondary);
     transition: color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .nav-link:hover,
@@ -99,34 +86,52 @@
     color: var(--text-primary);
   }
 
+  .nav-cta {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    border: 1px solid rgba(214, 165, 111, 0.34);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(214, 165, 111, 0.08);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-cta:hover,
+  .nav-cta:focus-visible {
+    border-color: rgba(214, 165, 111, 0.58);
+    background: rgba(214, 165, 111, 0.14);
+  }
+
   @media (max-width: 720px) {
     .nav {
       padding: 14px 0;
     }
 
-    .nav-progress {
-      display: none;
-    }
-
     .nav-links {
-      gap: 16px;
+      gap: 12px;
     }
 
     .nav-link {
-      font-size: 13px;
+      font-size: 11px;
     }
   }
 
   @media (max-width: 520px) {
     .nav-inner {
       align-items: flex-start;
+      flex-direction: column;
     }
 
     .nav-links {
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      row-gap: 8px;
-      max-width: 220px;
+      justify-content: flex-start;
+      row-gap: 10px;
+      max-width: none;
     }
   }
 </style>

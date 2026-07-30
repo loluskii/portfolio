@@ -1,145 +1,192 @@
+<section class="about section" id="about">
+  <div class="shell">
+    <div class="section-header">
+      <span class="eyebrow">About</span>
+      <h2 class="section-title">Frontend depth first. Full-stack when the product needs it.</h2>
+      <p class="section-copy">
+        The fastest way to understand me is this: my strongest edge is frontend architecture,
+        design-to-code fidelity, and product clarity under heavy system state. I also ship backend
+        integrations, payments, and infrastructure work when owning the whole delivery path is the
+        right move.
+      </p>
+    </div>
 
-<section class="about" id="about">
-  <div class="shell about-inner">
     <div class="about-grid">
-      <div class="about-left" data-reveal>
-        <span class="section-kicker">About</span>
-        <h2 class="about-title">
-          Designing impactful user interfaces for the past 6 years.
-        </h2>
-        <div class="about-links">
-          <a href="/cv.pdf" target="_blank" rel="noreferrer" class="about-link" data-cursor-label="Open" data-cursor-tone="soft">Download CV ↗</a>
-          <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer" class="about-link" data-cursor-label="Open" data-cursor-tone="soft">Connect on LinkedIn ↗</a>
+      <article class="about-panel card-surface">
+        <p class="about-panel-label">What I optimize for</p>
+        <ul class="about-list">
+          <li>Interfaces that stay readable under live updates, business rules, and operational pressure.</li>
+          <li>Component systems and conventions that reduce team drift over time.</li>
+          <li>Design fidelity without breaking delivery speed or maintainability.</li>
+          <li>Product ownership that covers architecture, implementation, and handoff quality.</li>
+        </ul>
+      </article>
+
+      <article class="about-panel card-surface">
+        <p class="about-panel-label">Where I have done it</p>
+        <ul class="about-list">
+          <li>White-label sportsbook and casino products across web, mobile, retail, and admin tools.</li>
+          <li>Communication and operations products with calling, booking, and conferencing flows.</li>
+          <li>Transactional systems covering payments, wallets, dashboards, and reporting.</li>
+          <li>Marketplace and gaming products where frontend and full-stack ownership overlapped.</li>
+        </ul>
+      </article>
+
+      <article class="about-panel about-panel--wide card-surface">
+        <p class="about-panel-label">Career line</p>
+        <div class="timeline">
+          <div class="timeline-row">
+            <span class="timeline-year">2022 - Present</span>
+            <div>
+              <strong>Sportsbook Engine</strong>
+              <p>Channels & Experience Lead / Senior Frontend Engineer</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year">2024 - 2025</span>
+            <div>
+              <strong>Venmail</strong>
+              <p>Senior Software Engineer</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year">2024</span>
+            <div>
+              <strong>Talstrike</strong>
+              <p>Contract Senior Frontend Engineer</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year">2023</span>
+            <div>
+              <strong>PressOne Africa</strong>
+              <p>Web Engineer</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year">2022 - 2023</span>
+            <div>
+              <strong>FeedxNG</strong>
+              <p>Fullstack Engineer</p>
+            </div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year">2020 - 2022</span>
+            <div>
+              <strong>LordwinGames Play</strong>
+              <p>Frontend Engineer and UI/UX Designer</p>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="about-right" data-reveal>
-        <p class="about-copy">
-          I thrive where product strategy meets engineering reality. Anyone can design a perfect mockup, but my best work lives in the messy gap between intent and execution. I specialize in building calm, predictable user interfaces that shield users from backend chaos, shifting business rules, and technical constraints.
-        </p>
-
-        <p class="about-copy">
-          Whether navigating real-time data in gaming, rigid legal workflows in compliance, or heavy transaction states in fintech, I design for how systems actually behave under the hood. I treat engineering limitations not as roadblocks, but as the boundaries that define great design. By collaborating closely with development teams, I ensure that the final, shipped product maintains its visual and functional integrity, transforming complex backend data into intuitive, high-performance digital experiences.
-        </p>
-      </div>
+        <div class="about-links">
+          <a href="/cv.pdf" target="_blank" rel="noreferrer" class="about-link">Download CV</a>
+          <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer" class="about-link">LinkedIn</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 <style>
   .about {
-    padding: 120px 0 140px;
+    padding-top: 0;
   }
 
   .about-grid {
     display: grid;
-    grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
-    gap: 64px;
-    align-items: start;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
   }
 
-  .about-left {
-    display: grid;
-    gap: 24px;
+  .about-panel {
+    padding: 24px;
+    border-radius: 24px;
   }
 
-  .section-kicker {
+  .about-panel--wide {
+    grid-column: 1 / -1;
+  }
+
+  .about-panel-label {
+    margin-bottom: 18px;
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .about-title {
-    font-family: var(--font-display);
-    font-size: 58px;
-    font-weight: 600;
-    line-height: 1.08;
+  .about-list {
+    display: grid;
+    gap: 14px;
+    padding-left: 18px;
+    color: var(--text-secondary);
+  }
+
+  .about-list li::marker {
+    color: var(--accent);
+  }
+
+  .timeline {
+    display: grid;
+    gap: 16px;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+
+  .timeline-row strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+  }
+
+  .timeline-row p,
+  .timeline-year {
+    color: var(--text-secondary);
+  }
+
+  .timeline-year {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .about-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
-    padding-top: 24px;
+    gap: 14px;
+    margin-top: 24px;
   }
 
   .about-link {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-secondary);
-    transition: color 0.2s ease;
-  }
-
-  .about-link:hover,
-  .about-link:focus-visible {
-    color: var(--text-primary);
-  }
-
-  .about-right {
-    display: grid;
-    gap: 28px;
-  }
-
-  .about-copy {
-    font-size: 18px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 620px;
-  }
-
-  .experience-list {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--line);
-  }
-
-  .experience-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
-    gap: 18px;
+    min-height: 38px;
+    display: inline-flex;
     align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 14px;
-  }
-
-  .experience-company {
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .experience-role {
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 11px;
     color: var(--text-secondary);
-  }
-
-  .experience-year {
-    color: var(--text-muted);
-    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(255, 255, 255, 0.02);
   }
 
   @media (max-width: 960px) {
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 48px;
     }
 
-    .about-title {
-      font-size: 46px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .about {
-      padding: 88px 0 104px;
-    }
-
-    .about-title {
-      font-size: 36px;
-    }
-
-    .experience-row {
+    .timeline-row {
       grid-template-columns: 1fr;
-      gap: 6px;
     }
   }
 </style>

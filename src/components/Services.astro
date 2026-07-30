@@ -1,300 +1,195 @@
 ---
-const services = [
+const proofItems = [
   {
-    number: '01',
-    label: 'Audit',
-    timeline: '1 → 2w',
-    title: 'Product Rescue',
+    title: 'BetPanta Mobile',
+    label: 'Public repo',
+    stack: 'Next.js 16 / React 19 / Zustand / TanStack Query',
+    href: 'https://github.com/loluskii/betpanta-mobile',
     description:
-      'I trace the real usability, interaction, and implementation failures in a shipped interface and turn them into a practical correction plan.',
+      'The clearest public frontend proof today. Mobile sportsbook product with routed home, live, sports, account, and my-bets flows plus visible betslip and realtime state infrastructure.',
+    details: [
+      'Shows frontend systems thinking around product shells, state, and reusable flows.',
+      'Good source for future visual captures because real screens already exist in the app structure.',
+    ],
   },
   {
-    number: '02',
-    label: 'Build',
-    timeline: '2 → 6w',
-    title: 'Frontend Delivery',
+    title: '9jaDice',
+    label: 'Public repo',
+    stack: 'Nuxt / Vue / gaming UI',
+    href: 'https://github.com/loluskii/9jadicev2',
     description:
-      'Feature builds, major rewrites, and product surfaces that need strong execution in React, Vue, Next.js, or Astro without hand-holding.',
+      'A larger gaming-oriented codebase with visible product surfaces, promotional screens, auth flows, and multiple game content pages. Useful as proof of frontend product range.',
+    details: [
+      'Strong visual candidate for screenshots because the repo already includes product imagery and route surfaces.',
+      'Supports the gaming and high-traffic product story from earlier work.',
+    ],
   },
   {
-    number: '03',
-    label: 'Systems',
-    timeline: '2 → 4w',
-    title: 'Design Systems',
+    title: 'Next Backoffice',
+    label: 'Public repo',
+    stack: 'Next.js / admin workflows / operational UI',
+    href: 'https://github.com/loluskii/next-backoffice',
     description:
-      'Component architecture, theming, reusable patterns, and the glue that keeps a product from drifting every time delivery pressure rises.',
+      'Admin and backoffice proof covering dashboard, wallet, tickets, and settings surfaces. Less glamorous than consumer UI, but useful evidence of multi-role product work.',
+    details: [
+      'Supports the internal tooling and operator-side story from commercial work.',
+      'A good source for screenshots showing data-heavy UI rather than marketing pages.',
+    ],
   },
   {
-    number: '04',
-    label: 'Realtime',
-    timeline: '1 → 4w',
-    title: 'Complex Interfaces',
+    title: 'FeedxNG',
+    label: 'Public repo',
+    stack: 'Nuxt / Laravel product story',
+    href: 'https://github.com/loluskii/feedxng',
     description:
-      'Dashboards, live state, browser calling, multi-role workflows, and UI that stays understandable when the underlying system is not simple.',
-  },
-  {
-    number: '05',
-    label: 'Lead',
-    timeline: 'Ongoing',
-    title: 'Technical Direction',
-    description:
-      'Review quality, tradeoff clarity, mentoring, and delivery structure when a team needs a senior frontend voice that is still close to the code.',
+      'Better as a full-stack ownership case study than as a visual-first public repo, but still useful to back the marketplace and payments story once screenshots are added.',
+    details: [
+      'Supports the end-to-end build story from design through backend and payments.',
+      'Will benefit most from recovered screenshots or archived product visuals.',
+    ],
   },
 ];
 ---
 
-<section class="services" id="services">
-  <div class="shell services-shell">
-    <div class="services-header" data-reveal>
-      <div class="services-header-row">
-        <h2 class="services-heading">
-          <span class="services-heading-primary">Services</span>
-          <span class="services-heading-secondary">and Capabilities</span>
-        </h2>
-        <span class="services-heading-line"></span>
-      </div>
+<section class="services section" id="proof">
+  <div class="shell">
+    <div class="section-header">
+      <span class="eyebrow">Public proof</span>
+      <h2 class="section-title">What I can show in full right now.</h2>
+      <p class="section-copy">
+        These public repositories are the honest proof layer while private product screenshots are
+        being restored. They are here to show real interface systems, real product structure, and
+        real implementation range, not generic demos.
+      </p>
     </div>
-  </div>
-  <div class="services-stage">
-    <div class="services-viewport" data-cursor-label="Scroll" data-cursor-tone="soft">
-      <div class="services-track" data-services-track>
-        {services.map((service, index) => (
-          <article class={`service-card service-card--${index % 3}`}>
-            <div class="service-top">
-              <div class="service-pills">
-                <span>{service.label}</span>
-                <span>{service.timeline}</span>
-              </div>
-              <span class="service-number">{service.number}</span>
-            </div>
 
-            <div class="service-bottom">
-              <h3 class="service-title">{service.title}</h3>
-              <p class="service-description">{service.description}</p>
+    <div class="proof-grid">
+      {proofItems.map((item) => (
+        <article class="proof-card card-surface">
+          <div class="proof-card-top">
+            <div>
+              <p class="proof-label">{item.label}</p>
+              <h3 class="proof-title">{item.title}</h3>
             </div>
-          </article>
-        ))}
-        <div class="services-terminal" aria-hidden="true">
-          <div class="services-terminal-grid"></div>
-        </div>
-      </div>
+            <a href={item.href} class="proof-link" target="_blank" rel="noreferrer">Open repo</a>
+          </div>
+
+          <p class="proof-stack">{item.stack}</p>
+          <p class="proof-description">{item.description}</p>
+
+          <ul class="proof-list">
+            {item.details.map((detail) => (
+              <li>{detail}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <div class="proof-note">
+      <p>
+        Next pass: replace some of these repo-led proof blocks with actual screenshots and route
+        captures once the visual archive is assembled.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
   .services {
-    padding: 56px 0 0;
-    overflow: clip;
+    padding-top: 0;
   }
 
-  .services-shell {
-    padding-bottom: 32px;
-  }
-
-  .services-header-row {
+  .proof-grid {
     display: grid;
-    grid-template-columns: auto minmax(120px, 1fr);
-    align-items: center;
-    gap: 64px;
-    border-top: 1px solid var(--line);
-    padding-top: 38px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
   }
 
-  .services-heading {
-    font-family: var(--font-display);
-    font-size: clamp(64px, 6vw, 84px);
-    font-weight: 600;
-    line-height: 0.94;
+  .proof-card {
+    display: grid;
+    gap: 14px;
+    padding: 24px;
+    border-radius: 24px;
   }
 
-  .services-heading-primary {
-    color: var(--text-primary);
-  }
-
-  .services-heading-secondary {
-    color: rgba(255, 255, 255, 0.42);
-  }
-
-  .services-heading-line {
-    height: 1px;
-    background: var(--line);
-  }
-
-  .services-stage {
-    width: 100%;
-  }
-
-  .services-viewport {
-    width: 100vw;
-    height: min(78vh, 780px);
-    margin-left: calc(50% - 50vw);
-    overflow: hidden;
-  }
-
-  .services-track {
+  .proof-card-top {
     display: flex;
-    width: max-content;
-    height: 100%;
-    gap: 0;
-    will-change: transform;
-  }
-
-  .service-card {
-    position: relative;
-    flex: 0 0 min(46vw, 586px);
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 28px 30px 34px;
-    border-right: 1px solid rgba(255, 255, 255, 0.03);
-    background: rgba(255, 255, 255, 0.045);
-  }
-
-  .service-card--1 {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .service-card--2 {
-    background: rgba(255, 255, 255, 0.065);
-  }
-
-  .service-top {
-    display: flex;
+    align-items: start;
     justify-content: space-between;
     gap: 16px;
   }
 
-  .service-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+  .proof-label {
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .service-pills span {
+  .proof-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  }
+
+  .proof-link {
     min-height: 34px;
     display: inline-flex;
     align-items: center;
-    padding: 0 14px;
+    padding: 0 12px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--line-strong);
     font-family: var(--font-mono);
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.42);
-  }
-
-  .service-number {
-    font-family: var(--font-display);
-    font-size: clamp(110px, 9vw, 138px);
-    line-height: 0.9;
-    color: rgba(255, 255, 255, 0.13);
-  }
-
-  .service-bottom {
-    display: grid;
-    gap: 16px;
-    padding-top: 220px;
-  }
-
-  .service-title {
-    font-family: var(--font-display);
-    font-size: 40px;
-    font-weight: 600;
-    line-height: 1.04;
-  }
-
-  .service-description {
-    font-size: 18px;
+    font-size: 11px;
     color: var(--text-secondary);
-    line-height: 1.58;
-    max-width: 22ch;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .services-terminal {
-    flex: 0 0 240px;
-    min-height: 100%;
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-      rgba(9, 10, 10, 0.76);
-    overflow: hidden;
+  .proof-stack {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .services-terminal-grid {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1.1px, transparent 1.1px);
-    background-size: 18px 18px;
-    background-position: center;
-    opacity: 0.9;
+  .proof-description {
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .proof-list {
+    display: grid;
+    gap: 12px;
+    padding-left: 18px;
+    color: var(--text-secondary);
+  }
+
+  .proof-list li::marker {
+    color: var(--accent);
+  }
+
+  .proof-note {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   @media (max-width: 960px) {
-    .services {
-      padding-top: 28px;
-    }
-
-    .services-viewport {
-      height: auto;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding-bottom: 8px;
-    }
-
-    .services-track {
-      width: max-content;
-      height: auto;
-      padding-inline: 24px;
-      padding-right: 32px;
-    }
-
-    .services-header-row {
+    .proof-grid {
       grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    .services-heading {
-      font-size: 52px;
-    }
-
-    .service-card {
-      flex-basis: 420px;
-      min-height: 520px;
-    }
-
-    .services-terminal {
-      flex-basis: 180px;
-      min-height: 520px;
-    }
-  }
-
-  @media (max-width: 520px) {
-    .service-card {
-      flex-basis: 312px;
-      min-height: 440px;
-      padding: 18px;
-    }
-
-    .services-heading {
-      font-size: 38px;
-    }
-
-    .service-number {
-      font-size: 78px;
-    }
-
-    .service-title {
-      font-size: 26px;
-    }
-
-    .service-description {
-      font-size: 16px;
-    }
-
-    .services-terminal {
-      flex-basis: 120px;
-      min-height: 440px;
     }
   }
 </style>

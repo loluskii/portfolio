@@ -1,31 +1,28 @@
 ---
 const contactLinks = [
-  { label: 'Book a conversation', href: 'mailto:adeloreisaac@gmail.com?subject=Let%27s%20work%20together' },
-  { label: 'Send an email', href: 'mailto:adeloreisaac@gmail.com' },
-  { label: 'Follow on GitHub', href: 'https://github.com/adeloreisaac', external: true },
+  { label: 'Email Isaac', href: 'mailto:adeloreisaac@gmail.com?subject=Portfolio%20Inquiry' },
+  { label: 'Open GitHub', href: 'https://github.com/loluskii', external: true },
+  { label: 'Open LinkedIn', href: 'https://linkedin.com/in/adeloreisaac', external: true },
+  { label: 'Download CV', href: '/cv.pdf', external: true },
 ];
 ---
 
 <section class="contact" id="contact">
   <div class="shell contact-inner">
-    <div class="contact-copy" data-reveal>
-      <span class="contact-kicker">Contact</span>
-      <h2 class="contact-title">
-        Let&apos;s <span>Connect</span>
-      </h2>
+    <div class="contact-copy">
+      <span class="eyebrow">Contact</span>
+      <h2 class="contact-title">If the role needs strong frontend judgment, I should be in the mix.</h2>
       <p class="contact-subtitle">
-        Open to senior frontend roles, contract work, product rescue, and technical conversations
-        where the quality bar actually matters.
+        Open to senior frontend and product engineering roles, contract work, and conversations
+        where interface quality is tied to business risk, speed, or system complexity.
       </p>
     </div>
 
-    <div class="contact-actions" data-reveal>
+    <div class="contact-actions">
       {contactLinks.map((link) => (
         <a
           href={link.href}
           class="contact-action"
-          data-cursor-label={link.external ? 'Open' : 'Send'}
-          data-cursor-tone="soft"
           target={link.external ? '_blank' : undefined}
           rel={link.external ? 'noreferrer' : undefined}
         >
@@ -37,8 +34,8 @@ const contactLinks = [
     <div class="contact-footer">
       <span>Isaac Adelore, {new Date().getFullYear()}</span>
       <div class="contact-footer-links">
-        <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer" data-cursor-label="Open" data-cursor-tone="soft">LinkedIn</a>
-        <a href="mailto:adeloreisaac@gmail.com" data-cursor-label="Send" data-cursor-tone="soft">adeloreisaac@gmail.com</a>
+        <a href="https://linkedin.com/in/adeloreisaac" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="mailto:adeloreisaac@gmail.com">adeloreisaac@gmail.com</a>
       </div>
     </div>
   </div>
@@ -46,61 +43,52 @@ const contactLinks = [
 
 <style>
   .contact {
-    padding: 200px 0 28px;
+    padding: 0 0 32px;
   }
 
   .contact-inner {
     display: grid;
-    gap: 48px;
-    min-height: 80svh;
-    align-content: end;
-  }
-
-  .contact-kicker {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 16px;
+    gap: 34px;
   }
 
   .contact-title {
     font-family: var(--font-display);
-    font-size: 72px;
+    font-size: clamp(34px, 5vw, 56px);
     font-weight: 600;
-    line-height: 0.98;
-  }
-
-  .contact-title span {
-    color: var(--text-secondary);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    max-width: 13ch;
   }
 
   .contact-subtitle {
-    max-width: 420px;
-    margin-top: 28px;
-    font-size: 15px;
+    max-width: 36rem;
+    margin-top: 18px;
+    font-size: 17px;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
   .contact-actions {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     border: 1px solid var(--line);
     background: rgba(255, 255, 255, 0.03);
   }
 
   .contact-action {
-    min-height: 64px;
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 11px;
     color: var(--text-secondary);
     border-right: 1px solid var(--line);
     transition: background 0.2s ease, color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .contact-action:last-child {
@@ -121,6 +109,8 @@ const contactLinks = [
     font-family: var(--font-mono);
     font-size: 11px;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   .contact-footer-links {
@@ -130,25 +120,12 @@ const contactLinks = [
   }
 
   @media (max-width: 960px) {
-    .contact {
-      padding-top: 140px;
-    }
-
-    .contact-title {
-      font-size: 58px;
+    .contact-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 720px) {
-    .contact-inner {
-      gap: 32px;
-      min-height: auto;
-    }
-
-    .contact-title {
-      font-size: 40px;
-    }
-
     .contact-actions {
       grid-template-columns: 1fr;
     }

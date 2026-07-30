@@ -2,122 +2,109 @@
 const projects = [
   {
     title: 'Sportsbook Engine',
-    year: '2022 → Now',
-    tags: ['Realtime', 'Vue', 'Architecture'],
-    description:
-      'White-label sportsbook frontend across consumer, operator, and retail surfaces. Real-time odds, bet slip recalculations, theming infrastructure, and multi-brand delivery.',
-    note: 'Live odds, operator tooling, multi-brand delivery',
-    metrics: ['Odds sync', 'Bet slip state', 'Brand theming'],
-    preview: 'sportsbook',
+    year: '2022 - Present',
+    role: 'Channels & Experience Lead / Senior Frontend Engineer',
+    scope: ['Frontend architecture', 'White-label delivery', 'Realtime systems'],
+    summary:
+      'Owned the frontend architecture across web, mobile, retail terminals, and admin tools for a white-label sportsbook engine with live odds, casino flows, and multi-brand product delivery.',
+    wins: [
+      'Built theming and feature-toggle infrastructure that cut new client onboarding from weeks to days.',
+      'Led realtime sportsbook and casino surfaces with live odds, betslip recalculations, and simulated game UI.',
+      'Drove performance work that reduced load times by 55 percent while maintaining live updates at scale.',
+    ],
+    stack: ['Vue', 'Vuex', 'Pinia', 'TypeScript', 'WebSocket', 'Admin tooling'],
   },
   {
     title: 'Venmail',
-    year: '2024',
-    tags: ['React', 'TypeScript', 'Inertia'],
-    description:
-      'A full frontend overhaul during a rebrand. Messaging, booking, video conferencing, and product UI cleanup inside a large Laravel application.',
-    note: 'Composer flows, threads, scheduling, conferencing',
-    metrics: ['Messaging UI', 'Booking flows', 'Video sessions'],
-    preview: 'venmail',
+    year: '2024 - 2025',
+    role: 'Senior Software Engineer',
+    scope: ['Frontend systems', 'Design fidelity', 'Product overhaul'],
+    summary:
+      'Rebuilt the frontend of a large Laravel and React application during a full company rebrand, replacing monolithic UI patterns with a cleaner component system and tighter product standards.',
+    wins: [
+      'Co-engineered a Gmail-style mailing suite with a rich-text composer, thread UX, and bulk actions.',
+      'Built booking and calendar workflows tightly coupled with the core communication product.',
+      'Integrated video conferencing directly into existing product flows without losing design consistency.',
+    ],
+    stack: ['React', 'TypeScript', 'Inertia.js', 'Laravel', 'Figma-to-code'],
+  },
+  {
+    title: 'FeedxNG',
+    year: '2022 - 2023',
+    role: 'Fullstack Engineer',
+    scope: ['Full-stack delivery', 'Payments', 'Marketplace product'],
+    summary:
+      'Owned the end-to-end build of a food services marketplace, from product design in Figma through a Laravel backend and a Vue and Nuxt frontend, including infrastructure and payments.',
+    wins: [
+      'Designed role-specific buyer and seller dashboards around the needs of each user type.',
+      'Integrated Paystack, Flutterwave, and Zilla into one payment layer for multiple checkout flows.',
+      'Handled deployment and environment setup across Heroku and AWS as part of the product build.',
+    ],
+    stack: ['Vue', 'Nuxt', 'Laravel', 'AWS', 'Heroku', 'Payments'],
   },
   {
     title: 'PressOne Africa',
     year: '2023',
-    tags: ['Vue', 'SIP.js', 'Monitoring'],
-    description:
-      'Browser-based calling flows with availability, call controls, airtime payments, and monitoring instrumentation built for reliability over novelty.',
-    note: 'Calling controls, presence states, support visibility',
-    metrics: ['Call controls', 'Presence state', 'Support visibility'],
-    preview: 'pressone',
-  },
-  {
-    title: 'FeedxNG',
-    year: '2022',
-    tags: ['Marketplace', 'Payments', 'Laravel'],
-    description:
-      'End-to-end product work across design, frontend, backend, and payment integrations for buyer and seller dashboards with role-specific workflows.',
-    note: 'Dashboards, analytics, checkout and credit flows',
-    metrics: ['Role dashboards', 'Credit flows', 'Checkout'],
-    preview: 'feedx',
-  },
-  {
-    title: 'LordwinGames',
-    year: '2020 → 2022',
-    tags: ['Design', 'Frontend', 'Full Stack'],
-    description:
-      'Owned design and engineering across a gaming platform with 100k+ users, plus additional product builds in real estate, short-let, and salon management.',
-    note: 'Game surfaces, admin tooling, multi-product delivery',
-    metrics: ['100k+ users', 'Admin tooling', 'Multi-product'],
-    preview: 'lordwin',
+    role: 'Web Engineer',
+    scope: ['Browser calling', 'Operational UI', 'Reliability'],
+    summary:
+      'Built browser-based calling flows and operator-facing interface improvements inside a communication product where state accuracy and support visibility mattered more than surface polish.',
+    wins: [
+      'Integrated SIP.js for call transfers, availability status, airtime payments, and contact management.',
+      'Standardized reusable Vue patterns to reduce repeated UI implementation across the platform.',
+      'Added Sentry, Replay, and Crashlytics instrumentation to improve monitoring and post-launch stability.',
+    ],
+    stack: ['Vue', 'Vue Router', 'SIP.js', 'Sentry', 'Replay', 'Crashlytics'],
   },
 ];
 ---
 
-<section class="work" id="work">
-  <div class="shell work-heading" data-reveal>
-    <div class="work-heading-copy">
-      <span class="section-kicker">Selected Work</span>
+<section class="work section" id="work">
+  <div class="shell">
+    <div class="section-header">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="section-title">The work I would want a recruiter to remember.</h2>
+      <p class="section-copy">
+        These are the product stories that best show the range: frontend architecture, product
+        rebuilds, realtime surfaces, and full-stack ownership where the product scope demanded it.
+        Private product visuals are being restored separately. Public code proof is lower on the
+        page.
+      </p>
     </div>
-  </div>
 
-  <div class="shell work-stack-shell" data-work-shell>
-    <div class="work-stack-stage" data-work-stage>
-      {projects.map((project, index) => (
-        <article
-          class={`work-card work-card--${project.preview}`}
-          data-work-card
-          data-cursor-label="Project"
-          data-cursor-tone="accent"
-        >
-          <div class="work-card-grid">
+    <div class="work-list">
+      {projects.map((project) => (
+        <article class="work-card card-surface">
+          <div class="work-card-top">
+            <div>
+              <p class="work-year">{project.year}</p>
+              <h3 class="work-card-title">{project.title}</h3>
+              <p class="work-role">{project.role}</p>
+            </div>
+            <div class="pill-row">
+              {project.scope.map((item) => (
+                <span class="pill">{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="work-card-body">
             <div class="work-card-copy">
-              <div class="work-card-topline">
-                <span class="work-card-index">{String(index + 1).padStart(2, '0')}</span>
-                <span class="work-card-year">{project.year}</span>
-              </div>
-
-              <div class="work-card-main">
-                <h3 class="work-card-title">{project.title}</h3>
-                <div class="work-card-tags">
-                  {project.tags.map((tag) => (
-                    <span class="work-card-tag">{tag}</span>
-                  ))}
-                </div>
-                <p class="work-card-description">{project.description}</p>
-              </div>
-
-              <div class="work-card-metrics">
-                {project.metrics.map((metric) => (
-                  <span class="work-card-metric">{metric}</span>
+              <p class="work-summary">{project.summary}</p>
+              <div class="pill-row work-stack">
+                {project.stack.map((item) => (
+                  <span class="pill">{item}</span>
                 ))}
               </div>
             </div>
 
-            <div class="work-card-visual">
-              <div class={`preview-frame preview-frame--${project.preview}`}>
-                <div class="preview-topbar">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="preview-layout">
-                  <div class="preview-sidebar"></div>
-                  <div class="preview-main">
-                    <div class="preview-line preview-line--title"></div>
-                    <div class="preview-line"></div>
-                    <div class="preview-grid">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <div class="preview-grid preview-grid--wide">
-                      <div></div>
-                      <div></div>
-                    </div>
-                    <div class="preview-footer-copy">{project.note}</div>
-                  </div>
-                </div>
-              </div>
+            <div class="work-card-proof">
+              <p class="work-proof-title">What changed</p>
+              <ul class="work-proof-list">
+                {project.wins.map((win) => (
+                  <li>{win}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </article>
@@ -128,306 +115,123 @@ const projects = [
 
 <style>
   .work {
-    padding: 48px 0 160px;
+    padding-top: 24px;
   }
 
-  .work-heading {
-    padding-bottom: 40px;
-  }
-
-  .work-heading-copy {
-    display: grid;
-    gap: 20px;
-    max-width: 920px;
-  }
-
-  .section-kicker {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  .work-title {
-    font-family: var(--font-display);
-    font-size: clamp(46px, 5.2vw, 72px);
-    font-weight: 600;
-    line-height: 1.02;
-    max-width: 15ch;
-  }
-
-  .work-stack-shell {
-    position: relative;
-  }
-
-  .work-stack-stage {
-    position: relative;
-    height: min(76svh, 780px);
-    overflow: hidden;
-    border-radius: 8px;
-  }
-
-  .work-card {
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    border: 1px solid var(--line-strong);
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
-      rgba(20, 21, 21, 0.92);
-    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.28);
-    overflow: hidden;
-    will-change: transform, opacity;
-  }
-
-  .work-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(140deg, rgba(255, 255, 255, 0.08), transparent 36%),
-      linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.18));
-    pointer-events: none;
-  }
-
-  .work-card-grid {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-    gap: clamp(36px, 5vw, 72px);
-    height: 100%;
-    padding: clamp(30px, 4vw, 42px);
-  }
-
-  .work-card-copy {
-    display: grid;
-    align-content: space-between;
-    gap: 36px;
-  }
-
-  .work-card-topline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .work-card-index {
-    color: rgba(244, 243, 239, 0.58);
-  }
-
-  .work-card-main {
+  .work-list {
     display: grid;
     gap: 22px;
   }
 
-  .work-card-title {
-    font-family: var(--font-display);
-    font-size: clamp(38px, 4.6vw, 68px);
-    font-weight: 600;
-    line-height: 0.98;
-    max-width: 9ch;
+  .work-card {
+    padding: 28px;
+    border-radius: 26px;
   }
 
-  .work-card-tags {
+  .work-card-top {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: space-between;
+    align-items: start;
+    gap: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
   }
 
-  .work-card-tag,
-  .work-card-metric {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 0 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.04);
+  .work-year {
+    margin-bottom: 12px;
     font-family: var(--font-mono);
     font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .work-card-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  }
+
+  .work-role {
+    margin-top: 10px;
+    max-width: 38rem;
+    color: var(--text-secondary);
+    font-size: 16px;
+  }
+
+  .work-card-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 26px;
+    padding-top: 24px;
+  }
+
+  .work-card-copy {
+    display: grid;
+    gap: 22px;
+  }
+
+  .work-summary {
+    max-width: 42rem;
+    font-size: 18px;
+    line-height: 1.75;
     color: var(--text-secondary);
   }
 
-  .work-card-description {
-    max-width: 34rem;
-    font-size: 18px;
-    color: rgba(244, 243, 239, 0.84);
-    line-height: 1.7;
+  .work-stack {
+    padding-top: 4px;
   }
 
-  .work-card-metrics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  .work-card-proof {
+    padding: 20px;
+    border: 1px solid var(--line);
+    background: var(--panel-muted);
   }
 
-  .work-card-visual {
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-  }
-
-  .preview-frame {
-    width: 100%;
-    min-height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  }
-
-  .preview-topbar {
-    display: flex;
-    gap: 6px;
-    padding: 12px 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .preview-topbar span {
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.22);
-  }
-
-  .preview-layout {
-    display: grid;
-    grid-template-columns: 76px 1fr;
-    height: calc(100% - 33px);
-    min-height: 420px;
-  }
-
-  .preview-sidebar {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
-  }
-
-  .preview-main {
-    display: grid;
-    align-content: start;
-    gap: 14px;
-    padding: 18px;
-  }
-
-  .preview-line {
-    width: 100%;
-    height: 12px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .preview-line--title {
-    width: 72%;
-    height: 18px;
-    background: rgba(255, 255, 255, 0.14);
-  }
-
-  .preview-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 4px;
-  }
-
-  .preview-grid--wide {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .preview-grid div {
-    aspect-ratio: 1;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .preview-grid--wide div {
-    aspect-ratio: 1.48;
-  }
-
-  .preview-footer-copy {
-    margin-top: auto;
+  .work-proof-title {
+    margin-bottom: 16px;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.48);
-    line-height: 1.45;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
-  .preview-frame--sportsbook {
-    background: linear-gradient(180deg, rgba(157, 213, 168, 0.2), rgba(255, 255, 255, 0.02));
+  .work-proof-list {
+    display: grid;
+    gap: 12px;
+    padding-left: 18px;
+    color: var(--text-secondary);
   }
 
-  .preview-frame--venmail {
-    background: linear-gradient(180deg, rgba(220, 202, 170, 0.18), rgba(255, 255, 255, 0.02));
+  .work-proof-list li::marker {
+    color: var(--accent);
   }
 
-  .preview-frame--pressone {
-    background: linear-gradient(180deg, rgba(178, 196, 232, 0.18), rgba(255, 255, 255, 0.02));
-  }
-
-  .preview-frame--feedx {
-    background: linear-gradient(180deg, rgba(238, 210, 145, 0.16), rgba(255, 255, 255, 0.02));
-  }
-
-  .preview-frame--lordwin {
-    background: linear-gradient(180deg, rgba(217, 164, 189, 0.16), rgba(255, 255, 255, 0.02));
-  }
-
-  @media (max-width: 1080px) {
-    .work-card-grid {
+  @media (max-width: 960px) {
+    .work-card-body {
       grid-template-columns: 1fr;
     }
 
-    .work-card-title {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 860px) {
-    .work {
-      padding: 24px 0 112px;
-    }
-
-    .work-stack-stage {
-      height: auto;
-      display: grid;
-      gap: 20px;
-    }
-
     .work-card {
-      position: relative;
-      inset: auto;
-      min-height: auto;
-    }
-
-    .work-title {
-      font-size: 38px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .work-heading {
-      padding-bottom: 32px;
-    }
-
-    .work-card-grid {
-      gap: 24px;
       padding: 22px;
     }
 
+    .work-card-top {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 520px) {
     .work-card-title {
-      font-size: 32px;
+      font-size: 24px;
     }
 
-    .work-card-description {
+    .work-summary {
       font-size: 16px;
-    }
-
-    .preview-layout {
-      grid-template-columns: 58px 1fr;
-      min-height: 280px;
     }
   }
 </style>

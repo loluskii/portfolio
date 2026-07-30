@@ -1,277 +1,35 @@
 ---
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
-import Cursor from '../components/Cursor.astro';
 import Hero from '../components/Hero.astro';
 import Work from '../components/Work.astro';
 import About from '../components/About.astro';
 import Services from '../components/Services.astro';
-import Writing from '../components/Writing.astro';
 import Contact from '../components/Contact.astro';
 ---
 
 <Base>
   <Nav />
-  <Cursor />
   <main>
     <Hero />
     <Work />
     <About />
     <Services />
-    <!-- <Writing /> -->
     <Contact />
   </main>
 </Base>
 
 <script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  import { SplitText } from 'gsap/SplitText';
-
-  gsap.registerPlugin(ScrollTrigger, SplitText);
-
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nav = document.getElementById('nav');
-  const navProgress = document.querySelector('.nav-progress');
-  const navProgressIndicator = document.getElementById('nav-progress-indicator');
 
   const syncNav = () => {
-    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-
     if (window.scrollY > 24) {
       nav?.classList.add('scrolled');
     } else {
       nav?.classList.remove('scrolled');
     }
-
-    if (navProgress && navProgressIndicator) {
-      navProgressIndicator.style.width = `${progress * 100}%`;
-    }
   };
 
   syncNav();
   window.addEventListener('scroll', syncNav, { passive: true });
-  window.addEventListener('resize', syncNav);
-
-  if (!prefersReduced) {
-    gsap.set('[data-reveal]', { opacity: 0, y: 24 });
-
-    const intro = gsap.timeline({ delay: 0.1, defaults: { ease: 'power3.out' } });
-
-    intro.to('[data-intro="top"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.1,
-    });
-
-    intro.to('[data-line]', {
-      y: '0%',
-      duration: 1,
-      stagger: 0.08,
-    }, '-=0.45');
-
-    intro.to('[data-intro="body"]', {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.1,
-    }, '-=0.65');
-
-    gsap.utils.toArray('[data-reveal]').forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 82%',
-          once: true,
-        },
-      });
-    });
-
-    gsap.utils.toArray('[data-row]').forEach((row, index) => {
-      gsap.to(row, {
-        opacity: 1,
-        y: 0,
-        duration: 0.72,
-        ease: 'power2.out',
-        delay: index * 0.04,
-        scrollTrigger: {
-          trigger: row,
-          start: 'top 86%',
-          once: true,
-        },
-      });
-    });
-
-    const portrait = document.querySelector('[data-parallax="portrait"]');
-    if (portrait) {
-      gsap.to(portrait, {
-        yPercent: -10,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.hero',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-    }
-
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-      gsap.to(heroSection, {
-        '--hero-fill': '100%',
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroSection,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-    }
-
-    const heroSummary = document.querySelector('[data-summary-text]');
-    if (heroSection && heroSummary) {
-      const summarySplit = SplitText.create(heroSummary, {
-        type: 'words',
-        wordsClass: 'hero-summary-word',
-      });
-
-      gsap.set(summarySplit.words, { color: 'rgba(255,255,255,0.18)' });
-
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: heroSection,
-          start: 'top top',
-          end: '82% top',
-          scrub: true,
-        },
-      }).to(summarySplit.words, {
-        color: '#f4f3ef',
-        stagger: 1,
-        ease: 'none',
-      }, 0);
-    }
-
-    const workShell = document.querySelector('[data-work-shell]');
-    const workStage = document.querySelector('[data-work-stage]');
-    const workCards = gsap.utils.toArray('[data-work-card]');
-    const workMm = gsap.matchMedia();
-
-    if (workShell && workStage && workCards.length) {
-      const getWorkCardState = (cardIndex, activeIndex) => {
-        if (cardIndex > activeIndex) {
-          return {
-            yPercent: 112,
-            y: 0,
-            scale: 1,
-            opacity: 1,
-          };
-        }
-
-        const depth = activeIndex - cardIndex;
-
-        return {
-          yPercent: 0,
-          y: -depth * 18,
-          scale: 1 - depth * 0.045,
-          opacity: Math.max(0.24, 1 - depth * 0.2),
-        };
-      };
-
-      workMm.add('(min-width: 861px)', () => {
-        gsap.set(workCards, {
-          transformOrigin: 'top center',
-        });
-
-        workCards.forEach((card, cardIndex) => {
-          gsap.set(card, getWorkCardState(cardIndex, 0));
-        });
-
-        const workTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: workShell,
-            start: 'top top+=108',
-            end: () => `+=${Math.max(1, workCards.length - 1) * window.innerHeight * 0.78}`,
-            scrub: 1,
-            pin: workStage,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        for (let activeIndex = 1; activeIndex < workCards.length; activeIndex += 1) {
-          workCards.forEach((card, cardIndex) => {
-            workTimeline.to(card, {
-              ...getWorkCardState(cardIndex, activeIndex),
-              duration: 1,
-              ease: 'power2.inOut',
-            }, activeIndex - 1);
-          });
-        }
-      });
-
-      workMm.add('(max-width: 860px)', () => {
-        workCards.forEach((card, index) => {
-          gsap.fromTo(card, {
-            opacity: 0,
-            y: 48,
-          }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            delay: index * 0.05,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 86%',
-              once: true,
-            },
-          });
-        });
-      });
-    }
-
-    const servicesSection = document.querySelector('.services');
-    const servicesStage = document.querySelector('.services-stage');
-    const servicesTrack = document.querySelector('[data-services-track]');
-    const servicesViewport = document.querySelector('.services-viewport');
-    const servicesMm = gsap.matchMedia();
-
-    if (servicesSection && servicesStage && servicesTrack && servicesViewport) {
-      servicesMm.add('(min-width: 961px)', () => {
-        const getDistance = () => {
-          return Math.max(0, servicesTrack.scrollWidth - servicesViewport.clientWidth);
-        };
-
-        return gsap.to(servicesTrack, {
-          x: () => -getDistance(),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: servicesSection,
-            start: 'top top',
-            end: () => `+=${getDistance() + window.innerWidth * 0.18}`,
-            scrub: 1,
-            pin: servicesSection,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-      });
-    }
-  } else {
-    gsap.set([
-      '[data-intro="top"]',
-      '[data-intro="body"]',
-      '[data-reveal]',
-      '[data-row]',
-      '[data-line]',
-    ], { opacity: 1, y: 0, clearProps: 'transform' });
-  }
 </script>
