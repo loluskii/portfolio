@@ -2,6 +2,8 @@
 /.pnp
 .pnp.js
 /.next/
+/.astro/
+/dist/
 /out/
 /build
 .DS_Store

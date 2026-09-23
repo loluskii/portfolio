@@ -1,7 +1,4 @@
 ---
-// Nav.astro — shared navigation component
-// Pass activePage prop to highlight the current link
-
 export interface Props {
   activePage?: 'home' | 'services' | 'work' | 'about' | 'contact';
 }
@@ -11,9 +8,8 @@ const { activePage } = Astro.props;
 
 <nav id="nav">
   <a href="/" class="nlogo">
-    <div class="nmark"></div>
-    <span class="nname">Studio</span>
-    <!-- REPLACE: "Studio" with your studio name -->
+    <img class="nmark" src="/brand/mark-accent.svg" alt="" width="44" height="44" />
+    <span class="nname">Fourth Gate Studios</span>
   </a>
 
   <ul class="nlinks">
@@ -39,11 +35,10 @@ const { activePage } = Astro.props;
     </li>
   </ul>
 
-  <a href="/contact" class="ncta">Start a project</a>
+  <a href="/contact" class="ncta">Start a brief</a>
 </nav>
 
 <script>
-  // Add scrolled class to nav on scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {

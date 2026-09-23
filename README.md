@@ -1,7 +1,6 @@
-# Studio — Astro Project
+# Fourth Gate Studios — Studio Website
 
-Design and engineering studio site built with Astro 4.
-A Lou Technologies product.
+Digital systems studio site built with Astro 4.
 
 ---
 
@@ -45,17 +44,15 @@ src/
 
 ---
 
-## Before going live — replace these
+## Before going live
 
-Search the project for each placeholder and update:
+Confirm these details before publishing:
 
-| Placeholder | File | What to replace with |
+| Item | File | Note |
 |---|---|---|
-| `"Studio"` | All `.astro` files | Your studio name |
-| `wa.me/2348000000000` | `contact.astro` | Your WhatsApp number |
-| `hello@studio.co` | `contact.astro` | Your email address |
-| `https://linkedin.com` | `contact.astro` | Your LinkedIn URL |
-| `https://yourdomain.studio` | `astro.config.mjs` | Your actual domain |
+| Contact email | `contact.astro` | Currently `hello@fourthgatestudios.com` |
+| Domain | `astro.config.mjs` | Update when the final domain is chosen |
+| Public work | `work.astro` | Keep only approved public/client work |
 
 ---
 

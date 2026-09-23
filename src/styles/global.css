@@ -1,8 +1,3 @@
-/* ============================================
-   STUDIO — Global Design System
-   REPLACE: "Studio" with your studio name
-   ============================================ */
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -52,15 +47,16 @@ nav.scrolled {
 }
 .nlogo { display: flex; align-items: center; gap: .75rem; }
 .nmark {
-  width: 24px; height: 24px;
-  border: 1.5px solid var(--gold); border-radius: 4px;
-  transform: rotate(45deg); flex-shrink: 0; transition: background .2s;
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  transition: transform .25s ease;
 }
-nav:hover .nmark { background: var(--gold-l); }
+.nlogo:hover .nmark { transform: translateX(2px); }
 .nname {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500; font-size: 1.15rem;
-  letter-spacing: .5px; color: var(--text);
+  font-family: 'Sora', sans-serif;
+  font-weight: 500; font-size: 1.08rem;
+  letter-spacing: 0; color: var(--text);
+  white-space: nowrap;
 }
 .nlinks { display: flex; gap: 2.5rem; list-style: none; }
 .nlinks a {
@@ -86,13 +82,11 @@ footer { border-top: 1px solid var(--br); padding: 3rem; }
 }
 .footer-logo { display: flex; align-items: center; gap: .65rem; }
 .footer-mark {
-  width: 18px; height: 18px;
-  border: 1px solid var(--gold); border-radius: 3px;
-  transform: rotate(45deg);
+  width: 24px; height: 24px;
 }
 .footer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500; font-size: 1rem; letter-spacing: .5px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 500; font-size: .84rem; letter-spacing: 0;
 }
 .footer-copy { font-size: .7rem; color: var(--dim); }
 .footer-lou { font-size: .62rem; color: var(--dim); opacity: .5; margin-top: .2rem; }
@@ -144,9 +138,21 @@ footer { border-top: 1px solid var(--br); padding: 3rem; }
 
 /* ── RESPONSIVE ───────────────────────────── */
 @media (max-width: 768px) {
-  nav { padding: 1.25rem 1.5rem; }
+  nav { padding: 1.1rem 1.25rem; gap: 1rem; }
   .nlinks { display: none; }
+  .nname { font-size: 1rem; }
+  .nmark { width: 36px; height: 36px; }
+  .ncta {
+    font-size: .68rem;
+    letter-spacing: .8px;
+    padding: .5rem .85rem;
+    white-space: nowrap;
+  }
   footer { padding: 2rem 1.5rem; }
   .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; gap: 1rem 1.25rem; }
+}
+
+@media (max-width: 520px) {
+  .ncta { display: none; }
 }

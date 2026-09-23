@@ -4,7 +4,10 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Design & Engineering Studio">
+<Layout
+  title="Design & Development Studio"
+  description="Fourth Gate Studios plans, designs, and builds websites, brand systems, and digital products for founders and small teams."
+>
   <Nav activePage="home" />
 
   <!-- ── HERO ──────────────────────────────── -->
@@ -19,19 +22,19 @@ import Footer from '../components/Footer.astro';
     </div>
     <div class="hero-content">
       <div class="hero-tag" id="htag">
-        <span class="htag-line"></span>Design · Engineering · Brand
+        <span class="htag-line"></span>Lagos-based digital systems studio
       </div>
       <h1 id="hh1">
-        We create<br />digital products<br />that <em>earn their place.</em>
+        We turn<br />rough ideas<br />into useful<br /><em>digital products.</em>
       </h1>
       <div class="hero-bottom" id="hbottom">
         <p class="hero-desc">
-          A full-service design and engineering studio. Branding, product design,
-          and software development — delivered as one, built to last.
+          We help founders and small teams plan, design, and build websites, brands,
+          and product interfaces. Based in Lagos, working with clients anywhere.
         </p>
         <div class="hero-actions">
-          <a href="/work" class="btn-outline-light">See our work</a>
-          <a href="/contact" class="btn-gold">Start a project →</a>
+          <a href="/work" class="btn-outline-light">View the work</a>
+          <a href="/contact" class="btn-gold">Send a brief</a>
         </div>
       </div>
     </div>
@@ -64,9 +67,43 @@ import Footer from '../components/Footer.astro';
   <section class="manifesto">
     <div class="manifesto-inner">
       <div class="manifesto-text reveal">
-        "Design without engineering is decoration.<br />Engineering without design is infrastructure.<br /><em>We do both — and we do them well.</em>"
+        <span class="manifesto-sentence">Good work begins before the screen.</span>
+        <span class="manifesto-sentence">First the idea becomes clear.</span>
+        <em class="manifesto-sentence">Then the design and code have something solid to follow.</em>
       </div>
-      <div class="manifesto-attr reveal">— The studio's point of view</div>
+      <div class="manifesto-attr reveal">The Fourth Gate approach</div>
+    </div>
+  </section>
+
+  <!-- ── STUDIO INTRODUCTION ────────────────── -->
+  <section class="studio-intro" id="studio">
+    <div class="studio-intro-inner">
+      <div class="studio-intro-title">
+        <div class="studio-intro-label">Who we are. What we do.</div>
+        <h2>One studio from the first conversation <em>to launch.</em></h2>
+      </div>
+
+      <div class="studio-intro-copy">
+        <p class="studio-intro-lead">You may have a rough idea, a half-built product, or a website that no longer fits the business. We help you decide what to make and then make it.</p>
+        <p>That can mean shaping the brief, finding the visual direction, designing the interface, writing the frontend, or taking care of the whole job. At the end, the accounts, files, code, and documentation belong to you.</p>
+
+        <div class="intro-scope">
+          <div class="intro-scope-item">
+            <h3>Clarify</h3>
+            <p>Agree on what you are making, who it is for, and what can wait.</p>
+          </div>
+          <div class="intro-scope-item">
+            <h3>Design</h3>
+            <p>Set the visual direction and make the important actions easy to follow.</p>
+          </div>
+          <div class="intro-scope-item">
+            <h3>Build</h3>
+            <p>Turn the approved direction into a working product, test it, launch it, and hand it over.</p>
+          </div>
+        </div>
+
+        <a class="studio-intro-link" href="/about">Read about the studio</a>
+      </div>
     </div>
   </section>
 
@@ -74,7 +111,7 @@ import Footer from '../components/Footer.astro';
   <section class="services-sec">
     <div class="services-inner">
       <div class="sec-header reveal">
-        <h2 class="sec-label">What we <em>do</em></h2>
+        <h2 class="sec-label">What we <em>build</em></h2>
       </div>
 
       <!-- 3 featured service cards -->
@@ -82,9 +119,9 @@ import Footer from '../components/Footer.astro';
         <div class="svc-card reveal">
           <div class="sc-num">01</div>
           <div class="sc-bg-el">72h</div>
-          <span class="sc-tag">Most popular</span>
+          <span class="sc-tag">Focused launch</span>
           <h3 class="sc-name">Launch Package</h3>
-          <p class="sc-pitch">High-converting landing pages and product sites. Live, polished, and ready — in 72 hours flat, guaranteed.</p>
+          <p class="sc-pitch">A focused landing page or small website, designed around your offer and ready to publish quickly.</p>
           <div class="sc-footer">
             <div class="sc-price">₦150k <span>starting from</span></div>
             <span class="sc-time">72 hours</span>
@@ -93,9 +130,9 @@ import Footer from '../components/Footer.astro';
         <div class="svc-card reveal">
           <div class="sc-num">02</div>
           <div class="sc-bg-el">&lt;/&gt;</div>
-          <span class="sc-tag">Full product</span>
+          <span class="sc-tag">Product build</span>
           <h3 class="sc-name">Build Package</h3>
-          <p class="sc-pitch">Full MVP from zero — design, architecture, and code as one integrated engagement. Shipped and documented.</p>
+          <p class="sc-pitch">A scoped MVP or product interface, planned, designed, and built as one piece of work.</p>
           <div class="sc-footer">
             <div class="sc-price">₦800k <span>starting from</span></div>
             <span class="sc-time">4–12 weeks</span>
@@ -104,9 +141,9 @@ import Footer from '../components/Footer.astro';
         <div class="svc-card reveal">
           <div class="sc-num">03</div>
           <div class="sc-bg-el">◆</div>
-          <span class="sc-tag">Foundation first</span>
+          <span class="sc-tag">Visual foundation</span>
           <h3 class="sc-name">Brand & Identity</h3>
-          <p class="sc-pitch">The visual language your product speaks. Logo, type, colour, motion — built to hold up at every scale.</p>
+          <p class="sc-pitch">A practical visual system for a new company, product, or offer that needs a consistent public face.</p>
           <div class="sc-footer">
             <div class="sc-price">₦300k <span>starting from</span></div>
             <span class="sc-time">2–4 weeks</span>
@@ -120,15 +157,15 @@ import Footer from '../components/Footer.astro';
           <div class="ssi-num">04</div>
           <div class="ssi-body">
             <div class="ssi-name">UI/UX Design</div>
-            <div class="ssi-desc">Product design, wireframes, prototypes, and full design systems — interfaces that earn trust.</div>
+            <div class="ssi-desc">Flows, screens, prototypes, and design systems for interfaces that need to feel clear from the first click.</div>
           </div>
           <div class="ssi-price">From ₦250k</div>
         </div>
         <div class="svc-sec-item reveal">
           <div class="ssi-num">05</div>
           <div class="ssi-body">
-            <div class="ssi-name">Graphics & Creative</div>
-            <div class="ssi-desc">Pitch decks, social assets, and collateral — the visual language for everything that isn't the product.</div>
+            <div class="ssi-name">Launch Creative</div>
+            <div class="ssi-desc">Pitch decks, social assets, and launch collateral that keep the story consistent outside the product.</div>
           </div>
           <div class="ssi-price">From ₦80k</div>
         </div>
@@ -136,8 +173,7 @@ import Footer from '../components/Footer.astro';
 
       <div class="svc-cta-row reveal">
         <a href="/services" class="btn-svc-all">
-          <em>See all services in detail</em>
-          <span class="bsa-arrow">→</span>
+          <em>See the services</em>
         </a>
       </div>
     </div>
@@ -148,7 +184,7 @@ import Footer from '../components/Footer.astro';
     <div class="work-inner">
       <div class="sec-header reveal">
         <h2 class="sec-label">Selected work</h2>
-        <a href="/work" class="sec-link">All projects →</a>
+        <a href="/work" class="sec-link">View work</a>
       </div>
       <div class="work-grid reveal">
         <!-- Zela -->
@@ -165,28 +201,28 @@ import Footer from '../components/Footer.astro';
             </svg>
           </div>
           <div class="wc-content">
-            <span class="wc-tag">Fintech · 4-page site</span>
+            <span class="wc-tag">Product concept · Fintech</span>
             <div style="font-size:3.5rem;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1;margin:2rem 0 .5rem;font-family:system-ui,sans-serif">Zela</div>
             <div class="wc-info">African cross-border payments infrastructure<br/>GSAP animations · CSS mock UIs</div>
-            <a href="/work" class="wc-link">View case study →</a>
+            <a href="/work" class="wc-link">View work</a>
           </div>
         </div>
         <!-- Stackr -->
         <div class="wcard-stackr">
           <div class="wc-content">
-            <span class="wc-tag-stackr">Creator platform · 5-page site</span>
+            <span class="wc-tag-stackr">Product concept · Creator platform</span>
             <div style="font-family:'Georgia',serif;font-size:3.5rem;font-weight:700;color:#0F0E0C;letter-spacing:-1px;line-height:1;margin:2rem 0 .5rem">Stackr.</div>
             <div class="wc-info-stackr">African newsletter monetisation platform<br/>Fraunces serif · Revenue calculator</div>
-            <a href="/work" class="wc-link-stackr">View case study →</a>
+            <a href="/work" class="wc-link-stackr">View work</a>
           </div>
         </div>
         <!-- Rostr -->
         <div class="wcard-rostr">
           <div class="wc-content">
-            <span class="wc-tag-rostr">HR tech · Single-page site</span>
+            <span class="wc-tag-rostr">Product concept · HR tech</span>
             <div style="font-size:3.5rem;font-weight:900;color:#0D1B2A;letter-spacing:-3px;line-height:1;margin:2rem 0 .5rem;font-family:system-ui,sans-serif">Rostr.</div>
             <div class="wc-info-rostr">Employer of Record for Nigerian talent<br/>Hiring pipeline mockup</div>
-            <a href="/work" class="wc-link-rostr">View case study →</a>
+            <a href="/work" class="wc-link-rostr">View work</a>
           </div>
         </div>
       </div>
@@ -203,41 +239,73 @@ import Footer from '../components/Footer.astro';
         <div class="process-step reveal">
           <div class="ps-num">01</div>
           <div class="ps-name">Discovery</div>
-          <p class="ps-desc">We start by understanding the problem — not just the brief. One focused session. What you're building, who it's for, and what success looks like.</p>
+          <p class="ps-desc">We talk through what you are making, who it is for, what already exists, and where the uncertainty is.</p>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">02</div>
           <div class="ps-name">Strategy</div>
-          <p class="ps-desc">Before a pixel is placed, we define the positioning. Brand direction, product architecture, and the design language that will carry everything else.</p>
+          <p class="ps-desc">We agree on the priorities, the scope, and the order of work before design or development begins.</p>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">03</div>
           <div class="ps-name">Execution</div>
-          <p class="ps-desc">Design and engineering in parallel — not in sequence. Faster delivery, tighter output. You see progress from day one, not week three.</p>
+          <p class="ps-desc">Design and development overlap, so ideas are tested in the browser and decisions are made with the final build in mind.</p>
         </div>
         <div class="process-step reveal">
           <div class="ps-num">04</div>
           <div class="ps-name">Delivery</div>
-          <p class="ps-desc">Production-ready. Tested. Documented. Handed over with everything you need to maintain, grow, and iterate — not just a set of files.</p>
+          <p class="ps-desc">We test the work, launch it, document the important parts, and hand over the accounts and files.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRINCIPLES ─────────────────────────── -->
+  <section class="principles-sec" id="principles">
+    <div class="principles-inner">
+      <div class="principles-head">
+        <div>
+          <div class="principles-label">What matters here</div>
+          <h2>The work has to hold up <em>when we leave.</em></h2>
+        </div>
+        <p>These are the standards we return to when the brief changes, the deadline gets close, or a shortcut starts to look tempting.</p>
+      </div>
+
+      <div class="principles-list">
+        <article class="principle-row">
+          <h3>Make it clear before making it clever.</h3>
+          <p>People should know what they are looking at and what to do next. Style comes after that.</p>
+        </article>
+        <article class="principle-row">
+          <h3>Use the simplest thing that does the job.</h3>
+          <p>Not every website needs a custom backend. Not every product needs another feature. We choose the stack and the scope for a reason.</p>
+        </article>
+        <article class="principle-row">
+          <h3>Bring design and code into the same conversation.</h3>
+          <p>An interface should not lose its character when it leaves the design file. We think about how it will work in the browser from the start.</p>
+        </article>
+        <article class="principle-row">
+          <h3>Hand over the keys.</h3>
+          <p>You own the accounts, repository, files, and documentation. The project should keep moving without us in the room.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ── CTA ────────────────────────────────── -->
   <section class="cta-sec">
-    <div class="cta-bg-text">Studio</div>
+    <div class="cta-bg-text">IV</div>
     <div class="cta-inner">
       <div class="cta-label reveal">
         <span style="width:32px;height:1px;background:var(--gold);display:inline-block"></span>
-        Ready to build
+        Ready when the brief is real
         <span style="width:32px;height:1px;background:var(--gold);display:inline-block"></span>
       </div>
-      <h2 class="reveal">Let's make<br />something <em>great.</em></h2>
-      <p class="reveal">Tell us what you're building. We'll tell you how we'd approach it — honestly, and without a sales pitch.</p>
+      <h2 class="reveal">Let’s build<br />what the idea <em>needs.</em></h2>
+      <p class="reveal">Tell us what you are working on, what already exists, and where you need help. We will reply with an honest next step.</p>
       <div class="cta-actions reveal">
-        <a href="/contact" class="btn-gold">Start a project →</a>
-        <a href="/work" class="btn-outline-light">See our work</a>
+        <a href="/contact" class="btn-gold">Send a brief</a>
+        <a href="/work" class="btn-outline-light">View the work</a>
       </div>
     </div>
   </section>
@@ -248,13 +316,16 @@ import Footer from '../components/Footer.astro';
 <style is:global>
 /* ── HERO ────────────────────────────────── */
 .hero {
-  min-height: 100vh; display: flex; flex-direction: column;
-  justify-content: flex-end; padding: 0 3rem 5rem;
+  min-height: 100svh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 0 3rem 3rem;
   position: relative; overflow: hidden;
 }
 .hero-line { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
 .hero-line svg { width: 100%; height: 100%; opacity: .04; }
-.hero-content { position: relative; z-index: 1; max-width: 1300px; width: 100%; }
+.hero-content {
+  position: relative; z-index: 1; max-width: 1300px; width: 100%;
+  margin: 0 auto;
+}
 .hero-tag {
   font-size: .72rem; font-weight: 500; letter-spacing: 2px;
   text-transform: uppercase; color: var(--gold);
@@ -263,7 +334,7 @@ import Footer from '../components/Footer.astro';
 }
 .htag-line { width: 32px; height: 1px; background: var(--gold); }
 .hero h1 {
-  font-size: clamp(4rem, 9vw, 11rem); font-weight: 300;
+  font-size: clamp(3.5rem, 8.4vw, 10rem); font-weight: 300;
   line-height: 1; letter-spacing: -2px; color: var(--text); margin-bottom: 3rem;
 }
 .hero h1 em { font-style: italic; color: var(--gold); }
@@ -280,13 +351,56 @@ import Footer from '../components/Footer.astro';
 .manifesto-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 4vw, 4.5rem); font-weight: 300;
-  font-style: italic; line-height: 1.3; color: var(--text); max-width: 22ch;
+  font-style: italic; line-height: 1.3; color: var(--text); max-width: min(22ch, 100%);
 }
+.manifesto-sentence { display: block; max-width: 100%; white-space: normal; }
 .manifesto-text em { font-style: normal; color: var(--gold); }
 .manifesto-attr {
   font-size: .72rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--muted); margin-top: 2rem;
 }
+
+/* ── STUDIO INTRODUCTION ────────────────── */
+.studio-intro { padding: 8rem 3rem; border-bottom: 1px solid var(--br); }
+.studio-intro-inner {
+  max-width: 1300px; margin: 0 auto;
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 8rem; align-items: start;
+}
+.studio-intro-title, .studio-intro-copy,
+.principles-head > *, .principle-row > * {
+  min-width: 0;
+}
+.studio-intro-label, .principles-label {
+  font-size: .72rem; font-weight: 500; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+}
+.studio-intro-title h2, .principles-head h2 {
+  font-size: clamp(2.5rem, 4.5vw, 5rem); font-weight: 300;
+  line-height: 1.05; letter-spacing: -2px;
+}
+.studio-intro-title h2 em, .principles-head h2 em { color: var(--gold); font-style: italic; }
+.studio-intro-copy > p {
+  max-width: 60ch; color: var(--muted); font-size: 1rem; line-height: 1.8;
+  overflow-wrap: break-word;
+}
+.studio-intro-copy .studio-intro-lead {
+  color: var(--text); font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.45rem, 2.2vw, 2rem); font-weight: 300; line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+.intro-scope { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.intro-scope-item { border-top: 1px solid var(--br); padding-top: 1.25rem; }
+.intro-scope-item h3 {
+  font-family: 'Sora', sans-serif; font-size: .88rem; font-weight: 500;
+  color: var(--text); margin-bottom: .65rem;
+}
+.intro-scope-item p { color: var(--muted); font-size: .8rem; line-height: 1.65; }
+.studio-intro-link {
+  display: inline-block; margin-top: 2.5rem; padding-bottom: .2rem;
+  color: var(--text); font-size: .78rem; font-weight: 500;
+  border-bottom: 1px solid var(--gold); transition: color .2s;
+}
+.studio-intro-link:hover { color: var(--gold); }
 
 /* ── SERVICES ───────────────────────────── */
 .services-sec { padding: 7rem 3rem; border-bottom: 1px solid var(--br); background: var(--s1); }
@@ -455,6 +569,27 @@ import Footer from '../components/Footer.astro';
 .ps-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 400; color: var(--text); margin-bottom: .6rem; }
 .ps-desc { font-size: .82rem; color: var(--muted); line-height: 1.65; }
 
+/* ── PRINCIPLES ─────────────────────────── */
+.principles-sec { padding: 8rem 3rem; border-bottom: 1px solid var(--br); }
+.principles-inner { max-width: 1300px; margin: 0 auto; }
+.principles-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+  align-items: end; margin-bottom: 5rem;
+}
+.principles-head p {
+  max-width: 48ch; color: var(--muted); font-size: 1rem; line-height: 1.8;
+}
+.principles-list { border-bottom: 1px solid var(--br); }
+.principle-row {
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 6rem;
+  align-items: baseline; padding: 2.2rem 0; border-top: 1px solid var(--br);
+}
+.principle-row h3 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.3vw, 2.25rem);
+  font-weight: 300; line-height: 1.2; color: var(--text);
+}
+.principle-row p { max-width: 60ch; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+
 /* ── CTA ────────────────────────────────── */
 .cta-sec { padding: 10rem 3rem; text-align: center; position: relative; overflow: hidden; }
 .cta-bg-text {
@@ -481,12 +616,41 @@ import Footer from '../components/Footer.astro';
   .work-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; }
   .svc-cards { grid-template-columns: 1fr 1fr; }
+  .studio-intro-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .principles-head { grid-template-columns: 1fr; gap: 2rem; }
 }
 @media (max-width: 768px) {
-  .hero { padding: 0 1.5rem 4rem; }
+  .hero { padding: 9.5rem 1.5rem 4rem; min-height: auto; }
+  .hero h1 {
+    font-size: clamp(3rem, 14vw, 4rem);
+    letter-spacing: -1px;
+    max-width: 100%;
+  }
+  .hero-tag { font-size: .62rem; letter-spacing: 1.4px; margin-bottom: 1.25rem; }
   .hero-bottom { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-desc { max-width: 30ch; font-size: .94rem; }
   .hero-actions { justify-content: flex-start; }
-  .manifesto, .services-sec, .work-sec, .process-sec, .cta-sec { padding: 5rem 1.5rem; }
+  .manifesto, .studio-intro, .services-sec, .work-sec, .process-sec, .principles-sec, .cta-sec { padding: 5rem 1.5rem; }
+  .manifesto-text {
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
+    line-height: 1.4;
+  }
+  .studio-intro-inner,
+  .studio-intro-title,
+  .studio-intro-copy,
+  .studio-intro-copy > p,
+  .intro-scope,
+  .intro-scope-item {
+    width: 100%;
+    max-width: calc(100vw - 3rem);
+  }
+  .studio-intro-copy > p,
+  .intro-scope-item p {
+    overflow-wrap: anywhere;
+  }
+  .intro-scope { grid-template-columns: 1fr; gap: 1.5rem; }
+  .principles-head { margin-bottom: 3rem; }
+  .principle-row { grid-template-columns: 1fr; gap: .75rem; padding: 1.75rem 0; }
   .process-grid { grid-template-columns: 1fr; }
   .svc-cards { grid-template-columns: 1fr; }
   .svc-secondary { grid-template-columns: 1fr; }
@@ -503,8 +667,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Hero entrance
 gsap.timeline({ delay: 0.2 })
   .to('#htag', { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', from: { opacity: 0, x: -16 } })
-  .from('#hh1', { opacity: 0, y: 40, duration: 1, ease: 'power3.out' }, '-=.3')
-  .from('#hbottom', { opacity: 0, y: 24, duration: 0.7, ease: 'power2.out' }, '-=.5');
+  .from('#hh1', { opacity: 0, y: 40, duration: 1, ease: 'power3.out' }, '-=.3');
 
 // Scroll reveals
 gsap.utils.toArray('.reveal').forEach((el: any, i: number) => {

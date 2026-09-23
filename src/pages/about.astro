@@ -4,19 +4,22 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="About">
+<Layout
+  title="About"
+  description="Meet Fourth Gate Studios, a small Lagos-based design and development studio that works directly with founders and teams from brief to launch."
+>
   <Nav activePage="about" />
 
   <!-- HERO -->
   <section class="about-hero">
     <div class="ah-inner">
       <div class="ah-left">
-        <div class="ah-eyebrow" id="aey"><span class="ah-line"></span>The studio</div>
-        <h1 id="ah1">We build things<br />that <em>deserve</em><br />to exist.</h1>
+        <div class="ah-eyebrow" id="aey"><span class="ah-line"></span>About Fourth Gate</div>
+        <h1 id="ah1">The people<br />you speak to<br /><em>do the work.</em></h1>
       </div>
       <div class="ah-right" id="aright">
-        <div class="ah-pull">"Most software looks like it was built by engineers for engineers. We build software that looks like it was built for the person who has to use it every day."</div>
-        <p class="ah-sub">A design and engineering studio based in Lagos, Nigeria. We work with founders, startups, and growth-stage companies across Africa and beyond — building the products, brands, and experiences they need to compete.</p>
+        <div class="ah-pull">Fourth Gate stays small on purpose. It keeps communication direct and decisions close to the work.</div>
+        <p class="ah-sub">We are a Lagos-based design and development studio working with founders and small teams on websites, brand systems, and digital products.</p>
       </div>
     </div>
   </section>
@@ -25,17 +28,18 @@ import Footer from '../components/Footer.astro';
   <section class="what-sec">
     <div class="what-inner">
       <div class="what-sticky reveal">
-        <div class="what-label">What we are</div>
-        <h2 class="what-h">One studio.<br /><em>Every layer.</em></h2>
+        <div class="what-label">Operating model</div>
+        <h2 class="what-h">Small by design.<br /><em>Close to the work.</em></h2>
       </div>
       <div class="what-body">
-        <p class="lead reveal">We are a full-service design and engineering studio. That means brand, product, and code — not as separate handoffs between different teams, but as one integrated process delivered by people who understand all three.</p>
-        <p class="reveal">Most agencies specialise. A branding agency hands you a logo and wishes you luck. A development shop takes a brief and builds what they're told. The result is a product that looks designed but doesn't work, or works but doesn't convert.</p>
+        <p class="lead reveal">Most projects do not arrive as a tidy list of screens. They arrive as a business goal, a deadline, a few references, and several unanswered questions. We help turn that into a clear plan and a working product.</p>
+        <p class="reveal">The name Fourth Gate refers to the point where an idea has to become real. The brief needs structure. The design has to work in a browser. The product has to launch, and someone has to be able to run it afterwards.</p>
+        <p class="reveal">The studio is intentionally small. You speak directly with the people making the decisions and doing the work, without layers of account management between the conversation and the build.</p>
         <div class="what-pull reveal">
-          <p>"When design and engineering share a brain, products are different. They feel inevitable — like they couldn't have been built any other way."</p>
+          <p>The job is not finished when the homepage looks good.</p>
         </div>
-        <p class="reveal">We close that gap by design. Every project gets the same thinking applied across every layer — from the brand positioning that informs the visual identity, to the component architecture that makes the interface effortless, to the copy that makes a visitor understand in three seconds what the product is.</p>
-        <p class="reveal">We are a small studio. We work with a small number of clients at any given time. That is intentional — because the work requires genuine attention, and genuine attention does not scale infinitely.</p>
+        <p class="reveal">Each project should look and behave like the business behind it, not like a version of our own website. We learn the context first, then choose the visual and technical approach.</p>
+        <p class="reveal">We also plan for what happens after launch: responsive checks, deployment setup, content structure, and documentation where the project needs them. A client should not depend on us to keep the lights on.</p>
       </div>
     </div>
   </section>
@@ -44,28 +48,28 @@ import Footer from '../components/Footer.astro';
   <section class="values-sec">
     <div class="values-inner">
       <div class="reveal">
-        <h2 class="values-h">Four things we<br /><em>won't compromise on.</em></h2>
+        <h2 class="values-h">How we make<br /><em>decisions.</em></h2>
       </div>
       <div class="values-grid">
         <div class="value-card reveal">
           <div class="vc-num">01</div>
-          <div class="vc-name">Craft over <em>speed</em></div>
-          <p class="vc-desc">We move fast — the 72-hour guarantee exists because we have built the systems to deliver quickly without cutting corners. But when speed and quality conflict, quality wins. Always.</p>
+          <div class="vc-name">Clarity before <em>decoration</em></div>
+          <p class="vc-desc">A visitor should understand the offer and the next step. Visual style supports that job; it does not replace it.</p>
         </div>
         <div class="value-card reveal">
           <div class="vc-num">02</div>
-          <div class="vc-name">Honest <em>pricing</em></div>
-          <p class="vc-desc">We quote what the work costs and we do what we quote. No scope creep surprises, no "that wasn't included" conversations. Brief agreed upfront, price agreed upfront, then we build it.</p>
+          <div class="vc-name">Scope before <em>speed</em></div>
+          <p class="vc-desc">Fast work still needs a clear brief. Agreeing on the limits early keeps the project useful and the timeline believable.</p>
         </div>
         <div class="value-card reveal">
           <div class="vc-num">03</div>
-          <div class="vc-name">Design as <em>thinking</em></div>
-          <p class="vc-desc">We do not design from a mood board. We design from an understanding of the problem — who the user is, what they need to believe, and what needs to happen for them to take action.</p>
+          <div class="vc-name">Design as <em>judgement</em></div>
+          <p class="vc-desc">More pages, motion, or features do not automatically improve a product. We add what helps and leave out what does not.</p>
         </div>
         <div class="value-card reveal">
           <div class="vc-num">04</div>
-          <div class="vc-name">Delivery that <em>actually delivers</em></div>
-          <p class="vc-desc">The product is done when the client can maintain it, grow it, and iterate on it without us. We document everything and hand over work that is genuinely yours — not a black box.</p>
+          <div class="vc-name">Handover that <em>holds up</em></div>
+          <p class="vc-desc">After launch, the code, accounts, content, and notes should make sense to the client or the next developer.</p>
         </div>
       </div>
     </div>
@@ -75,31 +79,15 @@ import Footer from '../components/Footer.astro';
   <section class="cap-sec">
     <div class="cap-inner">
       <div class="reveal">
-        <h2 class="cap-h">What we're<br /><em>actually good at.</em></h2>
+        <h2 class="cap-h">What we do<br /><em>in the work.</em></h2>
       </div>
       <div class="cap-grid">
-        <div class="cap-item reveal"><span class="cap-icon">⚡</span><div class="cap-name">Frontend engineering</div><p class="cap-desc">React, Next.js, Astro, vanilla HTML/CSS. Built for performance, accessibility, and longevity.</p></div>
-        <div class="cap-item reveal"><span class="cap-icon">🎨</span><div class="cap-name">Product design</div><p class="cap-desc">UI/UX design in Figma — from rough wireframe to production-ready component library.</p></div>
-        <div class="cap-item reveal"><span class="cap-icon">◆</span><div class="cap-name">Brand & identity</div><p class="cap-desc">Visual identity systems built to scale. Logo, type, colour, motion — the full language.</p></div>
-        <div class="cap-item reveal"><span class="cap-icon">📐</span><div class="cap-name">Design systems</div><p class="cap-desc">Component libraries, design tokens, and documentation that make scaling fast, not painful.</p></div>
-        <div class="cap-item reveal"><span class="cap-icon">🚀</span><div class="cap-name">MVP development</div><p class="cap-desc">Full product builds from zero — architecture, design, development, and deployment.</p></div>
-        <div class="cap-item reveal"><span class="cap-icon">📊</span><div class="cap-name">Creative production</div><p class="cap-desc">Pitch decks, social assets, marketing collateral — consistent across every surface.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOU TECHNOLOGIES -->
-  <section class="lou-sec">
-    <div class="lou-inner">
-      <div class="lou-left reveal">
-        <h2>Part of<br /><em>Lou Technologies.</em></h2>
-        <p>The studio operates as a product of Lou Technologies — a registered technology company based in Lagos, Nigeria. Lou Technologies is the legal entity behind our client contracts, invoices, and company registration.</p>
-      </div>
-      <div class="lou-right reveal">
-        <div class="lou-mark"></div>
-        <div class="lou-name">Lou Technologies</div>
-        <div class="lou-reg">Registered in Nigeria · Lagos</div>
-        <p class="lou-desc">A technology company building digital products, studios, and tools for African businesses and beyond. The studio is Lou Technologies' flagship service offering — bringing design and engineering under one roof.</p>
+        <div class="cap-item reveal"><span class="cap-icon">⚡</span><div class="cap-name">Frontend engineering</div><p class="cap-desc">Responsive websites and interfaces in Astro, React, Next.js, or plain HTML and CSS, chosen to suit the job.</p></div>
+        <div class="cap-item reveal"><span class="cap-icon">🎨</span><div class="cap-name">Product design</div><p class="cap-desc">User flows, wireframes, interface design, prototypes, and component libraries in Figma.</p></div>
+        <div class="cap-item reveal"><span class="cap-icon">◆</span><div class="cap-name">Brand & identity</div><p class="cap-desc">Marks, type, colour, layout rules, and the core assets a new brand needs to show up consistently.</p></div>
+        <div class="cap-item reveal"><span class="cap-icon">📐</span><div class="cap-name">Design systems</div><p class="cap-desc">Reusable components, design tokens, and notes that keep design and code aligned as a product grows.</p></div>
+        <div class="cap-item reveal"><span class="cap-icon">🚀</span><div class="cap-name">MVP development</div><p class="cap-desc">A first usable version of the product, from scope and interface through development and deployment.</p></div>
+        <div class="cap-item reveal"><span class="cap-icon">📊</span><div class="cap-name">Creative production</div><p class="cap-desc">Pitch decks, social assets, presentations, and launch materials that follow the same visual system.</p></div>
       </div>
     </div>
   </section>
@@ -107,10 +95,10 @@ import Footer from '../components/Footer.astro';
   <!-- CTA -->
   <section class="cta-sec">
     <div class="cta-inner">
-      <h2 class="reveal">Ready to<br /><em>work together?</em></h2>
-      <p class="reveal">Tell us what you're building. We'll tell you honestly whether we're the right fit — and if we are, exactly how we'd approach it.</p>
+      <h2 class="reveal">Have something<br /><em>to build?</em></h2>
+      <p class="reveal">Send us the brief, even if it is still rough. We will tell you whether the project fits and what the next step should be.</p>
       <div class="cta-actions reveal">
-        <a href="/contact" class="btn-gold">Start a project →</a>
+        <a href="/contact" class="btn-gold">Send a brief</a>
       </div>
     </div>
   </section>

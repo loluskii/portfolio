@@ -4,7 +4,10 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Contact">
+<Layout
+  title="Contact"
+  description="Send Fourth Gate Studios a project brief for a website, brand identity, product interface, MVP, or launch creative."
+>
   <Nav activePage="contact" />
 
   <div class="contact-page">
@@ -12,43 +15,27 @@ import Footer from '../components/Footer.astro';
     <!-- LEFT: DIRECT CONTACT -->
     <div class="cp-left">
       <div>
-        <div class="cp-label" id="cpl"><span class="cp-line"></span>Get in touch</div>
-        <h1 id="cph">Let's build<br />something <em>great.</em></h1>
+        <div class="cp-label" id="cpl"><span class="cp-line"></span>Start a brief</div>
+        <h1 id="cph">Tell us what<br />you are <em>working on.</em></h1>
         <p class="cp-desc" id="cpd">
-          Tell us what you're building. We respond within 2 hours during Lagos business hours — usually much faster.
+          Share what you know: the idea, the current state, the deadline, and where you need help. We will reply with a useful next step.
         </p>
 
         <div class="direct-methods" id="cpm">
-          <!-- REPLACE: Update href with your actual WhatsApp number -->
-          <a
-            href="https://wa.me/2348000000000?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20the%20studio."
-            target="_blank"
-            class="dm-item"
-          >
-            <div class="dm-icon dm-icon-wa">📱</div>
-            <div>
-              <span class="dm-label">WhatsApp</span>
-              <span class="dm-value">Start a conversation directly</span>
-            </div>
-            <span class="dm-arrow">→</span>
-          </a>
-
-          <!-- REPLACE: Update href with your actual email -->
-          <a href="mailto:hello@studio.co" class="dm-item">
+          <a href="mailto:hello@fourthgatestudios.com?subject=Project%20brief%20for%20Fourth%20Gate%20Studios" class="dm-item">
             <div class="dm-icon dm-icon-email">✉️</div>
             <div>
               <span class="dm-label">Email</span>
-              <span class="dm-value">hello@studio.co</span>
+              <span class="dm-value">hello@fourthgatestudios.com</span>
             </div>
             <span class="dm-arrow">→</span>
           </a>
 
-          <!-- REPLACE: Update href with your actual LinkedIn -->
-          <a href="https://linkedin.com" target="_blank" class="dm-item">
-            <div class="dm-icon dm-icon-li">💼</div>
+          <a href="/work" class="dm-item">
+            <div class="dm-icon dm-icon-li">◆</div>
             <div>
-              <span class="dm-label">LinkedIn</span>
-              <span class="dm-value">Connect with the studio</span>
+              <span class="dm-label">See the work</span>
+              <span class="dm-value">Client work and product concepts</span>
             </div>
             <span class="dm-arrow">→</span>
           </a>
@@ -59,12 +46,12 @@ import Footer from '../components/Footer.astro';
         <div class="availability">
           <span class="av-dot"></span>
           <span class="av-text">
-            <strong>Available for new projects</strong> — accepting clients for Q3 2025
+            <strong>Available for selected projects</strong>
           </span>
         </div>
         <div class="av-meta">
           Based in Lagos, Nigeria · Available globally<br />
-          Business hours: Mon–Fri, 9am–6pm WAT
+          Business hours: Mon-Fri, 9am-6pm WAT
         </div>
       </div>
     </div>
@@ -73,29 +60,29 @@ import Footer from '../components/Footer.astro';
     <div class="cp-right" id="form">
       <h2 class="cp-form-title">Send us a project brief</h2>
       <p class="cp-form-sub">
-        A few details helps us respond with something useful — not a generic reply.
-        We'll get back to you within 2 hours.
+        A few details help us understand the job. When you submit, the form opens a ready-made email for you to send.
       </p>
 
+      <form id="brief-form">
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Your name</label>
-          <input type="text" class="form-input" placeholder="Adaeze Okonkwo" />
+          <label class="form-label" for="name">Your name</label>
+          <input id="name" name="name" type="text" class="form-input" placeholder="Adaeze Okonkwo" />
         </div>
         <div class="form-group">
-          <label class="form-label">Email or WhatsApp</label>
-          <input type="text" class="form-input" placeholder="adaeze@company.co" />
+          <label class="form-label" for="contact">Email or WhatsApp</label>
+          <input id="contact" name="contact" type="text" class="form-input" placeholder="adaeze@company.co" />
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label">Company or product name</label>
-        <input type="text" class="form-input" placeholder="What are you building?" />
+        <label class="form-label" for="company">Company or product name</label>
+        <input id="company" name="company" type="text" class="form-input" placeholder="What are you building?" />
       </div>
 
       <div class="form-group">
-        <label class="form-label">What do you need?</label>
-        <select class="form-input">
+        <label class="form-label" for="service">What do you need?</label>
+        <select id="service" name="service" class="form-input">
           <option value="" disabled selected>Select a service</option>
           <option>Launch Package — Landing page or product site</option>
           <option>Build Package — Full MVP development</option>
@@ -108,8 +95,8 @@ import Footer from '../components/Footer.astro';
 
       <div class="form-row">
         <div class="form-group">
-          <label class="form-label">Budget range</label>
-          <select class="form-input">
+          <label class="form-label" for="budget">Budget range</label>
+          <select id="budget" name="budget" class="form-input">
             <option value="" disabled selected>Approximate budget</option>
             <option>Under ₦150,000</option>
             <option>₦150,000 – ₦350,000</option>
@@ -120,8 +107,8 @@ import Footer from '../components/Footer.astro';
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">Timeline</label>
-          <select class="form-input">
+          <label class="form-label" for="timeline">Timeline</label>
+          <select id="timeline" name="timeline" class="form-input">
             <option value="" disabled selected>When do you need it?</option>
             <option>ASAP (72 hours)</option>
             <option>Within 2 weeks</option>
@@ -133,15 +120,18 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <div class="form-group">
-        <label class="form-label">Tell us about the project</label>
+        <label class="form-label" for="message">Tell us about the project</label>
         <textarea
+          id="message"
+          name="message"
           class="form-input"
-          placeholder="What are you building, who is it for, and what problem does it solve? The more context, the better our response."
+          placeholder="What are you making, who is it for, and where do you need help?"
         ></textarea>
       </div>
 
-      <button class="form-submit" id="submit-btn">Send brief →</button>
-      <p class="form-note">We respond within 2 hours · Lagos business hours · No spam, ever</p>
+      <button class="form-submit" id="submit-btn" type="submit">Open email draft</button>
+      <p class="form-note">This opens your email app with the brief already composed.</p>
+      </form>
     </div>
   </div>
 
@@ -154,11 +144,11 @@ import Footer from '../components/Footer.astro';
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-q">
-            <span class="faq-q-text">How does the 72-hour guarantee work?</span>
+            <span class="faq-q-text">How quickly can a simple launch site go live?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <div class="faq-a-inner">Once a Launch Package brief is agreed and the deposit paid, the clock starts. 72 hours later, you have a live site. If we're not satisfied with the output, we keep working until we are — at no extra charge.</div>
+            <div class="faq-a-inner">Simple launch sites can move quickly when the brief, content, and approvals are clear. The exact timeline depends on scope, content readiness, and how much visual direction is needed.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -167,7 +157,7 @@ import Footer from '../components/Footer.astro';
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <div class="faq-a-inner">Yes. We're based in Lagos but work with clients across Africa, Europe, and North America. All communication happens via WhatsApp and email. Invoicing in Naira or USD depending on your preference.</div>
+            <div class="faq-a-inner">Yes. We are based in Lagos and work remotely with clients in other countries. Day-to-day communication happens by email or WhatsApp, and we can invoice in Naira or USD.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -176,16 +166,16 @@ import Footer from '../components/Footer.astro';
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <div class="faq-a-inner">Every MVP is scoped individually. Generally: product discovery, full UI/UX design, frontend development (React/Next.js), backend API integration if required, deployment, and documentation. Scope agreed upfront and doesn't change without your approval.</div>
+            <div class="faq-a-inner">Every MVP is scoped separately. It can include product discovery, UI/UX design, frontend development, required API connections, deployment, and documentation. We agree on the exact first version before work begins.</div>
           </div>
         </div>
         <div class="faq-item">
           <div class="faq-q">
-            <span class="faq-q-text">Can you handle branding and development in the same project?</span>
+            <span class="faq-q-text">Can Fourth Gate handle branding and development in the same project?</span>
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <div class="faq-a-inner">Yes — and this is where we're most effective. When brand and product are designed by the same team, the output is tighter and the process faster. We recommend starting with brand before product for any company without a defined visual identity.</div>
+            <div class="faq-a-inner">Yes. Keeping brand and product in the same project can reduce repeated decisions and make the final work more consistent. If there is no usable visual identity yet, we will include that work in the proposed order and scope.</div>
           </div>
         </div>
         <div class="faq-item">
@@ -194,7 +184,7 @@ import Footer from '../components/Footer.astro';
             <span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <div class="faq-a-inner">50% deposit to begin, 50% on delivery. For larger engagements we can structure milestone payments. We accept bank transfer (NGN or USD) and invoice through Lou Technologies.</div>
+            <div class="faq-a-inner">Most projects begin with a deposit, then final or milestone payments depending on the scope. The payment structure is agreed before work starts.</div>
           </div>
         </div>
       </div>
@@ -239,6 +229,7 @@ import Footer from '../components/Footer.astro';
   padding: 1.1rem 1.25rem;
   background: var(--s2); border: 1px solid var(--br); border-radius: var(--r);
   transition: border-color .2s; cursor: pointer;
+  min-width: 0;
 }
 .dm-item:hover { border-color: var(--gold-b); }
 .dm-icon {
@@ -250,7 +241,7 @@ import Footer from '../components/Footer.astro';
 .dm-icon-email { background: var(--gold-l); }
 .dm-icon-li { background: rgba(10, 102, 194, .1); }
 .dm-label { font-size: .72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; }
-.dm-value { font-size: .875rem; color: var(--text); font-weight: 500; }
+.dm-value { font-size: .875rem; color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
 .dm-arrow { margin-left: auto; color: var(--dim); font-size: .9rem; transition: transform .2s, color .2s; }
 .dm-item:hover .dm-arrow { transform: translateX(4px); color: var(--gold); }
 .availability {
@@ -316,9 +307,24 @@ textarea.form-input { resize: vertical; min-height: 140px; line-height: 1.6; }
 .faq-item.open .faq-a { max-height: 200px; }
 
 @media (max-width: 900px) {
-  .contact-page { grid-template-columns: 1fr; padding-top: 5rem; }
-  .cp-left { padding: 6rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--br); }
-  .cp-right { padding: 4rem 1.5rem; }
+  .contact-page { grid-template-columns: 1fr; padding-top: 5rem; min-height: auto; }
+  .cp-left {
+    display: block;
+    padding: 5rem 1.5rem 3rem;
+    border-right: none;
+    border-bottom: 1px solid var(--br);
+  }
+  .cp-left h1 {
+    font-size: clamp(2.9rem, 13vw, 3.9rem);
+    letter-spacing: -1px;
+  }
+  .cp-desc { max-width: 31ch; margin-bottom: 2rem; }
+  .direct-methods { margin-bottom: 2rem; }
+  .dm-item { align-items: flex-start; }
+  .dm-item > div:not(.dm-icon) { min-width: 0; }
+  .availability { align-items: flex-start; }
+  .cp-right { padding: 3rem 1.5rem; }
+  .cp-form-sub { max-width: 31ch; }
   .form-row { grid-template-columns: 1fr; }
   .faq-inner { grid-template-columns: 1fr; gap: 2rem; }
   .faq-sec { padding: 5rem 1.5rem; }
@@ -331,11 +337,7 @@ import gsap from 'gsap';
 // Hero entrance
 gsap.timeline({ delay: 0.2 })
   .from('#cpl', { opacity: 0, x: -16, duration: 0.5, ease: 'power2.out' })
-  .from('#cph', { opacity: 0, y: 32, duration: 0.85, ease: 'power3.out' }, '-=.2')
-  .from('#cpd', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' }, '-=.4')
-  .from('#cpm', { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' }, '-=.3')
-  .from('#cpav', { opacity: 0, y: 12, duration: 0.4, ease: 'power2.out' }, '-=.2')
-  .from('.cp-right', { opacity: 0, x: 20, duration: 0.7, ease: 'power2.out' }, '-=.6');
+  .from('#cph', { opacity: 0, y: 32, duration: 0.85, ease: 'power3.out' }, '-=.2');
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach((q) => {
@@ -347,18 +349,25 @@ document.querySelectorAll('.faq-q').forEach((q) => {
   });
 });
 
-// Form submit simulation
-const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-submitBtn?.addEventListener('click', () => {
-  submitBtn.textContent = 'Sending...';
-  submitBtn.style.opacity = '.6';
-  submitBtn.disabled = true;
-  setTimeout(() => {
-    submitBtn.textContent = 'Brief sent ✓';
-    submitBtn.style.background = 'rgba(74,222,128,.15)';
-    submitBtn.style.color = '#4ADE80';
-    submitBtn.style.borderColor = 'rgba(74,222,128,.3)';
-    submitBtn.style.opacity = '1';
-  }, 1200);
+const briefForm = document.getElementById('brief-form') as HTMLFormElement;
+briefForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const data = new FormData(briefForm);
+  const lines = [
+    `Name: ${data.get('name') || ''}`,
+    `Contact: ${data.get('contact') || ''}`,
+    `Company / product: ${data.get('company') || ''}`,
+    `Service: ${data.get('service') || ''}`,
+    `Budget: ${data.get('budget') || ''}`,
+    `Timeline: ${data.get('timeline') || ''}`,
+    '',
+    'Project context:',
+    `${data.get('message') || ''}`,
+  ];
+
+  const subject = encodeURIComponent('Project brief for Fourth Gate Studios');
+  const body = encodeURIComponent(lines.join('\n'));
+  window.location.href = `mailto:hello@fourthgatestudios.com?subject=${subject}&body=${body}`;
 });
 </script>

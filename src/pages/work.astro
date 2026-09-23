@@ -4,25 +4,70 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Work">
+<Layout
+  title="Work"
+  description="Selected client work and self-initiated product concepts from Fourth Gate Studios."
+>
   <Nav activePage="work" />
 
   <section class="page-hero">
     <div class="ph-inner">
-      <div class="ph-label" id="phl"><span class="ph-line"></span>Our work</div>
-      <h1 id="phh">Products built<br />to <em>earn their place.</em></h1>
-      <p id="php">Three live products. Three different industries. Three completely different visual identities — each designed and built from scratch to feel exactly right for the problem it solves.</p>
+      <div class="ph-label" id="phl"><span class="ph-line"></span>Work</div>
+      <h1 id="phh">The work should fit<br />the <em>brief.</em></h1>
+      <p id="php">This page includes launched client work and self-initiated product concepts. Each one starts with a different audience, problem, and visual direction.</p>
     </div>
   </section>
 
-  <!-- PROJECT 01: ZELA -->
+  <!-- PROJECT 01: SIMZSCO -->
   <div class="project">
     <div class="proj-inner">
       <div class="proj-text reveal">
-        <span class="proj-tag">Case study 01</span>
+        <span class="proj-tag">Public client work</span>
+        <h2>Simzsco Advisory — <em>consulting website</em></h2>
+        <div class="proj-industry">Strategy consulting · CMS · Cloudflare</div>
+        <p class="proj-desc">Simzsco needed a website that explained a broad advisory practice without making it feel vague or oversized. We reorganised the services, built the site in Nuxt, connected Sanity for content updates, and added enquiry and booking routes.</p>
+        <div class="proj-deliverables">
+          <div class="pd-title">Deliverables</div>
+          <div class="pd-tags">
+            <span class="pd-tag">Nuxt website</span>
+            <span class="pd-tag">Sanity content model</span>
+            <span class="pd-tag">Cloudflare deployment</span>
+            <span class="pd-tag">Enquiry flow</span>
+            <span class="pd-tag">SEO foundation</span>
+            <span class="pd-tag">Documentation system</span>
+          </div>
+        </div>
+        <div class="proj-actions">
+          <a href="/contact" class="btn-gold">Discuss a similar project</a>
+        </div>
+      </div>
+      <div class="proj-visual reveal">
+        <div class="pv-stackr">
+          <div class="pv-stackr-blob"></div>
+          <div class="pv-stackr-content">
+            <span class="pv-stackr-tag">Advisory · Website · CMS</span>
+            <div class="pv-stackr-name">Simzsco</div>
+            <div class="pv-stackr-sub">Strategy. Execution. Relationships. Impact.</div>
+            <div class="pv-pages">
+              <span class="pv-page-s">Home</span>
+              <span class="pv-page-s">Services</span>
+              <span class="pv-page-s">About</span>
+              <span class="pv-page-s">Enquiry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 02: ZELA -->
+  <div class="project">
+    <div class="proj-inner">
+      <div class="proj-text reveal">
+        <span class="proj-tag">Product concept</span>
         <h2>Zela — <em>Cross-border payments</em></h2>
         <div class="proj-industry">Fintech · Payments infrastructure · Lagos</div>
-        <p class="proj-desc">African startups were losing 7–12% of every cross-border payment to bank fees and FX markups. Zela needed to communicate a complex financial product with clarity and confidence — without looking like every other Lagos fintech.</p>
+        <p class="proj-desc">Zela is a concept for a cross-border payments product. The design exercise was to explain how a transfer moves, make fees easy to compare, and give the product its own character without making the interface harder to trust.</p>
         <div class="proj-deliverables">
           <div class="pd-title">Deliverables</div>
           <div class="pd-tags">
@@ -36,7 +81,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
         <div class="proj-actions">
-          <a href="/contact" class="btn-gold">Build something similar</a>
+          <a href="/contact" class="btn-gold">Discuss a similar project</a>
         </div>
       </div>
       <div class="proj-visual reveal">
@@ -69,14 +114,14 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
 
-  <!-- PROJECT 02: STACKR -->
+  <!-- PROJECT 03: STACKR -->
   <div class="project">
     <div class="proj-inner">
       <div class="proj-text reveal">
-        <span class="proj-tag">Case study 02</span>
+        <span class="proj-tag">Product concept</span>
         <h2>Stackr — <em>Newsletter monetisation</em></h2>
         <div class="proj-industry">Creator economy · SaaS · Lagos</div>
-        <p class="proj-desc">African newsletter writers were giving away their best work for free — not by choice, but because the payment tools didn't work for their readers. Stackr needed to feel like a publication, not a fintech product.</p>
+        <p class="proj-desc">Stackr is a concept for writers who want to charge for newsletters in local currency. The site was designed to feel like a publication first, while still explaining subscriptions, earnings, and the product itself.</p>
         <div class="proj-deliverables">
           <div class="pd-title">Deliverables</div>
           <div class="pd-tags">
@@ -90,7 +135,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
         <div class="proj-actions">
-          <a href="/contact" class="btn-gold">Build something similar</a>
+          <a href="/contact" class="btn-gold">Discuss a similar project</a>
         </div>
       </div>
       <div class="proj-visual reveal">
@@ -113,14 +158,14 @@ import Footer from '../components/Footer.astro';
     </div>
   </div>
 
-  <!-- PROJECT 03: ROSTR -->
+  <!-- PROJECT 04: ROSTR -->
   <div class="project">
     <div class="proj-inner">
       <div class="proj-text reveal">
-        <span class="proj-tag">Case study 03</span>
+        <span class="proj-tag">Product concept</span>
         <h2>Rostr — <em>Employer of Record</em></h2>
         <div class="proj-industry">HR tech · Future of work · Lagos</div>
-        <p class="proj-desc">Global companies wanted to hire Nigerian engineers but faced months of compliance headaches. Rostr needed to feel immediately trustworthy — clean, corporate-light, laser-focused on one promise: we handle everything.</p>
+        <p class="proj-desc">Rostr is a concept for an employer-of-record service focused on Nigerian technical talent. The page reduces the offer to one clear promise, shows the hiring steps, and answers the first questions an overseas employer would have.</p>
         <div class="proj-deliverables">
           <div class="pd-title">Deliverables</div>
           <div class="pd-tags">
@@ -133,7 +178,7 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
         <div class="proj-actions">
-          <a href="/contact" class="btn-gold">Build something similar</a>
+          <a href="/contact" class="btn-gold">Discuss a similar project</a>
         </div>
       </div>
       <div class="proj-visual reveal">
@@ -157,10 +202,10 @@ import Footer from '../components/Footer.astro';
   <!-- CTA -->
   <section class="cta-sec" style="border-top:1px solid var(--br)">
     <div class="cta-inner">
-      <h2 class="reveal">Your project<br /><em>could be next.</em></h2>
-      <p class="reveal">Every project here started with a brief, a problem, and a founder who needed their product to look as good as it works.</p>
+      <h2 class="reveal">Have a brief<br /><em>of your own?</em></h2>
+      <p class="reveal">Tell us what you are trying to make, what already exists, and what is getting in the way.</p>
       <div class="cta-actions reveal">
-        <a href="/contact" class="btn-gold">Start a project →</a>
+        <a href="/contact" class="btn-gold">Send a brief</a>
         <a href="/services" class="btn-outline-light">See our services</a>
       </div>
     </div>
