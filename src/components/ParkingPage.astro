@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Portfolio Rebuild"
+  description="This portfolio is temporarily parked while the case studies and proof are rebuilt."
+>
+  <main class="parking-shell" aria-labelledby="parking-title">
+    <section class="parking-card">
+      <div class="parking-mark" aria-hidden="true">
+        <img src="/brand/mark-accent.svg" alt="" width="58" height="58" />
+      </div>
+
+      <p class="parking-status">Temporarily parked</p>
+      <h1 id="parking-title">The portfolio is being rebuilt.</h1>
+      <p class="parking-copy">
+        The public site is offline while the work, screenshots, and case-study proof are being cleaned up.
+      </p>
+
+      <div class="parking-actions">
+        <a href="mailto:hello@fourthgatestudios.com?subject=Portfolio%20enquiry" class="parking-primary">
+          Email for work enquiries
+        </a>
+        <span class="parking-note">New version in progress.</span>
+      </div>
+    </section>
+
+    <div class="parking-rules" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  :global(body) {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(200, 164, 90, .18), transparent 24rem),
+      radial-gradient(circle at 82% 72%, rgba(255, 255, 255, .07), transparent 22rem),
+      #09080A;
+  }
+
+  .parking-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: clamp(1.5rem, 4vw, 4rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .parking-shell::before {
+    content: "";
+    position: absolute;
+    inset: 1.25rem;
+    border: 1px solid rgba(200, 164, 90, .22);
+    pointer-events: none;
+  }
+
+  .parking-card {
+    width: min(100%, 760px);
+    position: relative;
+    z-index: 1;
+    padding: clamp(2rem, 7vw, 5.5rem);
+    background: rgba(9, 8, 10, .78);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .38);
+    backdrop-filter: blur(18px);
+  }
+
+  .parking-mark {
+    width: 58px;
+    height: 58px;
+    margin-bottom: clamp(2.5rem, 7vw, 5rem);
+  }
+
+  .parking-mark img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .parking-status {
+    width: fit-content;
+    margin-bottom: 1.15rem;
+    color: var(--gold);
+    font-family: 'Sora', sans-serif;
+    font-size: .75rem;
+    letter-spacing: .08em;
+  }
+
+  .parking-card h1 {
+    max-width: 11ch;
+    color: var(--text);
+    font-size: clamp(4rem, 14vw, 8.8rem);
+    font-weight: 300;
+    line-height: .86;
+    letter-spacing: -.075em;
+  }
+
+  .parking-copy {
+    max-width: 40rem;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+    color: rgba(240, 234, 226, .72);
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.8;
+  }
+
+  .parking-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    margin-top: clamp(2rem, 5vw, 3.25rem);
+  }
+
+  .parking-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: .82rem 1.2rem;
+    background: var(--gold);
+    color: #09080A;
+    border: 1px solid var(--gold);
+    font-family: 'Sora', sans-serif;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    transition: transform .2s ease, background .2s ease, color .2s ease;
+  }
+
+  .parking-primary:hover,
+  .parking-primary:focus-visible {
+    transform: translateY(-2px);
+    background: transparent;
+    color: var(--gold);
+    outline: none;
+  }
+
+  .parking-note {
+    color: rgba(240, 234, 226, .42);
+    font-size: .86rem;
+  }
+
+  .parking-rules {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .parking-rules span {
+    position: absolute;
+    display: block;
+    background: rgba(200, 164, 90, .16);
+  }
+
+  .parking-rules span:nth-child(1) {
+    width: 1px;
+    height: 100%;
+    left: 28%;
+    top: 0;
+  }
+
+  .parking-rules span:nth-child(2) {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 34%;
+  }
+
+  .parking-rules span:nth-child(3) {
+    width: 1px;
+    height: 100%;
+    right: 18%;
+    top: 0;
+  }
+
+  @media (max-width: 640px) {
+    .parking-shell::before {
+      inset: .75rem;
+    }
+
+    .parking-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .parking-card h1 {
+      font-size: clamp(3.5rem, 21vw, 5.25rem);
+      max-width: 9ch;
+    }
+
+    .parking-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .parking-primary {
+      width: 100%;
+    }
+  }
+</style>
