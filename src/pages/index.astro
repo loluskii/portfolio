@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Feature from '../components/Feature.astro';
-import { projects } from '../data/work';
+import { projects, notes } from '../data/work';
+const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
 
 const selected = projects.filter((p) => p.home).sort((a, b) => a.home! - b.home!);
 ---
@@ -49,5 +50,22 @@ const selected = projects.filter((p) => p.home).sort((a, b) => a.home! - b.home!
     </div>
     {selected.map((p, i) => <Feature p={p} eager={i === 0} />)}
     <p class="see-all"><a class="btn" href="/work/">See all work</a></p>
+  </section>
+
+  <section class="wrap section" id="notes" aria-labelledby="notes-title">
+    <div class="section-head">
+      <h2 id="notes-title">Technical notes</h2>
+      <p>Single problems from the work above, and how I solved them.</p>
+    </div>
+    <div class="notes">
+      {notes.map((n) => (
+        <article>
+          <h3><a href={`/work/${n.slug}/`}>{n.title}</a></h3>
+          <p>{n.body}</p>
+          <p class="from">From <a href={`/work/${n.slug}/`}>{byslug[n.slug].name}</a></p>
+        </article>
+      ))}
+    </div>
+    <p class="see-all"><a class="btn" href="/notes/">All notes</a></p>
   </section>
 </Base>
