@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import Shot from '../../components/Shot.astro';
+import { projects, type Project } from '../../data/work';
+
+export function getStaticPaths() {
+  return projects.map((p, i) => ({ params: { slug: p.slug }, props: { p, next: projects[(i + 1) % projects.length] } }));
+}
+const { p, next } = Astro.props as { p: Project; next: Project };
+---
+<Base title={`${p.name}, a case study by Isaac Adelore`} description={p.summary}>
+  <article>
+    <header class="wrap cs-head">
+      <a class="back" href="/#work">All work</a>
+      <h1>{p.name}</h1>
+      <p class="summary">{p.summary}</p>
+      <dl class="cs-facts">
+        <div><dt>Role</dt><dd>{p.role}</dd></div>
+        <div><dt>Year</dt><dd>{p.years}</dd></div>
+        <div><dt>Built with</dt><dd>{p.builtWith}</dd></div>
+        {p.links.length > 0 && (
+          <div><dt>Links</dt><dd>{p.links.map((l) => <a href={l.href}>{l.label}</a>)}</dd></div>
+        )}
+      </dl>
+    </header>
+
+    {p.cover && (
+      <div class="wrap cs-cover">
+        <Shot img={p.cover} eager sizes="(max-width: 1336px) 100vw, 1240px" />
+      </div>
+    )}
+
+    <div class="wrap">
+      <div class="cs-body">
+        {p.sections.map((s) => (
+          <section>
+            <h2>{s.heading}</h2>
+            <div class="copy">{s.body.map((para) => <p>{para}</p>)}</div>
+          </section>
+        ))}
+      </div>
+
+      {p.gallery.length > 0 && (
+        <div class="gallery">
+          {p.gallery.map((g) => (
+            <figure class={g.frame === 'phone' ? 'phone' : ''}>
+              <Shot img={g} sizes={g.frame === 'phone' ? '260px' : '(max-width: 860px) 100vw, 610px'} />
+              {g.caption && <figcaption>{g.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      )}
+
+      <nav class="next" aria-label="Next case study">
+        <span>Next</span>
+        <a href={`/work/${next.slug}/`}>{next.name}</a>
+      </nav>
+    </div>
+  </article>
+</Base>

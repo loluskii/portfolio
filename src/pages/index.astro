@@ -1,35 +1,107 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Work from '../components/Work.astro';
-import About from '../components/About.astro';
-import Services from '../components/Services.astro';
-import Contact from '../components/Contact.astro';
+import Shot from '../components/Shot.astro';
+import { projects, experience } from '../data/work';
+
+const featured = projects.filter((p) => p.feature);
+const rest = projects.filter((p) => !p.feature);
 ---
-
 <Base>
-  <Nav />
-  <main>
-    <Hero />
-    <Work />
-    <About />
-    <Services />
-    <Contact />
-  </main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">I design and build interfaces for sportsbooks, payments and communication tools.</h1>
+    <p class="intro">Senior frontend engineer with six years of Vue, React and Next.js, and the back end too when a product needs it.</p>
+    <dl class="facts">
+      <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+      <div><dt>Looking for</dt><dd>Senior frontend roles, remote or relocating</dd></div>
+      <div><dt>Also</dt><dd>A few contract projects a year</dd></div>
+    </dl>
+    <div class="actions">
+      <a class="btn solid" href="mailto:adeloreisaac@gmail.com">Email me</a>
+      <a class="btn" href="/cv.pdf">Download CV</a>
+    </div>
+  </section>
+
+  <section class="wrap section" id="work" aria-labelledby="work-title">
+    <div class="section-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>Products I designed, built or led the front end of. Each one opens a short case study.</p>
+    </div>
+
+    {featured.map((p, i) => (
+      <article class="feature">
+        <Shot img={p.cover!} href={`/work/${p.slug}/`} eager={i === 0}
+          sizes="(max-width: 860px) 100vw, 820px" />
+        <div class="text">
+          <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
+          <p class="meta"><span>{p.years}</span><span>{p.role}</span></p>
+          <p class="summary">{p.summary}</p>
+          <a class="read" href={`/work/${p.slug}/`}>Read the case study</a>
+        </div>
+      </article>
+    ))}
+
+    <div class="grid">
+      {rest.map((p) => (
+        <article class="tile">
+          {p.cover ? (
+            <Shot img={p.cover} href={`/work/${p.slug}/`} sizes="(max-width: 860px) 100vw, 610px" />
+          ) : (
+            <div class="shot text-cover"><a href={`/work/${p.slug}/`} tabindex="-1" aria-hidden="true"><p>{p.coverText}</p></a></div>
+          )}
+          <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
+          <p class="meta"><span>{p.years}</span><span>{p.role}</span></p>
+          <p class="summary">{p.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap section" id="experience" aria-labelledby="exp-title">
+    <div class="section-head">
+      <h2 id="exp-title">Experience</h2>
+      <p>The full version, with details for each role, is in my <a href="/cv.pdf">CV</a>.</p>
+    </div>
+    <ol class="roles">
+      {experience.map((r) => (
+        <li>
+          <span class="years">{r.years}</span>
+          <span class="company">{r.company}<span class="role">{r.role}</span></span>
+          <span class="note">{r.note}</span>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="wrap section" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <h2 id="about-title">About</h2>
+    </div>
+    <div class="prose">
+      <div>
+        <p>I started as a designer who could code, and became an engineer who still designs. Most of my work sits where an interface has to stay clear while the system underneath moves fast: live odds, payments, inboxes and admin tools with many roles.</p>
+        <p>On a white-label sportsbook I built the theming that took new clients from weeks to days to launch, and cut load times by 55% while live odds kept updating. Earlier, I designed and built products for a gaming platform with over 100,000 users.</p>
+        <p>I usually work from Figma to production myself, and I care about the parts people only notice when they’re wrong: how a price change is shown, what an empty screen says, how a layout holds up on a cheap phone.</p>
+      </div>
+      <aside>
+        <h3>Tools I use most</h3>
+        <p>Vue, Nuxt, React, Next.js, TypeScript, Tailwind CSS, Pinia, Zustand, TanStack Query</p>
+        <h3>And when the back end is mine</h3>
+        <p>Laravel, Node, NestJS, FastAPI, PostgreSQL</p>
+        <h3>Education</h3>
+        <p>B.Sc. Computer Science, Covenant University</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section contract" id="contract" aria-labelledby="contract-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="contract-title">Contract work</h2>
+        <p>I take on a few projects a year: product UI, design to code, and first versions for early teams. Tell me what you’re building and when you need it.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="mailto:adeloreisaac@gmail.com?subject=Project%20enquiry">Start a conversation</a>
+      </div>
+    </div>
+  </section>
 </Base>
-
-<script>
-  const nav = document.getElementById('nav');
-
-  const syncNav = () => {
-    if (window.scrollY > 24) {
-      nav?.classList.add('scrolled');
-    } else {
-      nav?.classList.remove('scrolled');
-    }
-  };
-
-  syncNav();
-  window.addEventListener('scroll', syncNav, { passive: true });
-</script>

@@ -1,0 +1,25 @@
+---
+import { srcset, fallback, type Img } from '../data/work';
+
+interface Props {
+  img: Img;
+  sizes: string;
+  href?: string;
+  eager?: boolean;
+}
+const { img, sizes, href, eager = false } = Astro.props;
+const frame = img.frame ?? 'plain';
+const w = img.widths[img.widths.length - 1];
+const h = Math.round(w / img.ratio);
+---
+<div class={`shot ${frame}`}>
+  {href ? (
+    <a href={href} tabindex="-1" aria-hidden="true">
+      <img src={fallback(img)} srcset={srcset(img)} sizes={sizes} width={w} height={h} alt={img.alt}
+        loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />
+    </a>
+  ) : (
+    <img src={fallback(img)} srcset={srcset(img)} sizes={sizes} width={w} height={h} alt={img.alt}
+      loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />
+  )}
+</div>
