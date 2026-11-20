@@ -1,0 +1,25 @@
+---
+import Shot from './Shot.astro';
+import type { Project } from '../data/work';
+
+interface Props { p: Project; eager?: boolean }
+const { p, eager = false } = Astro.props;
+const where = [p.org, p.years].filter(Boolean).join(', ');
+---
+<article class="feature">
+  {p.cover ? (
+    <Shot img={p.cover} href={`/work/${p.slug}/`} eager={eager} sizes="(max-width: 860px) 100vw, 820px" />
+  ) : (
+    <a class="shot brief" href={`/work/${p.slug}/`} tabindex="-1" aria-hidden="true">
+      <p class="line">{p.brief!.line}</p>
+      <ul>{p.brief!.notes.map((n) => <li>{n}</li>)}</ul>
+    </a>
+  )}
+  <div class="text">
+    <p class="kind">{p.kind}</p>
+    <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
+    <p class="meta">{where && <span>{where}</span>}<span>{p.role}</span></p>
+    <p class="summary">{p.summary}</p>
+    <a class="read" href={`/work/${p.slug}/`}>Read the case study<span class="sr-only"> on {p.name}</span></a>
+  </div>
+</article>

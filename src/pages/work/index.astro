@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects } from '../../data/work';
+
+const where = (p: (typeof projects)[number]) => [p.org, p.years].filter(Boolean).join(', ');
+---
+<Base title="Work, Isaac Adelore" description="Every case study: web apps, marketing sites and internal tools, designed and built by Isaac Adelore.">
+  <section class="wrap page-head" aria-labelledby="page-title">
+    <h1 id="page-title">Work</h1>
+    <p>Everything I’ve written up: web apps, marketing sites and the internal tools behind them. Each one opens the full case study.</p>
+  </section>
+  <section class="wrap" aria-labelledby="page-title">
+    <ul class="more">
+      {projects.map((p) => (
+        <li>
+          <a href={`/work/${p.slug}/`}>
+            <span class="name">{p.name}</span>
+            <span class="summary-sm">{p.summary}</span>
+            <span class="tag">{p.kind}</span>
+            <span class="where">{where(p)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

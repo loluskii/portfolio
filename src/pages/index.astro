@@ -1,35 +1,72 @@
 ---
 import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import Hero from '../components/Hero.astro';
-import Work from '../components/Work.astro';
-import About from '../components/About.astro';
-import Services from '../components/Services.astro';
-import Contact from '../components/Contact.astro';
+import Feature from '../components/Feature.astro';
+import { projects, notes } from '../data/work';
+const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+
+const selected = projects.filter((p) => p.home).sort((a, b) => a.home! - b.home!);
 ---
-
 <Base>
-  <Nav />
-  <main>
-    <Hero />
-    <Work />
-    <About />
-    <Services />
-    <Contact />
-  </main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">I design interfaces, then build them all the way down.</h1>
+    <p class="intro">I’m Isaac Adelore, a frontend-focused fullstack engineer who also designs. For six years I’ve built products across banking, communication and real-time software, from the Figma file to the database. The interface is where I’m strongest.</p>
+    <dl class="facts">
+      <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
+      <div><dt>Works across</dt><dd>Product design, frontend architecture, APIs and data</dd></div>
+    </dl>
+    <div class="actions">
+      <a class="btn solid" href="mailto:adeloreisaac@gmail.com">Email me</a>
+      <a class="btn" href="https://linkedin.com/in/adeloreisaac">LinkedIn</a>
+    </div>
+  </section>
+
+  <section class="wrap section" id="about" aria-labelledby="about-title">
+    <div class="section-head">
+      <h2 id="about-title">About</h2>
+    </div>
+    <div class="prose">
+      <div>
+        <p>I started as a designer who could code and became an engineer who still designs. A clean interface that works properly is the part of the job I enjoy most. Software people depend on to get their work done is what keeps me at it.</p>
+        <p>I spent four years at FCMB building internal platforms for a banking group, and alongside that worked on a white-label sportsbook, Venmail and PressOne Africa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="work" aria-labelledby="work-title">
+    <div class="section-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>Web apps, marketing sites and internal tools, designed and built. Internal screens are recreated with sample data.</p>
+    </div>
+    {selected.map((p, i) => <Feature p={p} eager={i === 0} />)}
+    <p class="see-all"><a class="btn" href="/work/">See all work</a></p>
+  </section>
+
+  <section class="wrap section" id="notes" aria-labelledby="notes-title">
+    <div class="section-head">
+      <h2 id="notes-title">Technical notes</h2>
+      <p>Single problems from the work above, and how I solved them.</p>
+    </div>
+    <div class="notes">
+      {notes.map((n) => (
+        <article>
+          <h3><a href={`/work/${n.slug}/`}>{n.title}</a></h3>
+          <p>{n.body}</p>
+          <p class="from">From <a href={`/work/${n.slug}/`}>{byslug[n.slug].name}</a></p>
+        </article>
+      ))}
+    </div>
+    <p class="see-all"><a class="btn" href="/notes/">All notes</a></p>
+  </section>
+
+  <section class="wrap section" id="tools" aria-labelledby="tools-title">
+    <div class="section-head">
+      <h2 id="tools-title">Tools</h2>
+    </div>
+    <dl class="tools">
+      <div><dt>Frontend</dt><dd>React, Next.js, Vue, Nuxt, TypeScript, Tailwind CSS, TanStack Query, Zustand, Pinia</dd></div>
+      <div><dt>Backend and data</dt><dd>Go, Laravel, ColdFusion (CFML), Node, FastAPI, SQL Server, PostgreSQL, Redis</dd></div>
+      <div><dt>Design</dt><dd>Figma, design systems, prototyping, UX audits</dd></div>
+      <div><dt>Education</dt><dd>B.Sc. Computer Science, Covenant University</dd></div>
+    </dl>
+  </section>
 </Base>
-
-<script>
-  const nav = document.getElementById('nav');
-
-  const syncNav = () => {
-    if (window.scrollY > 24) {
-      nav?.classList.add('scrolled');
-    } else {
-      nav?.classList.remove('scrolled');
-    }
-  };
-
-  syncNav();
-  window.addEventListener('scroll', syncNav, { passive: true });
-</script>
