@@ -308,19 +308,6 @@ a:hover {
   font-weight: 500;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 1.5rem;
-  row-gap: clamp(3rem, 6vw, 5rem);
-}
-.tile .shot {
-  margin-bottom: 1.25rem;
-}
-.tile .project-name {
-  font-size: clamp(2.25rem, 1.4rem + 2.2vw, 3.5rem);
-}
-
 /* Screenshot frames */
 .shot {
   background: var(--plate);
@@ -343,24 +330,91 @@ a:hover {
 .shot.plain {
   padding: 0;
 }
-.shot.text-cover {
+.shot.brief {
   aspect-ratio: 16 / 10;
   display: flex;
-  align-items: flex-end;
-  padding: clamp(1.25rem, 3vw, 2.25rem);
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 3.4vw, 2.75rem);
   background: var(--ink);
   color: var(--paper);
-}
-.shot.text-cover p {
-  font-family: var(--serif);
-  font-size: clamp(1.6rem, 1rem + 2vw, 2.6rem);
-  line-height: 1.08;
-  max-width: 20ch;
-}
-.shot.text-cover a {
   text-decoration: none;
-  color: inherit;
 }
+.shot.brief .line {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 0.9rem + 2.4vw, 3rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+}
+.shot.brief ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: var(--t-small);
+}
+.shot.brief li {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(239, 236, 228, 0.28);
+  border-radius: 999px;
+  color: #d9d3c6;
+}
+.shot.brief.wide {
+  aspect-ratio: 21 / 8;
+}
+.kind {
+  font-size: var(--t-small);
+  color: var(--iron);
+  margin-bottom: 0.75rem;
+}
+
+/* ── More work ────────────────────────────────────────── */
+.more {
+  border-top: 1px solid var(--ink);
+}
+.more a {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 2fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+.more .name {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 1.2rem + 1.4vw, 2.5rem);
+  line-height: 1;
+}
+.more .summary-sm { color: var(--ink); }
+.more .tag, .more .where { font-size: var(--t-small); color: var(--graphite); }
+.more a:hover .name, .more a:focus-visible .name { color: var(--iron); }
+
+/* ── Notes ────────────────────────────────────────────── */
+.notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+}
+.notes article {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+.notes h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 1.1rem + 1.2vw, 2.25rem);
+  line-height: 1.08;
+  max-width: 24ch;
+}
+.notes h3 a { text-decoration: none; }
+.notes h3 a:hover { color: var(--iron); }
+.notes p { max-width: 52ch; }
+.notes .from { font-size: var(--t-small); color: var(--graphite); }
 
 /* ── Experience ───────────────────────────────────────── */
 .roles {
@@ -389,7 +443,7 @@ a:hover {
   color: var(--ink);
 }
 
-/* ── About / contract ─────────────────────────────────── */
+/* ── About ─────────────────────────────────── */
 .prose {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -414,25 +468,6 @@ a:hover {
   font-size: var(--t-small);
   font-weight: 600;
   color: var(--ink);
-}
-
-.section.contract {
-  background: var(--ink);
-  color: var(--paper);
-  border-top: 0;
-}
-.contract .section-head p {
-  color: #c9c2b4;
-}
-.contract .btn {
-  border-color: var(--paper);
-}
-.contract .btn:hover {
-  background: var(--paper);
-  color: var(--ink);
-}
-.contract a:hover {
-  color: inherit;
 }
 
 /* ── Footer ───────────────────────────────────────────── */
@@ -593,7 +628,9 @@ a:hover {
   }
   .section-head { row-gap: 1rem; }
   .feature .text { position: static; }
-  .grid { grid-template-columns: 1fr; }
+  .notes { grid-template-columns: 1fr; }
+  .more a { grid-template-columns: 1fr; gap: 0.4rem; }
+  .shot.brief, .shot.brief.wide { aspect-ratio: auto; min-height: 15rem; }
   .prose aside { margin-top: 2rem; }
   .roles li { grid-template-columns: 1fr; gap: 0.25rem; }
   .cs-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -604,17 +641,4 @@ a:hover {
   .hero .facts div { grid-template-columns: 6rem 1fr; }
   .gallery figure.phone { flex-basis: 100%; }
   .gallery figure.phone .shot { max-width: 300px; }
-}
-
-/* Grid tiles share one frame so names line up across a row. */
-.tile .shot {
-  aspect-ratio: 16 / 10;
-}
-.tile .shot a {
-  height: 100%;
-}
-.tile .shot img {
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
 }

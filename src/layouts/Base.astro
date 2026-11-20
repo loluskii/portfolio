@@ -8,7 +8,7 @@ interface Props {
 }
 const {
   title = 'Isaac Adelore, frontend engineer',
-  description = 'Senior frontend engineer in Lagos. I design and build interfaces for sportsbooks, payments and communication tools.',
+  description = 'Isaac Adelore, a frontend-focused fullstack engineer and designer in Lagos. Case studies in product design, frontend architecture and backend systems.',
   image = '/og.jpg',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -41,6 +41,7 @@ const ogImage = new URL(image, Astro.site);
       <a class="name" href="/">Isaac Adelore</a>
       <nav aria-label="Main">
         <a href="/#work">Work</a>
+        <a href="/#notes">Notes</a>
         <a href="/#experience">Experience</a>
         <a href="/#about">About</a>
         <a href="/cv.pdf">CV</a>

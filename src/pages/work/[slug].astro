@@ -16,7 +16,8 @@ const { p, next } = Astro.props as { p: Project; next: Project };
       <p class="summary">{p.summary}</p>
       <dl class="cs-facts">
         <div><dt>Role</dt><dd>{p.role}</dd></div>
-        <div><dt>Year</dt><dd>{p.years}</dd></div>
+        {p.org && <div><dt>For</dt><dd>{p.org}</dd></div>}
+        {p.years && <div><dt>Year</dt><dd>{p.years}</dd></div>}
         <div><dt>Built with</dt><dd>{p.builtWith}</dd></div>
         {p.links.length > 0 && (
           <div><dt>Links</dt><dd>{p.links.map((l) => <a href={l.href}>{l.label}</a>)}</dd></div>
@@ -27,6 +28,14 @@ const { p, next } = Astro.props as { p: Project; next: Project };
     {p.cover && (
       <div class="wrap cs-cover">
         <Shot img={p.cover} eager sizes="(max-width: 1336px) 100vw, 1240px" />
+      </div>
+    )}
+    {!p.cover && p.brief && (
+      <div class="wrap cs-cover">
+        <div class="shot brief wide">
+          <p class="line">{p.brief.line}</p>
+          <ul>{p.brief.notes.map((n) => <li>{n}</li>)}</ul>
+        </div>
       </div>
     )}
 

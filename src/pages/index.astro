@@ -1,19 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
-import { projects, experience } from '../data/work';
+import { projects, experience, notes } from '../data/work';
 
 const featured = projects.filter((p) => p.feature);
-const rest = projects.filter((p) => !p.feature);
+const more = projects.filter((p) => !p.feature);
+const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+const when = (p: (typeof projects)[number]) => [p.org, p.years].filter(Boolean).join(', ');
 ---
 <Base>
   <section class="wrap hero" aria-labelledby="hero-title">
-    <h1 id="hero-title">I design and build interfaces for sportsbooks, payments and communication tools.</h1>
-    <p class="intro">Senior frontend engineer with six years of Vue, React and Next.js, and the back end too when a product needs it.</p>
+    <h1 id="hero-title">I design interfaces, then build them all the way down.</h1>
+    <p class="intro">I’m Isaac Adelore, a frontend-focused fullstack engineer who also designs. Over six years I’ve shipped mail and calendar software, AI tools and sign-in systems for a banking group, and a live sportsbook that runs without a server. I take a product from the Figma file to the database, and the interface is where I’m strongest.</p>
     <dl class="facts">
       <div><dt>Based in</dt><dd>Lagos, Nigeria</dd></div>
-      <div><dt>Looking for</dt><dd>Senior frontend roles, remote or relocating</dd></div>
-      <div><dt>Also</dt><dd>A few contract projects a year</dd></div>
+      <div><dt>Looking for</dt><dd>Senior frontend or product engineering roles, remote or relocating</dd></div>
+      <div><dt>Works across</dt><dd>Product design, frontend architecture, APIs and data</dd></div>
     </dl>
     <div class="actions">
       <a class="btn solid" href="mailto:adeloreisaac@gmail.com">Email me</a>
@@ -24,33 +26,61 @@ const rest = projects.filter((p) => !p.feature);
   <section class="wrap section" id="work" aria-labelledby="work-title">
     <div class="section-head">
       <h2 id="work-title">Selected work</h2>
-      <p>Products I designed, built or led the front end of. Each one opens a short case study.</p>
+      <p>Design, frontend and backend work from the last few years. Internal tools are written up in full, because I can’t show their screens.</p>
     </div>
 
     {featured.map((p, i) => (
       <article class="feature">
-        <Shot img={p.cover!} href={`/work/${p.slug}/`} eager={i === 0}
-          sizes="(max-width: 860px) 100vw, 820px" />
+        {p.cover ? (
+          <Shot img={p.cover} href={`/work/${p.slug}/`} eager={i === 0}
+            sizes="(max-width: 860px) 100vw, 820px" />
+        ) : (
+          <a class="shot brief" href={`/work/${p.slug}/`} tabindex="-1" aria-hidden="true">
+            <p class="line">{p.brief!.line}</p>
+            <ul>{p.brief!.notes.map((n) => <li>{n}</li>)}</ul>
+          </a>
+        )}
         <div class="text">
+          <p class="kind">{p.kind}</p>
           <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
-          <p class="meta"><span>{p.years}</span><span>{p.role}</span></p>
+          <p class="meta">{when(p) && <span>{when(p)}</span>}<span>{p.role}</span></p>
           <p class="summary">{p.summary}</p>
           <a class="read" href={`/work/${p.slug}/`}>Read the case study</a>
         </div>
       </article>
     ))}
+  </section>
 
-    <div class="grid">
-      {rest.map((p) => (
-        <article class="tile">
-          {p.cover ? (
-            <Shot img={p.cover} href={`/work/${p.slug}/`} sizes="(max-width: 860px) 100vw, 610px" />
-          ) : (
-            <div class="shot text-cover"><a href={`/work/${p.slug}/`} tabindex="-1" aria-hidden="true"><p>{p.coverText}</p></a></div>
-          )}
-          <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
-          <p class="meta"><span>{p.years}</span><span>{p.role}</span></p>
-          <p class="summary">{p.summary}</p>
+  <section class="wrap section" id="more" aria-labelledby="more-title">
+    <div class="section-head">
+      <h2 id="more-title">More work</h2>
+      <p>Smaller write-ups, same structure: the problem, what I decided and what came of it.</p>
+    </div>
+    <ul class="more">
+      {more.map((p) => (
+        <li>
+          <a href={`/work/${p.slug}/`}>
+            <span class="name">{p.name}</span>
+            <span class="summary-sm">{p.summary}</span>
+            <span class="tag">{p.kind}</span>
+            <span class="where">{when(p)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="wrap section" id="notes" aria-labelledby="notes-title">
+    <div class="section-head">
+      <h2 id="notes-title">Technical notes</h2>
+      <p>Single problems from the work above, and how I solved them.</p>
+    </div>
+    <div class="notes">
+      {notes.map((n) => (
+        <article>
+          <h3><a href={`/work/${n.slug}/`}>{n.title}</a></h3>
+          <p>{n.body}</p>
+          <p class="from">From {byslug[n.slug].name}</p>
         </article>
       ))}
     </div>
@@ -78,30 +108,20 @@ const rest = projects.filter((p) => !p.feature);
     </div>
     <div class="prose">
       <div>
-        <p>I started as a designer who could code, and became an engineer who still designs. Most of my work sits where an interface has to stay clear while the system underneath moves fast: live odds, payments, inboxes and admin tools with many roles.</p>
-        <p>On a white-label sportsbook I built the theming that took new clients from weeks to days to launch, and cut load times by 55% while live odds kept updating. Earlier, I designed and built products for a gaming platform with over 100,000 users.</p>
-        <p>I usually work from Figma to production myself, and I care about the parts people only notice when they’re wrong: how a price change is shown, what an empty screen says, how a layout holds up on a cheap phone.</p>
+        <p>I started as a designer who could code and became an engineer who still designs. That means I can sit with a product team on Monday deciding what a screen should do, and be in the API on Thursday making sure it can.</p>
+        <p>A clean interface that works properly is the part of the job I enjoy most. Software people depend on to get their work done is the part that keeps me at it. Most of what I’ve built is the second kind: tools a service desk, a data team or a finance lead opens every morning.</p>
+        <p>I care about the details people only notice when they’re wrong: what a price change looks like, what an empty screen says, what happens when a request lands on the wrong server, and how a layout holds up on a cheap phone.</p>
       </div>
       <aside>
-        <h3>Tools I use most</h3>
-        <p>Vue, Nuxt, React, Next.js, TypeScript, Tailwind CSS, Pinia, Zustand, TanStack Query</p>
-        <h3>And when the back end is mine</h3>
-        <p>Laravel, Node, NestJS, FastAPI, PostgreSQL</p>
+        <h3>Frontend</h3>
+        <p>React, Next.js, Vue, Nuxt, TypeScript, Tailwind CSS, TanStack Query, Zustand, Pinia</p>
+        <h3>Backend and data</h3>
+        <p>Laravel, ColdFusion (CFML), FastAPI, Node, SQL Server, PostgreSQL</p>
+        <h3>Design</h3>
+        <p>Figma, design systems, UX audits, prototyping</p>
         <h3>Education</h3>
         <p>B.Sc. Computer Science, Covenant University</p>
       </aside>
-    </div>
-  </section>
-
-  <section class="section contract" id="contract" aria-labelledby="contract-title">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 id="contract-title">Contract work</h2>
-        <p>I take on a few projects a year: product UI, design to code, and first versions for early teams. Tell me what you’re building and when you need it.</p>
-      </div>
-      <div class="actions">
-        <a class="btn" href="mailto:adeloreisaac@gmail.com?subject=Project%20enquiry">Start a conversation</a>
-      </div>
     </div>
   </section>
 </Base>
