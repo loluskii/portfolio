@@ -18,9 +18,11 @@ export type Project = {
   org?: string;
   years?: string;
   role: string;
-  /** What kind of work this was, shown as a short tag: design, frontend, backend. */
+  /** Web app, marketing site, or internal tool. */
   kind: string;
   summary: string;
+  /** One line on what came of it, shown in the case study's facts row. */
+  outcome: string;
   /** Position on the home page (1–5). Projects without it appear only on /work. */
   home?: number;
   cover?: Img;
@@ -37,16 +39,17 @@ export const projects: Project[] = [
     slug: 'venmail',
     name: 'Venmail',
     years: '2024–2025',
-    role: 'Senior software engineer, frontend lead',
+    role: 'Software engineer',
     kind: 'Web app and marketing site',
     summary: 'Rebuilding the front end of a mail, calendar and meetings product, and its marketing site, while the whole company rebranded.',
+    outcome: 'The rebrand shipped across every module, on shared components.',
     home: 1,
     cover: {
-      src: '/work/venmail/prospects',
+      src: '/work/venmail/cover',
       widths: [800, 1600],
-      ratio: 2880 / 1650,
-      alt: 'Venmail prospects list with a contact being added',
-      frame: 'plain',
+      ratio: 2880 / 1800,
+      alt: 'Venmail marketing site home page: Email that works as hard as you do',
+      frame: 'browser',
     },
     builtWith: 'React, TypeScript, Inertia.js, Laravel',
     links: [],
@@ -78,7 +81,7 @@ export const projects: Project[] = [
       },
     ],
     gallery: [
-      { src: '/work/venmail/cover', widths: [800, 1600], ratio: 2880 / 1800, frame: 'browser', alt: 'Venmail home page: Email that works as hard as you do', caption: 'The marketing site, which I also built' },
+      { src: '/work/venmail/prospects', widths: [800, 1600], ratio: 2880 / 1650, frame: 'plain', alt: 'Prospecting feature on the Venmail marketing site, with a contact being added', caption: 'Prospecting, from the marketing site I built' },
       { src: '/work/venmail/features', widths: [800, 1600], ratio: 2880 / 2900, frame: 'browser', alt: 'Venmail mail features: AI rewrites, task extraction, summaries and spam detection', caption: 'Mail features' },
     ],
   },
@@ -87,12 +90,16 @@ export const projects: Project[] = [
     name: 'Eazi AI',
     org: 'FCMB',
     role: 'Product design and frontend',
-    kind: 'Web app, product design',
+    kind: 'Internal tool',
     summary: 'An assistant for bank staff that answers questions from the bank’s data and its own documents.',
+    outcome: 'Staff pull figures and answers themselves instead of raising requests.',
     home: 2,
-    brief: {
-      line: 'Two AI agents behind one chat, and an interface that never makes you think about which one is answering.',
-      notes: ['Chat with history', 'Files attached in the composer', 'Data and document modes'],
+    cover: {
+      src: '/work/eazi-ai/chat',
+      widths: [800, 1600],
+      ratio: 1440 / 900,
+      alt: 'Recreation of Eazi AI with sample data: chat history, Eazi BI and Eazi Documents tabs, an answer with a table of deposits by region, and a spreadsheet uploading',
+      frame: 'browser',
     },
     builtWith: 'JavaScript, ColdFusion (CFML), object storage, internal AI agent APIs',
     links: [],
@@ -112,7 +119,7 @@ export const projects: Project[] = [
       {
         heading: 'My part',
         body: [
-          'I designed the product and built the frontend: the chat, the two modes, file upload, conversation history and every state in between.',
+          'I designed the product and built the frontend: the chat, the two modes, file upload, conversation history and every state in between. The screen above is a simplified recreation with sample data, because the real one shows internal figures.',
         ],
       },
       {
@@ -145,6 +152,7 @@ export const projects: Project[] = [
     role: 'Product, design and frontend',
     kind: 'Web app',
     summary: 'A live sportsbook and casino that runs entirely on a match simulation in the browser.',
+    outcome: '149 tests, 100 for accessibility, and no server to run.',
     home: 4,
     cover: {
       src: '/work/pitchside/strip',
@@ -201,8 +209,9 @@ export const projects: Project[] = [
     name: 'Group sign-in',
     org: 'FCMB',
     role: 'Backend engineer',
-    kind: 'Backend and identity',
+    kind: 'Internal tool',
     summary: 'One sign-in for staff across four companies in a banking group, each with its own identity provider.',
+    outcome: 'Staff across four companies sign in with their own work accounts.',
     brief: {
       line: 'Four identity providers, three load-balanced servers, and a session that follows you between them.',
       notes: ['Active Directory', 'Microsoft Entra ID', 'Okta', 'Internal pensions API'],
@@ -267,6 +276,7 @@ export const projects: Project[] = [
     role: 'Product and design direction',
     kind: 'Web app and marketing site',
     summary: 'An expense tracker for people who spend in naira.',
+    outcome: 'A live app anyone can try without signing up.',
     cover: {
       src: '/work/spense/cover',
       widths: [800, 1600],
@@ -312,8 +322,9 @@ export const projects: Project[] = [
     name: 'Channel reliability',
     org: 'FCMB',
     role: 'Fullstack engineer',
-    kind: 'Fullstack, data',
+    kind: 'Internal tool',
     summary: 'How reliable each way of paying is right now: mobile, cards, POS and branches, in success rates and counts.',
+    outcome: 'Channel health went from compiled spreadsheets to a live view.',
     brief: {
       line: 'A 2% failure rate means nothing until you know whether it’s 2% of fifty or of two million.',
       notes: ['Mobile', 'Card', 'POS', 'Retail'],
@@ -356,8 +367,9 @@ export const projects: Project[] = [
     name: 'Campaign manager',
     org: 'FCMB',
     role: 'Fullstack engineer',
-    kind: 'Fullstack',
+    kind: 'Internal tool',
     summary: 'SMS and email campaigns for the bank’s CRM, with audiences written in SQL and an approval step before anything sends.',
+    outcome: 'Recurring campaigns run on schedule, with every send logged.',
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -392,8 +404,9 @@ export const projects: Project[] = [
     name: 'Customer 360',
     org: 'FCMB',
     role: 'Fullstack engineer',
-    kind: 'Fullstack',
+    kind: 'Internal tool',
     summary: 'One screen for the service desk: who the customer is, what has happened to them, and how long they’ve been waiting.',
+    outcome: 'Agents work from one screen, and wait times are measured, not estimated.',
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -426,8 +439,9 @@ export const projects: Project[] = [
     name: 'KPI and appraisals',
     org: 'FCMB',
     role: 'Fullstack engineer',
-    kind: 'Fullstack',
+    kind: 'Internal tool',
     summary: 'Staff targets, progress and appraisals in one system instead of a spreadsheet per team.',
+    outcome: 'Appraisals run in one system, with a record of every step.',
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -461,8 +475,9 @@ export const projects: Project[] = [
     name: 'Stackr',
     years: '2026',
     role: 'Founder, product and design',
-    kind: 'Marketing site and product design',
+    kind: 'Marketing site',
     summary: 'A paid-newsletter platform for African writers who can’t use Stripe.',
+    outcome: 'Site and product design done; the app is in development.',
     home: 3,
     cover: {
       src: '/work/stackr/cover',
@@ -502,8 +517,9 @@ export const projects: Project[] = [
     name: 'FeedXNG',
     years: '2022–2023',
     role: 'Fullstack engineer',
-    kind: 'Design to deployment',
+    kind: 'Web app',
     summary: 'A food marketplace I designed, built and ran, from Figma to the servers.',
+    outcome: 'A working marketplace with three payment providers behind one checkout.',
     builtWith: 'Vue, Nuxt, Laravel, Heroku, AWS',
     links: [{ label: 'API source code', href: 'https://github.com/loluskii/feedxng-api' }],
     sections: [
@@ -532,6 +548,7 @@ export const projects: Project[] = [
     role: 'Design direction',
     kind: 'Marketing site',
     summary: 'Website for a founder-led firm that advises on strategy, creative work and partnerships.',
+    outcome: 'Live at simzscoadvisory.com.',
     home: 5,
     cover: {
       src: '/work/simzsco/cover',

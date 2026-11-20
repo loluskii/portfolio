@@ -20,6 +20,6 @@ const where = [p.org, p.years].filter(Boolean).join(', ');
     <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
     <p class="meta">{where && <span>{where}</span>}<span>{p.role}</span></p>
     <p class="summary">{p.summary}</p>
-    <a class="read" href={`/work/${p.slug}/`}>Read the case study</a>
+    <a class="read" href={`/work/${p.slug}/`}>Read the case study<span class="sr-only"> on {p.name}</span></a>
   </div>
 </article>
