@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { projects, notes } from '../data/work';
+
+const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+---
+<Base title="Technical notes, Isaac Adelore" description="Short write-ups of single problems from Isaac Adelore’s work, and how they were solved.">
+  <section class="wrap page-head" aria-labelledby="page-title">
+    <h1 id="page-title">Technical notes</h1>
+    <p>Single problems from my work, and how I solved them. Each one links to the case study it comes from.</p>
+  </section>
+  <section class="wrap" aria-labelledby="page-title">
+    <div class="notes">
+      {notes.map((n) => (
+        <article>
+          <h2><a href={`/work/${n.slug}/`}>{n.title}</a></h2>
+          <p>{n.body}</p>
+          <p class="from">From <a href={`/work/${n.slug}/`}>{byslug[n.slug].name}</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

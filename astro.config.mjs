@@ -7,7 +7,7 @@ export default defineConfig({
   redirects: {
     '/about': '/#about',
     '/contact': '/#contact',
-    '/services': '/#work',
-    '/work': '/#work',
+    '/experience': '/#about',
+    '/services': '/work',
   },
 });

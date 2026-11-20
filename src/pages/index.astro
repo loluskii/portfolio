@@ -1,12 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import Shot from '../components/Shot.astro';
-import { projects, experience, notes } from '../data/work';
+import Feature from '../components/Feature.astro';
+import { projects } from '../data/work';
 
-const featured = projects.filter((p) => p.feature);
-const more = projects.filter((p) => !p.feature);
-const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
-const when = (p: (typeof projects)[number]) => [p.org, p.years].filter(Boolean).join(', ');
+const selected = projects.filter((p) => p.home).sort((a, b) => a.home! - b.home!);
 ---
 <Base>
   <section class="wrap hero" aria-labelledby="hero-title">
@@ -20,85 +17,6 @@ const when = (p: (typeof projects)[number]) => [p.org, p.years].filter(Boolean).
       <a class="btn solid" href="mailto:adeloreisaac@gmail.com">Email me</a>
       <a class="btn" href="https://linkedin.com/in/adeloreisaac">LinkedIn</a>
     </div>
-  </section>
-
-  <section class="wrap section" id="work" aria-labelledby="work-title">
-    <div class="section-head">
-      <h2 id="work-title">Selected work</h2>
-      <p>Design, frontend and backend work from the last few years. Internal tools are written up in full, because I can’t show their screens.</p>
-    </div>
-
-    {featured.map((p, i) => (
-      <article class="feature">
-        {p.cover ? (
-          <Shot img={p.cover} href={`/work/${p.slug}/`} eager={i === 0}
-            sizes="(max-width: 860px) 100vw, 820px" />
-        ) : (
-          <a class="shot brief" href={`/work/${p.slug}/`} tabindex="-1" aria-hidden="true">
-            <p class="line">{p.brief!.line}</p>
-            <ul>{p.brief!.notes.map((n) => <li>{n}</li>)}</ul>
-          </a>
-        )}
-        <div class="text">
-          <p class="kind">{p.kind}</p>
-          <h3 class="project-name"><a href={`/work/${p.slug}/`}>{p.name}</a></h3>
-          <p class="meta">{when(p) && <span>{when(p)}</span>}<span>{p.role}</span></p>
-          <p class="summary">{p.summary}</p>
-          <a class="read" href={`/work/${p.slug}/`}>Read the case study</a>
-        </div>
-      </article>
-    ))}
-  </section>
-
-  <section class="wrap section" id="more" aria-labelledby="more-title">
-    <div class="section-head">
-      <h2 id="more-title">More work</h2>
-      <p>Smaller write-ups, same structure: the problem, what I decided and what came of it.</p>
-    </div>
-    <ul class="more">
-      {more.map((p) => (
-        <li>
-          <a href={`/work/${p.slug}/`}>
-            <span class="name">{p.name}</span>
-            <span class="summary-sm">{p.summary}</span>
-            <span class="tag">{p.kind}</span>
-            <span class="where">{when(p)}</span>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </section>
-
-  <section class="wrap section" id="notes" aria-labelledby="notes-title">
-    <div class="section-head">
-      <h2 id="notes-title">Technical notes</h2>
-      <p>Single problems from the work above, and how I solved them.</p>
-    </div>
-    <div class="notes">
-      {notes.map((n) => (
-        <article>
-          <h3><a href={`/work/${n.slug}/`}>{n.title}</a></h3>
-          <p>{n.body}</p>
-          <p class="from">From {byslug[n.slug].name}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="wrap section" id="experience" aria-labelledby="exp-title">
-    <div class="section-head">
-      <h2 id="exp-title">Experience</h2>
-      <p>I’ve worked two jobs in parallel for most of my career, so some of these overlap.</p>
-    </div>
-    <ol class="roles">
-      {experience.map((r) => (
-        <li>
-          <span class="years">{r.years}</span>
-          <span class="company">{r.company}<span class="role">{r.role}</span></span>
-          <span class="note">{r.note}</span>
-        </li>
-      ))}
-    </ol>
   </section>
 
   <section class="wrap section" id="about" aria-labelledby="about-title">
@@ -122,5 +40,14 @@ const when = (p: (typeof projects)[number]) => [p.org, p.years].filter(Boolean).
         <p>B.Sc. Computer Science, Covenant University</p>
       </aside>
     </div>
+  </section>
+
+  <section class="wrap section" id="work" aria-labelledby="work-title">
+    <div class="section-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>Web apps and marketing sites, designed and built. Internal tools are written up in full, because I can’t show their screens.</p>
+    </div>
+    {selected.map((p, i) => <Feature p={p} eager={i === 0} />)}
+    <p class="see-all"><a class="btn" href="/work/">See all work</a></p>
   </section>
 </Base>

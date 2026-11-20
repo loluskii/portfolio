@@ -21,7 +21,8 @@ export type Project = {
   /** What kind of work this was, shown as a short tag: design, frontend, backend. */
   kind: string;
   summary: string;
-  feature: boolean;
+  /** Position on the home page (1–5). Projects without it appear only on /work. */
+  home?: number;
   cover?: Img;
   /** Internal tools have no screenshots. Their cover is a statement and a few plain facts. */
   brief?: { line: string; notes: string[] };
@@ -37,9 +38,9 @@ export const projects: Project[] = [
     name: 'Venmail',
     years: '2024–2025',
     role: 'Senior software engineer, frontend lead',
-    kind: 'Frontend architecture',
+    kind: 'Web app and marketing site',
     summary: 'Rebuilding the front end of a mail, calendar and meetings product, and its marketing site, while the whole company rebranded.',
-    feature: true,
+    home: 1,
     cover: {
       src: '/work/venmail/prospects',
       widths: [800, 1600],
@@ -86,9 +87,9 @@ export const projects: Project[] = [
     name: 'Eazi AI',
     org: 'FCMB',
     role: 'Product design and frontend',
-    kind: 'Product design',
+    kind: 'Web app, product design',
     summary: 'An assistant for bank staff that answers questions from the bank’s data and its own documents.',
-    feature: true,
+    home: 2,
     brief: {
       line: 'Two AI agents behind one chat, and an interface that never makes you think about which one is answering.',
       notes: ['Chat with history', 'Files attached in the composer', 'Data and document modes'],
@@ -142,9 +143,9 @@ export const projects: Project[] = [
     name: 'Pitchside',
     years: '2026',
     role: 'Product, design and frontend',
-    kind: 'Product engineering',
+    kind: 'Web app',
     summary: 'A live sportsbook and casino that runs entirely on a match simulation in the browser.',
-    feature: true,
+    home: 4,
     cover: {
       src: '/work/pitchside/strip',
       widths: [800, 1600],
@@ -202,7 +203,6 @@ export const projects: Project[] = [
     role: 'Backend engineer',
     kind: 'Backend and identity',
     summary: 'One sign-in for staff across four companies in a banking group, each with its own identity provider.',
-    feature: true,
     brief: {
       line: 'Four identity providers, three load-balanced servers, and a session that follows you between them.',
       notes: ['Active Directory', 'Microsoft Entra ID', 'Okta', 'Internal pensions API'],
@@ -265,9 +265,8 @@ export const projects: Project[] = [
     name: 'Spense',
     years: '2026',
     role: 'Product and design direction',
-    kind: 'Product design',
+    kind: 'Web app and marketing site',
     summary: 'An expense tracker for people who spend in naira.',
-    feature: true,
     cover: {
       src: '/work/spense/cover',
       widths: [800, 1600],
@@ -315,7 +314,6 @@ export const projects: Project[] = [
     role: 'Fullstack engineer',
     kind: 'Fullstack, data',
     summary: 'How reliable each way of paying is right now: mobile, cards, POS and branches, in success rates and counts.',
-    feature: true,
     brief: {
       line: 'A 2% failure rate means nothing until you know whether it’s 2% of fifty or of two million.',
       notes: ['Mobile', 'Card', 'POS', 'Retail'],
@@ -360,7 +358,6 @@ export const projects: Project[] = [
     role: 'Fullstack engineer',
     kind: 'Fullstack',
     summary: 'SMS and email campaigns for the bank’s CRM, with audiences written in SQL and an approval step before anything sends.',
-    feature: false,
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -397,7 +394,6 @@ export const projects: Project[] = [
     role: 'Fullstack engineer',
     kind: 'Fullstack',
     summary: 'One screen for the service desk: who the customer is, what has happened to them, and how long they’ve been waiting.',
-    feature: false,
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -432,7 +428,6 @@ export const projects: Project[] = [
     role: 'Fullstack engineer',
     kind: 'Fullstack',
     summary: 'Staff targets, progress and appraisals in one system instead of a spreadsheet per team.',
-    feature: false,
     builtWith: 'ColdFusion (CFML), SQL Server, JavaScript',
     links: [],
     sections: [
@@ -466,9 +461,9 @@ export const projects: Project[] = [
     name: 'Stackr',
     years: '2026',
     role: 'Founder, product and design',
-    kind: 'Product design',
+    kind: 'Marketing site and product design',
     summary: 'A paid-newsletter platform for African writers who can’t use Stripe.',
-    feature: false,
+    home: 3,
     cover: {
       src: '/work/stackr/cover',
       widths: [800, 1600],
@@ -509,7 +504,6 @@ export const projects: Project[] = [
     role: 'Fullstack engineer',
     kind: 'Design to deployment',
     summary: 'A food marketplace I designed, built and ran, from Figma to the servers.',
-    feature: false,
     builtWith: 'Vue, Nuxt, Laravel, Heroku, AWS',
     links: [{ label: 'API source code', href: 'https://github.com/loluskii/feedxng-api' }],
     sections: [
@@ -536,9 +530,9 @@ export const projects: Project[] = [
     name: 'Simzsco Advisory',
     years: '2026',
     role: 'Design direction',
-    kind: 'Web design',
+    kind: 'Marketing site',
     summary: 'Website for a founder-led firm that advises on strategy, creative work and partnerships.',
-    feature: false,
+    home: 5,
     cover: {
       src: '/work/simzsco/cover',
       widths: [800],
