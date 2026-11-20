@@ -38,7 +38,7 @@ export const projects: Project[] = [
     years: '2024–2025',
     role: 'Senior software engineer, frontend lead',
     kind: 'Frontend architecture',
-    summary: 'Rebuilding the front end of a mail, calendar and meetings product while the whole company rebranded.',
+    summary: 'Rebuilding the front end of a mail, calendar and meetings product, and its marketing site, while the whole company rebranded.',
     feature: true,
     cover: {
       src: '/work/venmail/prospects',
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       {
         heading: 'My part',
         body: [
-          'I led the frontend overhaul. With one other engineer I built the mail suite: the rich-text composer, bulk actions and threaded conversations. I built the calendar and booking system on my own, and brought video meetings into the mail flow so a meeting could start from a thread.',
+          'I led the frontend overhaul. With one other engineer I built the mail suite: the rich-text composer, bulk actions and threaded conversations. I built the calendar and booking system on my own, and brought video meetings into the mail flow so a meeting could start from a thread. I also built the public marketing site.',
         ],
       },
       {
@@ -77,7 +77,7 @@ export const projects: Project[] = [
       },
     ],
     gallery: [
-      { src: '/work/venmail/cover', widths: [800, 1600], ratio: 2880 / 1800, frame: 'browser', alt: 'Venmail home page: Email that works as hard as you do', caption: 'Venmail’s public site' },
+      { src: '/work/venmail/cover', widths: [800, 1600], ratio: 2880 / 1800, frame: 'browser', alt: 'Venmail home page: Email that works as hard as you do', caption: 'The marketing site, which I also built' },
       { src: '/work/venmail/features', widths: [800, 1600], ratio: 2880 / 2900, frame: 'browser', alt: 'Venmail mail features: AI rewrites, task extraction, summaries and spam detection', caption: 'Mail features' },
     ],
   },
